@@ -1,38 +1,35 @@
 3.0
-- 68 Flugzeuge, 110 Profile (bisher 29/58); keine Beta-Kennzeichnung mehr.
-- Neue Airliner: FlyJSim 737-200, Sparky 747-400, FPS 747-8, Laminar A330-300, FPS E175/E190/E195, X-Crafts ERJ 135/140/145/145XR/Legacy 600, Just Flight BAe 146-100/-200/-300, Colimata Concorde.
-- Neue Business Jets: Aerobask Falcon 8X und Phenom 300, AKD Gulfstream G550 und G650/G650ER, TorqueSim CitationJet 525, Laminar Citation X, Airfoillabs King Air 350 (GNS und GTN).
-- Neue Kleinflugzeuge: Just Flight C152 und PA-28R Turbo Arrow (auch REP), Airfoillabs C172 NG Analog/Digital, CIS Seneca II, PAE Bonanza G36 und A36 (Analog/Glass), Thranda V35B Bonanza und C208 Caravan (vier Varianten), RSG DA40 NG.
-- Ein Profil für mehrere Flugzeugdateien mit gleichem Cockpit (ERJ, BAe 146, C208, C172 NG u. a.).
-- Neue XL-Seiten für G1000 (PFD/MFD), GNS 430/530 und GTN mit passenden Plus-Seiten.
-- X-Camera-Sichten 1–15 für alle neuen Flugzeuge, im Simulator per Bild geprüft.
-- Kreis VOR/ZURÜCK: Airliner → Business Jets → E-Jets/ERJ/BAe 146 → Concorde → GA → 737.
-- Verteilung zusätzlich über den SkunkCrafts Updater.
-- EN: 68 aircraft / 110 profiles, no longer beta; new airliners (FlyJSim 737-200, Sparky 747-400, FPS 747-8 and E-Jets, Laminar A330-300, X-Crafts ERJ family, Just Flight BAe 146, Colimata Concorde), business jets (Falcon 8X, Phenom 300, G550/G650, CitationJet 525, Citation X, King Air 350) and general aviation (C152, C172 NG, PA-28R, Seneca II, Bonanza G36/A36/V35B, C208 Caravan, DA40 NG); one profile for several aircraft files with the same cockpit; new G1000, GNS and GTN pages; camera views 1–15 checked in the simulator; distribution via SkunkCrafts Updater.
+- 68 aircraft, 110 profiles (previously 29/58); no longer marked as beta.
+- New airliners: FlyJSim 737-200, Sparky 747-400, FPS 747-8, Laminar A330-300, FPS E175/E190/E195, X-Crafts ERJ 135/140/145/145XR/Legacy 600, Just Flight BAe 146-100/-200/-300, Colimata Concorde.
+- New business jets: Aerobask Falcon 8X and Phenom 300, AKD Gulfstream G550 and G650/G650ER, TorqueSim CitationJet 525, Laminar Citation X, Airfoillabs King Air 350 (GNS and GTN).
+- New general aviation: Just Flight C152 and PA-28R Turbo Arrow (also with REP), Airfoillabs C172 NG Analog/Digital, CIS Seneca II, PAE Bonanza G36 and A36 (Analog/Glass), Thranda V35B Bonanza and C208 Caravan (four versions), RSG DA40 NG.
+- One profile for several aircraft files with the same cockpit (ERJ, BAe 146, C208, C172 NG and others).
+- New XL pages for the G1000 (PFD/MFD), GNS 430/530 and GTN with matching Plus pages.
+- X-Camera views 1–15 for all new aircraft, checked by screenshot in the simulator.
+- NEXT/PREV circle: airliners → business jets → E-Jets/ERJ/BAe 146 → Concorde → GA → 737.
+- Additional distribution via the SkunkCrafts Updater.
 
 2.0.1
-- Challenger 650: Plus-Regler SPEED, HDG, ALT, VS/PITCH, BARO und RANGE zeigen die gewählten Werte.
-- Challenger 650: neue Plus-Seiten DCP 1, DCP 2 und Helligkeit (PFD/MFD, CDU 1–3/ISI); DCP-2-Tasten zusätzlich auf der XL-Seite DCP.
-- Challenger 650: neue XL-Seiten CCP 1 und CCP 2 (ganzes Control Panel); Wähltasten auf der Seite EICAS stellen das Stream Deck + gleichzeitig auf die CCP-Seite mit den Reglern MENU und RADIO.
-- Challenger 650: Plus-Regler reagieren direkter (eine Raste = ein Schritt, kein Nachlaufen mehr bei HDG/ALT).
-- Neues FlyWithLua-Skript P_CL650_Werte.lua (Livewerte der Challenger, im Installer vorbelegt).
-- EN: Challenger 650 – Plus dials SPEED, HDG, ALT, VS/PITCH, BARO and RANGE now show the selected values; new Plus pages DCP 1, DCP 2, CCP 1, CCP 2 and display brightness; new XL pages CCP 1/CCP 2 that switch the Stream Deck + along; Plus dials respond more directly (no overrun on HDG/ALT); new FlyWithLua script P_CL650_Werte.lua.
+- Challenger 650: Plus dials SPEED, HDG, ALT, VS/PITCH, BARO and RANGE show the selected values.
+- Challenger 650: new Plus pages DCP 1, DCP 2 and brightness (PFD/MFD, CDU 1–3/ISI); DCP 2 keys additionally on the XL page DCP.
+- Challenger 650: new XL pages CCP 1 and CCP 2 (whole control panel); the select keys on the EICAS page switch the Stream Deck + to the CCP page with the MENU and RADIO dials at the same time.
+- Challenger 650: Plus dials respond more directly (one detent = one step, no more overrun on HDG/ALT).
+- New FlyWithLua script P_CL650_Werte.lua (live values of the Challenger, preselected in the installer).
 
 2.0
-- 29 Flugzeuge, 58 Profile (bisher 18/36). Beta: nicht alle Funktionen getestet.
-- Neu: Zibo 737-800, LevelUp 737-600/-700/-800, Felis 747-200 und 747-200F, Rotate MD-11 und MD-11F, DeltaWing ATR 72-600, FlyJSim Dash 8-400 (Q4XP), Hot Start Challenger 650 – jeweils mit X-Camera-Sichten 1–15.
-- Kreis VOR/ZURÜCK: 737 → 747 → 757 → 767 → 777 → Airbus → MD-11 → ATR → Dash 8 → Challenger → 737.
-- Startseite: AeroACARS-Kacheln lückenlos in Reihe 4, CAMERA-Ordner daneben, Tasten XPILOT ATC/MSG.
-- Einheitliche Schreibweise der Tastennamen und Titelfarben.
-- Neuer Installer (macOS/Windows): Profile wählbar, Kreis automatisch, Nachinstallieren mit Kreis-Korrektur, Lua-Skripte optional, AeroACARS-Kacheln ein/aus, Deutsch/Englisch.
-- Neues FlyWithLua-Skript P_ATR_Hebel.lua.
-- Handbuch zusätzlich auf Englisch.
-- EN: 29 aircraft / 58 profiles (beta, not all functions tested); new aircraft Zibo and LevelUp 737, Felis 747-200/-200F, Rotate MD-11/MD-11F, ATR 72-600, Dash 8-400, Challenger 650; new installer (profile selection, automatic circle, add-on install, optional Lua scripts, AeroACARS tiles on/off); English handbook.
+- 29 aircraft, 58 profiles (previously 18/36). Beta: not all functions tested.
+- New: Zibo 737-800, LevelUp 737-600/-700/-800, Felis 747-200 and 747-200F, Rotate MD-11 and MD-11F, DeltaWing ATR 72-600, FlyJSim Dash 8-400 (Q4XP), Hot Start Challenger 650 – each with X-Camera views 1–15.
+- NEXT/PREV circle: 737 → 747 → 757 → 767 → 777 → Airbus → MD-11 → ATR → Dash 8 → Challenger → 737.
+- Start page: AeroACARS tiles without gaps in row 4, CAMERA folder next to them, keys XPILOT ATC/MSG.
+- Consistent spelling of key names and title colours.
+- New installer (macOS/Windows): selectable profiles, automatic circle, add-on install with circle correction, optional Lua scripts, AeroACARS tiles on/off, German/English.
+- New FlyWithLua script P_ATR_Hebel.lua.
+- Handbook additionally in English.
 
 1.0
-- Erstausgabe: 18 Flugzeuge, 36 Profile (Stream Deck XL + Stream Deck +).
+- First release: 18 aircraft, 36 profiles (Stream Deck XL + Stream Deck +).
 - ToLiss A319, A320neo, A321, A330-900, A340-600.
 - FlightFactor 767-200ER, -300ER, -F, -SF, 767-400ER; 757-200, -300, C-32, RF; 777-200ER, -200LR, -300ER, F.
-- Einheitliches Design und einheitliche Platzierung, Kreis VOR/ZURÜCK, Kamerasichten 1–15 in allen Flugzeugen.
-- Installer für macOS und Windows mit Sicherung und automatischer Gerätezuordnung.
-- FlyWithLua-Skripte P_B777_XKeyPad.lua (Nachladen bei FlightFactor) und P_ToLiss_Schub.lua (Schubrasten).
+- Consistent design and placement, NEXT/PREV circle, camera views 1–15 in all aircraft.
+- Installer for macOS and Windows with backup and automatic device assignment.
+- FlyWithLua scripts P_B777_XKeyPad.lua (reload for FlightFactor) and P_ToLiss_Schub.lua (thrust detents).

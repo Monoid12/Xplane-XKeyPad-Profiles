@@ -1,4 +1,5 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
+(English: see CHANGELOG_EN.txt)
 
 Version 3.0 – November 2026
   - 68 Flugzeuge, 110 Profile (bisher 29/58); keine Beta-Kennzeichnung mehr.

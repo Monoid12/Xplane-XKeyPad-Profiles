@@ -1,5 +1,6 @@
-CHANGELOG.txt|4741
-Handbook_P_Profiles_v3.0_EN.pdf|73422603
+CHANGELOG.txt|4774
+CHANGELOG_EN.txt|3442
+Handbook_P_Profiles_v3.0_EN.pdf|73422611
 Handbuch_P_Profile_v3.0.pdf|73496264
 Installieren_Windows.bat|207
 Installieren_Windows.ps1|15563
@@ -96,7 +97,7 @@ StreamDeck/Einzelimport/P_E175F_XL.streamDeckProfile|209855
 StreamDeck/Einzelimport/P_E190F_Plus.streamDeckProfile|4305
 StreamDeck/Einzelimport/P_E190F_XL.streamDeckProfile|210106
 StreamDeck/Einzelimport/P_E195F_Plus.streamDeckProfile|4283
-StreamDeck/Einzelimport/P_E195F_XL.streamDeckProfile|210094
+StreamDeck/Einzelimport/P_E195F_XL.streamDeckProfile|210086
 StreamDeck/Einzelimport/P_E55P_Plus.streamDeckProfile|6052
 StreamDeck/Einzelimport/P_E55P_XL.streamDeckProfile|226069
 StreamDeck/Einzelimport/P_ERJ_Plus.streamDeckProfile|4317
@@ -4613,4 +4614,4 @@ X-Plane/FlyWithLua/Scripts/P_ATR_Hebel.lua|3851
 X-Plane/FlyWithLua/Scripts/P_B777_XKeyPad.lua|2850
 X-Plane/FlyWithLua/Scripts/P_CL650_Werte.lua|3893
 X-Plane/FlyWithLua/Scripts/P_ToLiss_Schub.lua|3059
-skunkcrafts_changelog.txt|4370
+skunkcrafts_changelog.txt|3101
