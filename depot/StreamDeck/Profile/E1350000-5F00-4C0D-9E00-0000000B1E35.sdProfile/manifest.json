@@ -1,0 +1,17 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_ERJ",
+ "Pages": {
+  "Current": "a2672cce-b81f-4e8b-8cbe-9b7f23107be3",
+  "Default": "fa9ba00b-d8a1-4827-988a-b8ad5ad5626a",
+  "Pages": [
+   "a2672cce-b81f-4e8b-8cbe-9b7f23107be3",
+   "b24bf3db-2991-4933-ae5c-9d10452418f2",
+   "182708ed-3d6e-43de-a649-c1a606609406"
+  ]
+ },
+ "Version": "3.0"
+}

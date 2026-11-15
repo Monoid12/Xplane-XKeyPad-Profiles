@@ -1,0 +1,17 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_C750",
+ "Pages": {
+  "Current": "30ce1792-7417-4d16-94ad-8aa1c93fcb7a",
+  "Default": "852f4748-b35c-4af7-9e1b-7c4d510c9240",
+  "Pages": [
+   "30ce1792-7417-4d16-94ad-8aa1c93fcb7a",
+   "76b3e6e3-2588-4a66-b94c-2621b09bdbf1",
+   "cf3e652e-f856-460f-b95e-757f414bebe6"
+  ]
+ },
+ "Version": "3.0"
+}

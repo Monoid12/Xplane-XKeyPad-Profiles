@@ -1,0 +1,22 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_C172",
+ "Pages": {
+  "Current": "2e745c73-eff7-403a-b86c-3605b70c24d3",
+  "Default": "b864919f-fa79-4f99-9ba3-de9b841f0a36",
+  "Pages": [
+   "2e745c73-eff7-403a-b86c-3605b70c24d3",
+   "144a0a86-d836-4177-af03-849d1f413dd9",
+   "bfbbe122-5e51-48a2-acda-7417b4c55711",
+   "e777bb5c-7050-4d00-b16e-b3d93f6d9a68",
+   "a49d6f16-f78a-4876-93b2-07ad74794144",
+   "cd12b2a9-247c-41ff-b22c-e358817a9798",
+   "9f773370-6590-42dd-a1ac-9dd47ef716f1",
+   "1e14f97f-5941-4be5-8308-4e139d1f23ac"
+  ]
+ },
+ "Version": "3.0"
+}

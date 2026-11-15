@@ -1,0 +1,17 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_GLF550",
+ "Pages": {
+  "Current": "bb6a5c25-b032-4df2-afd3-9e197e3f5dca",
+  "Default": "d99fc6ea-01e3-4704-a6a6-71d153a87d18",
+  "Pages": [
+   "bb6a5c25-b032-4df2-afd3-9e197e3f5dca",
+   "1e069131-fe27-4261-b9a1-0b0a0f76401f",
+   "602dc291-f4b2-44cd-af68-a23fb9e52061"
+  ]
+ },
+ "Version": "3.0"
+}

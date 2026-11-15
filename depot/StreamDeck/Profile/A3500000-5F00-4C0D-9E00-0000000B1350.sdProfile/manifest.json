@@ -1,0 +1,22 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_KA350",
+ "Pages": {
+  "Current": "81a30d56-9e41-472e-ae5a-452ff8c6e01f",
+  "Default": "6c42e564-85ce-4e9c-b0c9-cda11c4fead9",
+  "Pages": [
+   "81a30d56-9e41-472e-ae5a-452ff8c6e01f",
+   "a1fe3c86-1e46-4f9c-b803-2e75c2fe8825",
+   "071eaf24-8539-4e0d-98bc-4835a104157f",
+   "fa8e0bc5-d2ae-4ed2-9a58-20c3ab71bc03",
+   "660c6861-832d-428f-a9a9-5a236f3ee13e",
+   "a90131b4-799e-4ad9-a4d8-11a18e05cb7c",
+   "0a44776e-1b21-4124-9789-e799211111eb",
+   "f1a66a43-16ef-4d4b-86a0-0306f22a507d"
+  ]
+ },
+ "Version": "3.0"
+}

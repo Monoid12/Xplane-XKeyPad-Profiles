@@ -1,0 +1,72 @@
+# Profil | acf-Name (ohne .acf) | Wert „P acf/_name“ (nur bei gleichem acf-Namen) | X-KeyPad-Konfiguration | X-Camera-Sichten  (Pfade relativ zu X-Plane/Aircraft)
+B738|b738_4k||B737-800X/X-KeyPad-SD_b738_4k.json|B737-800X/X-Camera_b738_4k.csv
+B738|b738||B737-800X/X-KeyPad-SD_b738.json|B737-800X/X-Camera_b738.csv
+B732|FJS_732_TwinJet||FlyJSim_732_TwinJet_V4/X-KeyPad-SD_FJS_732_TwinJet.json|FlyJSim_732_TwinJet_V4/X-Camera_FJS_732_TwinJet.csv
+B736L|737_60NG||737NG Series_V2.S1/X-KeyPad-SD_737_60NG.json|737NG Series_V2.S1/X-Camera_737_60NG.csv
+B737L|737_70NG||737NG Series_V2.S1/X-KeyPad-SD_737_70NG.json|737NG Series_V2.S1/X-Camera_737_70NG.csv
+B738L|737_80NG||737NG Series_V2.S1/X-KeyPad-SD_737_80NG.json|737NG Series_V2.S1/X-Camera_737_80NG.csv
+B742|B742_PW_Felis_XP12||747 Felis 1.2.7/X-KeyPad-SD_B742_PW_Felis_XP12.json|747 Felis 1.2.7/X-Camera_B742_PW_Felis_XP12.csv
+B74F|B742_Cargo_Felis_XP12||747F_Felis 1.1.0/X-KeyPad-SD_B742_Cargo_Felis_XP12.json|747F_Felis 1.1.0/X-Camera_B742_Cargo_Felis_XP12.csv
+B744|747-400||747-400/X-KeyPad-SD_747-400.json|747-400/X-Camera_747-400.csv
+B748|FPS_B748-I||FPS_B748_XP12_Beta_2/X-KeyPad-SD_FPS_B748-I.json|FPS_B748_XP12_Beta_2/X-Camera_FPS_B748-I.csv
+B752|757-200_xp12||Boeing757-Full/X-KeyPad-SD_757-200_xp12.json|Boeing757-Full/X-Camera_757-200_xp12.csv
+B753|757-300_xp12||Boeing757-Full/X-KeyPad-SD_757-300_xp12.json|Boeing757-Full/X-Camera_757-300_xp12.csv
+B75C|757-c32_xp12||Boeing757-Full/X-KeyPad-SD_757-c32_xp12.json|Boeing757-Full/X-Camera_757-c32_xp12.csv
+B75F|757-RF_xp12||Boeing757-Full/X-KeyPad-SD_757-RF_xp12.json|Boeing757-Full/X-Camera_757-RF_xp12.csv
+B762|767-200ER_xp12||Boeing767-Full/X-KeyPad-SD_767-200ER_xp12.json|Boeing767-Full/X-Camera_767-200ER_xp12.csv
+B763|767-300ER_xp12||Boeing767-Full/X-KeyPad-SD_767-300ER_xp12.json|Boeing767-Full/X-Camera_767-300ER_xp12.csv
+B76F|767-F_xp12||Boeing767-Full/X-KeyPad-SD_767-F_xp12.json|Boeing767-Full/X-Camera_767-F_xp12.csv
+B76S|767-SF_xp12||Boeing767-Full/X-KeyPad-SD_767-SF_xp12.json|Boeing767-Full/X-Camera_767-SF_xp12.csv
+B764|767-400ER_xp12||Boeing767-Full/X-KeyPad-SD_767-400ER_xp12.json|Boeing767-Full/X-Camera_767-400ER_xp12.csv
+B772|777-200ER_xp12||FlightFactor777_200ER/X-KeyPad-SD_777-200ER_xp12.json|FlightFactor777_200ER/X-Camera_777-200ER_xp12.csv
+B77L|777-200LR_xp12||FlightFactor777_200ER/X-KeyPad-SD_777-200LR_xp12.json|FlightFactor777_200ER/X-Camera_777-200LR_xp12.csv
+B773|777-300ER_xp12||FlightFactor777_200ER/X-KeyPad-SD_777-300ER_xp12.json|FlightFactor777_200ER/X-Camera_777-300ER_xp12.csv
+B77F|777-F_xp12||FlightFactor777_200ER/X-KeyPad-SD_777-F_xp12.json|FlightFactor777_200ER/X-Camera_777-F_xp12.csv
+A319|a319||ToLissA319_V1p11/X-KeyPad-SD_a319.json|ToLissA319_V1p11/X-Camera_a319.csv
+A320|a320||ToLissA320_V1p2p1/X-KeyPad-SD_a320.json|ToLissA320_V1p2p1/X-Camera_a320.csv
+A321|a321||ToLissA321_V1p8/X-KeyPad-SD_a321.json|ToLissA321_V1p8/X-Camera_a321.csv
+A333L|A330||Laminar Research/Airbus A330-300/X-KeyPad-SD_A330.json|Laminar Research/Airbus A330-300/X-Camera_A330.csv
+A339|A330-900||ToLissA339_V1p1/X-KeyPad-SD_a330-900.json|ToLissA339_V1p1/X-Camera_A330-900.csv
+A346|A340-600||ToLissA346_V1p5/X-KeyPad-SD_a340-600.json|ToLissA346_V1p5/X-Camera_A340-600.csv
+MD11P|Rotate-MD-11|Rotate MD-11P|Rotate-MD-11P/X-KeyPad-SD_Rotate-MD-11.json|Rotate-MD-11P/X-Camera_Rotate-MD-11.csv
+MD11F|Rotate-MD-11|Rotate MD-11F|Rotate-MD-11F/X-KeyPad-SD_Rotate-MD-11.json|Rotate-MD-11F/X-Camera_Rotate-MD-11.csv
+ATR72|DWSim_ATR_72_600||DWSim_ATR_72_600_XP12/X-KeyPad-SD_DWSim_ATR_72_600.json|DWSim_ATR_72_600_XP12/X-Camera_DWSim_ATR_72_600.csv
+DH8D|Q4XP||FlyJSim_Q4XP_12/X-KeyPad-SD_Q4XP.json|FlyJSim_Q4XP_12/X-Camera_Q4XP.csv
+CL650|CL650||X-Aviation/CL650/X-KeyPad-SD_CL650.json|X-Aviation/CL650/X-Camera_CL650.csv
+FA8X|Falcon8X||Falcon 8X/X-KeyPad-SD_Falcon8X.json|Falcon 8X/X-Camera_Falcon8X.csv
+GLF550|GLF550_AKD||GLF550_2.24 XP12/X-KeyPad-SD_GLF550_AKD.json|GLF550_2.24 XP12/X-Camera_GLF550_AKD.csv
+GLF650|GLF650_AKD||GLF650_1.05 XP12/X-KeyPad-SD_GLF650_AKD.json|GLF650_1.05 XP12/X-Camera_GLF650_AKD.csv
+GLF650|GLF650ER_AKD||GLF650_1.05 XP12/X-KeyPad-SD_GLF650ER_AKD.json|GLF650_1.05 XP12/X-Camera_GLF650ER_AKD.csv
+E55P|phenom300||Phenom 300/X-KeyPad-SD_phenom300.json|Phenom 300/X-Camera_phenom300.csv
+CJ525|CJ525||X-Aviation/TorqueSim CitationJet 525/X-KeyPad-SD_CJ525.json|X-Aviation/TorqueSim CitationJet 525/X-Camera_CJ525.csv
+C750|Cessna_CitationX||Laminar Research/Cessna Citation X/X-KeyPad-SD_Cessna_CitationX.json|Laminar Research/Cessna Citation X/X-Camera_Cessna_CitationX.csv
+ERJ|E135||Embraer ERJ Family/X-KeyPad-SD_E135.json|Embraer ERJ Family/X-Camera_E135.csv
+ERJ|E140||Embraer ERJ Family/X-KeyPad-SD_E140.json|Embraer ERJ Family/X-Camera_E140.csv
+ERJ|E145||Embraer ERJ Family/X-KeyPad-SD_E145.json|Embraer ERJ Family/X-Camera_E145.csv
+ERJ|E145XR||Embraer ERJ Family/X-KeyPad-SD_E145XR.json|Embraer ERJ Family/X-Camera_E145XR.csv
+ERJ|Legacy||Embraer ERJ Family/X-KeyPad-SD_Legacy.json|Embraer ERJ Family/X-Camera_Legacy.csv
+E175F|FPSE-175||FPSE-175_V1.3/X-KeyPad-SD_FPSE-175.json|FPSE-175_V1.3/X-Camera_FPSE-175.csv
+E190F|FPSE-190||FPSE-190_V1.2/X-KeyPad-SD_FPSE-190.json|FPSE-190_V1.2/X-Camera_FPSE-190.csv
+E195F|FPSE-195||FPSE-195/X-KeyPad-SD_FPSE-195.json|FPSE-195/X-Camera_FPSE-195.csv
+B146|JF_BAe_146_100||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_100.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_100.csv
+B146|JF_BAe_146_200||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_200.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_200.csv
+B146|JF_BAe_146_300||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_300.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_300.csv
+CONC|CONCORDE_FXP||CONCORDE_FXP/X-KeyPad-SD_CONCORDE_FXP.json|CONCORDE_FXP/X-Camera_CONCORDE_FXP.csv
+G36|MP_G36_One||PAE-G36/X-KeyPad-SD_MP_G36_One.json|PAE-G36/X-Camera_MP_G36_One.csv
+DA40NG|DA40NG||X-Aviation/RSG DA40NG/X-KeyPad-SD_DA40NG.json|X-Aviation/RSG DA40NG/X-Camera_DA40NG.csv
+C208|C208||Thranda_C208_Caravan/X-KeyPad-SD_C208.json|Thranda_C208_Caravan/X-Camera_C208.csv
+C208|C208_GC||Thranda_C208_Caravan/X-KeyPad-SD_C208_GC.json|Thranda_C208_Caravan/X-Camera_C208_GC.csv
+C208|C208_Amphibian||Thranda_C208_Caravan/X-KeyPad-SD_C208_Amphibian.json|Thranda_C208_Caravan/X-Camera_C208_Amphibian.csv
+C208|C208_GC_Amphibian||Thranda_C208_Caravan/X-KeyPad-SD_C208_GC_Amphibian.json|Thranda_C208_Caravan/X-Camera_C208_GC_Amphibian.csv
+PA28|JF_PA28_Turbo_Arrow||JF12_PA28_Turbo_Arrow/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|JF12_PA28_Turbo_Arrow/X-Camera_JF_PA28_Turbo_Arrow.csv
+PA28|JF_PA28_Turbo_Arrow||JF12_PA28_Turbo_Arrow REP/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|JF12_PA28_Turbo_Arrow REP/X-Camera_JF_PA28_Turbo_Arrow.csv
+V35B|Thranda_V35||Thranda V35B Bonanza/X-KeyPad-SD_Thranda_V35.json|Thranda V35B Bonanza/X-Camera_Thranda_V35.csv
+A36|PAE_REP_A36_Analog||PAE-A36/X-KeyPad-SD_PAE_REP_A36_Analog.json|PAE-A36/X-Camera_PAE_REP_A36_Analog.csv
+A36|PAE_REP_A36_Glass||PAE-A36/X-KeyPad-SD_PAE_REP_A36_Glass.json|PAE-A36/X-Camera_PAE_REP_A36_Glass.csv
+C152|JF_C152||JF12_C152_v1.0/X-KeyPad-SD_JF_C152.json|JF12_C152_v1.0/X-Camera_JF_C152.csv
+SENECA|CIS_Seneca_II||CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II.json|CIS_Seneca_II_v2/X-Camera_CIS_Seneca_II.csv
+SENECA|CIS_Seneca_II_2B||CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II_2B.json|CIS_Seneca_II_v2/X-Camera_CIS_Seneca_II_2B.csv
+C172|C172_NG_ANALOG||Airfoillabs/C172 NG ANALOG/X-KeyPad-SD_C172_NG_ANALOG.json|Airfoillabs/C172 NG ANALOG/X-Camera_C172_NG_ANALOG.csv
+C172|C172_NG_DIGITAL||Airfoillabs/C172 NG DIGITAL/X-KeyPad-SD_C172_NG_DIGITAL.json|Airfoillabs/C172 NG DIGITAL/X-Camera_C172_NG_DIGITAL.csv
+KA350|KA350||Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350.json|Airfoillabs/King Air 350 XP12/X-Camera_KA350.csv
+KA350|KA350_GPS||Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350_GPS.json|Airfoillabs/King Air 350 XP12/X-Camera_KA350_GPS.csv

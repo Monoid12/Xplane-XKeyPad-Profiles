@@ -1,0 +1,21 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_A36",
+ "Pages": {
+  "Current": "0c4e22fb-f710-48b9-98f4-fc3cb620607b",
+  "Default": "0a6a99da-3f85-4328-bc7c-b5a03f060805",
+  "Pages": [
+   "0c4e22fb-f710-48b9-98f4-fc3cb620607b",
+   "a9c765f3-3fa9-4b69-97c7-8d3a716d2557",
+   "e18c5c8d-b37d-47bb-bc7b-18872cd9255b",
+   "beba21c0-028d-4b76-b974-ed8bbebadf10",
+   "a72ccaec-f97a-4243-b131-996ae38a1f99",
+   "a8ccbac4-de9b-4a5a-96e0-5affa1300d74",
+   "beaaa4ff-49a8-41e6-b88b-73a10c5e193a"
+  ]
+ },
+ "Version": "3.0"
+}

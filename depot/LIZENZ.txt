@@ -1,0 +1,30 @@
+P_-Profile für X-Plane 12
+© 2026 Michael Damhorst
+
+Profile, X-KeyPad-Konfigurationen, X-Camera-Sichten, Skripte und Handbuch stehen unter der Lizenz
+Creative Commons Namensnennung – Nicht kommerziell – Weitergabe unter gleichen Bedingungen 4.0 International
+(CC BY-NC-SA 4.0).
+
+  Kurzfassung:  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+  Lizenztext:   https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.de
+
+Sie dürfen das Material teilen und bearbeiten unter folgenden Bedingungen:
+  - Namensnennung: Urheber und Lizenz nennen, Änderungen kenntlich machen.
+  - Nicht kommerziell: keine Nutzung für kommerzielle Zwecke.
+  - Weitergabe unter gleichen Bedingungen: Bearbeitungen nur unter derselben Lizenz.
+
+Keine Gewähr. Nutzung auf eigene Verantwortung. Nicht für den realen Flugbetrieb.
+
+FREMDANTEILE
+  Passenger Flying (https://passengerflying.com)
+      Grundlage der Airbus-Konfigurationen sowie Ziffernblock und COM-Tasten/-Regler („PF …“),
+      mit Erlaubnis verwendet.
+  Tabler Icons 3.19.0 (https://github.com/tabler/tabler-icons)
+      Tastensymbole, MIT-Lizenz, Copyright (c) 2020-2024 Paweł Kuna.
+  X-Camera Community
+      Einige Kamerasichten sind aus Vorlagen der X-Camera-Community abgeleitet.
+
+MARKEN
+  X-Plane ist eine Marke von Laminar Research. Stream Deck und Elgato sind Marken der Corsair Gaming, Inc.
+  X-KeyPad und X-Camera sind Produkte von Stick and Rudder Studios. ToLiss, FlightFactor, Airbus, Boeing und alle
+  weiteren Namen gehören ihren jeweiligen Inhabern. Dieses Projekt ist mit keinem dieser Unternehmen verbunden.

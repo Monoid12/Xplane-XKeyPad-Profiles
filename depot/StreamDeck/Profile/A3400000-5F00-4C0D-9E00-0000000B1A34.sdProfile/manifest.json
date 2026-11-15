@@ -1,0 +1,20 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_SENECA",
+ "Pages": {
+  "Current": "e849db6c-1b1f-471f-bac4-f100b5d22e11",
+  "Default": "93c9f316-1cc4-419a-8520-ba7e983d0e74",
+  "Pages": [
+   "e849db6c-1b1f-471f-bac4-f100b5d22e11",
+   "5e8797e8-71c7-4ce7-9c57-796f0944a790",
+   "ebd9e165-faa1-488e-a9d1-146494044951",
+   "f6476bfe-ebc4-4e64-a34e-5e42b842a6ea",
+   "70524ce0-898d-4160-903d-13975904e601",
+   "99f3d36a-4ed7-449d-b7de-3a12d15bfb3a"
+  ]
+ },
+ "Version": "3.0"
+}
