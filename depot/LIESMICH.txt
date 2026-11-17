@@ -1,4 +1,4 @@
-P_-Profile für X-Plane 12 – Version 3.0.1
+P_-Profile für X-Plane 12 – Version 3.1
 Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (English: see README.txt)
@@ -35,7 +35,7 @@ Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.0.1.pdf
+Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.1.pdf
 
 KURZANLEITUNG
 1. Voraussetzungen installieren (Handbuch Kapitel 2):
@@ -48,7 +48,7 @@ KURZANLEITUNG
    macOS:   Installieren_macOS.command  (Rechtsklick › Öffnen)
    Windows: Installieren_Windows.bat    (Doppelklick)
    Im Installer: Profile wählen, FlyWithLua-Skripte wählen (vorbelegt: die nötigen),
-   AeroACARS-Kacheln anzeigen oder ausblenden.
+   AeroACARS-Kacheln anzeigen oder ausblenden, automatische Updates ja/nein.
 5. In der Stream-Deck-Software das Profil des Flugzeugs wählen (z. B. P_A320 oder P_C172),
    danach wechseln VOR/ZURÜCK auf dem XL beide Geräte gemeinsam.
 
@@ -56,3 +56,8 @@ Ein erneuter Aufruf des Installers installiert weitere Profile nach und
 verknüpft den Kreis VOR/ZURÜCK über alle installierten P_-Profile neu.
 Der Installer sichert alle Dateien, die er ersetzt, nach
 Dokumente/P_Profile_Sicherung_<Datum>.
+
+UPDATES
+Den Ordner „P_Profile“ ins X-Plane-12-Hauptverzeichnis legen; der SkunkCrafts Updater hält ihn
+aktuell. Mit „Automatische Updates: Ja“ im Installer öffnet sich nach jedem Update von selbst
+ein Fenster mit deinen Profilen – „Installieren“ spielt alles ein (Handbuch Kapitel 3.9).

@@ -1,6 +1,20 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.1 – 17.11.2026
+  - Automatische Updates: Bringt der SkunkCrafts Updater den Ordner „P_Profile“ auf eine neue Version,
+    öffnet sich danach von selbst ein Fenster mit den installierten Profilen; weitere lassen sich
+    dazunehmen, „Installieren“ spielt alles ein (Profile, Konfigurationen, Kamerasichten, Lua-Skripte).
+    Läuft X-Plane, wird erst nach dem Beenden installiert; „Später“ fragt nach 12 Stunden erneut.
+    Dafür richtet der Installer auf Wunsch einen Update-Helfer ein (einmal von Hand starten).
+  - Installer: findet den X-Plane-Ordner, wenn er aus „X-Plane 12/P_Profile“ gestartet wird; erkennt
+    X-Plane am genauen Prozessnamen; wartet sicherer auf das Beenden der Stream-Deck-Software.
+
+  EN: Automatic updates – after the SkunkCrafts Updater has updated the folder "P_Profile", a window with
+  your installed profiles opens by itself (add more, "Install" installs everything; waits while X-Plane
+  is running). Set up once by running the installer. Installer finds the X-Plane folder when started
+  from "X-Plane 12/P_Profile".
+
 Version 3.0.1 – 17.11.2026
   - Simple Ground Equipment & Services (SGES) entfernt: GROUND-Ordner mit seinen 17 Tasten aus allen
     Profilen und X-KeyPad-Konfigurationen; SGES ist keine Voraussetzung mehr.
