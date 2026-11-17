@@ -1,0 +1,364 @@
+{
+ "Controllers": [
+  {
+   "Actions": {
+    "0,0": {
+     "ActionID": "7692456f-74ff-416c-ab99-27f4a47ec453",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP FLCH"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,0": {
+     "ActionID": "b6d70710-7042-4490-9883-2754f636c207",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP FD 1"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "e07ceec7-b2a3-4863-b1a7-6541d1b81b64",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP FD 2"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "8f68c1e7-58de-49ba-81ae-816ef78ceb8a",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP YD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "0,1": {
+     "ActionID": "aa40c3fc-c37c-4c78-a365-c030a629e6b0",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ EFIS BARO STD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,1": {
+     "ActionID": "f651bb4d-04e6-4939-8f0b-36d523869038",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP HDG SYNC"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,1": {
+     "ActionID": "b333543b-3ac1-40eb-8a7d-0883feb26c29",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP BANK"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,1": {
+     "ActionID": "5af7cace-5135-4b7f-8de1-2eec1eac6c04",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ GP AP DISC"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Keypad"
+  },
+  {
+   "Actions": {
+    "0,0": {
+     "ActionID": "2d224e0e-f13e-4925-aaad-e582be217bba",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ CRS 1"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,0": {
+     "ActionID": "71ce3ffd-1c9b-4af8-92d8-ae846416834e",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ BARO 1"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "9bf044bb-7a88-4876-8413-6b2d7ddc03f1",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ MINS"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "ba60b237-3c72-480c-8191-86319a943823",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "EJ CRS 2"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Encoder"
+  }
+ ],
+ "Icon": "",
+ "Name": ""
+}

@@ -17,7 +17,7 @@ The updater depot lives in [`depot/`](depot) and is served from
 `https://raw.githubusercontent.com/Monoid12/Xplane-XKeyPad-Profiles/main/depot`.
 
 ## Requirements
-X-Plane 12, X-KeyPad (registered), X-Camera, FlyWithLua NG+, BetterPushback, Simple Ground Equipment & Services,
+X-Plane 12, X-KeyPad (registered), X-Camera, FlyWithLua NG+, BetterPushback,
 SimLoad Manager, AviTab, xPilot – details in the handbook, chapter 2. The aircraft themselves are not included.
 
 ## Deutsch

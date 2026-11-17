@@ -1,18 +1,1 @@
-{
- "Device": {
-  "Model": "20GBD9901",
-  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
- },
- "Name": "P_C152",
- "Pages": {
-  "Current": "79525bf2-b51a-4acb-88f5-e776d23348c9",
-  "Default": "87cab158-0e3d-4cc9-9e52-891c1bde8a2c",
-  "Pages": [
-   "79525bf2-b51a-4acb-88f5-e776d23348c9",
-   "e9249ff8-3523-4b9d-8f52-ec0bdb291fc7",
-   "22a4910a-8787-4cfe-b309-60540307f824",
-   "594e51bf-b0bb-4f88-9b3e-1e84919754b8"
-  ]
- },
- "Version": "3.0"
-}
+{"Device":{"Model":"20GBD9901","UUID":"@(1)[4057/132/P0PROFILPLUS0]"},"Name":"P_C152","Pages":{"Current":"79525bf2-b51a-4acb-88f5-e776d23348c9","Default":"87cab158-0e3d-4cc9-9e52-891c1bde8a2c","Pages":["79525bf2-b51a-4acb-88f5-e776d23348c9","e9249ff8-3523-4b9d-8f52-ec0bdb291fc7","22a4910a-8787-4cfe-b309-60540307f824","594e51bf-b0bb-4f88-9b3e-1e84919754b8"]},"Version":"3.0"}

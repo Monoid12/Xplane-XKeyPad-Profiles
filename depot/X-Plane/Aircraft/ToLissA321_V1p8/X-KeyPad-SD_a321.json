@@ -71567,96 +71567,6 @@
                         },
                         "Image Reference": {
                             "Dynamic Lookup": false,
-                            "Name": "P_S_SGH__",
-                            "Path": "",
-                            "UUID": "P_S_SGH___79627278b64e368369719f5ecebdc953"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Continuous",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Window/Toggle"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "S_SGH",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 321
-        },
-        "318": {
-            "Key": {
-                "Comments": "",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
                             "Name": "P_S_BOARD__",
                             "Path": "",
                             "UUID": "P_S_BOARD___7b083a03bd8adc328a58d84353b6bc76"
@@ -71732,7 +71642,7 @@
             },
             "Key Index": 322
         },
-        "319": {
+        "318": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -71822,7 +71732,7 @@
             },
             "Key Index": 323
         },
-        "320": {
+        "319": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -71912,7 +71822,7 @@
             },
             "Key Index": 324
         },
-        "321": {
+        "320": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -72002,7 +71912,7 @@
             },
             "Key Index": 327
         },
-        "322": {
+        "321": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -72092,7 +72002,7 @@
             },
             "Key Index": 328
         },
-        "323": {
+        "322": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -72182,97 +72092,7 @@
             },
             "Key Index": 329
         },
-        "324": {
-            "Key": {
-                "Comments": "",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "P_SGH__",
-                            "Path": "",
-                            "UUID": "P_SGH___7d3eabec8e13f05183f525eabe3445ec"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Continuous",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Window/Toggle"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "SGH",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 330
-        },
-        "325": {
+        "323": {
             "Key": {
                 "Comments": "",
                 "Conditional Backgrounds": {
@@ -72362,7 +72182,7 @@
             },
             "Key Index": 511
         },
-        "326": {
+        "324": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72475,7 +72295,7 @@
             },
             "Key Index": 313
         },
-        "327": {
+        "325": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72565,7 +72385,7 @@
             },
             "Key Index": 314
         },
-        "328": {
+        "326": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72678,7 +72498,7 @@
             },
             "Key Index": 319
         },
-        "329": {
+        "327": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72768,7 +72588,7 @@
             },
             "Key Index": 320
         },
-        "330": {
+        "328": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72858,7 +72678,7 @@
             },
             "Key Index": 325
         },
-        "331": {
+        "329": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -72971,7 +72791,7 @@
             },
             "Key Index": 326
         },
-        "332": {
+        "330": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73084,7 +72904,7 @@
             },
             "Key Index": 331
         },
-        "333": {
+        "331": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73174,7 +72994,7 @@
             },
             "Key Index": 332
         },
-        "334": {
+        "332": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73264,7 +73084,7 @@
             },
             "Key Index": 333
         },
-        "335": {
+        "333": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73354,7 +73174,7 @@
             },
             "Key Index": 334
         },
-        "336": {
+        "334": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73444,7 +73264,7 @@
             },
             "Key Index": 335
         },
-        "337": {
+        "335": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73534,7 +73354,7 @@
             },
             "Key Index": 336
         },
-        "338": {
+        "336": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73624,7 +73444,7 @@
             },
             "Key Index": 337
         },
-        "339": {
+        "337": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73714,7 +73534,7 @@
             },
             "Key Index": 338
         },
-        "340": {
+        "338": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73804,7 +73624,7 @@
             },
             "Key Index": 339
         },
-        "341": {
+        "339": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73894,7 +73714,7 @@
             },
             "Key Index": 340
         },
-        "342": {
+        "340": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -73984,7 +73804,7 @@
             },
             "Key Index": 341
         },
-        "343": {
+        "341": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -74074,1537 +73894,7 @@
             },
             "Key Index": 342
         },
-        "344": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Fenster.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Fenster.png_00cc38f0bac14c4d70bca3a72df39dca"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Window/Toggle"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Fenster",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 343
-        },
-        "345": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Alle.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Alle.png_c2fa2d43de9faa9aaf05e79cf2c58a11"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Services/StartSequenceAll"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Alle",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 344
-        },
-        "346": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Entfernen.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Entfernen.png_541192090c077b9eb77c153b8a9fceee"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/RemoveAll"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Entfernen",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 345
-        },
-        "347": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_GPU.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_GPU.png_2e55d49293d859514dd2429b2f64aaa5"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/GPU"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES GPU",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 346
-        },
-        "348": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_ASU.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_ASU.png_8842700e1770c3860c0164fc9ab4fecd"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/ASU"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES ASU",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 347
-        },
-        "349": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Fuel.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Fuel.png_cb8264682c5cf07cfda9563584aced7e"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/FUEL"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Fuel",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 348
-        },
-        "350": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Catering.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Catering.png_c6b57c6db7ccd0eaf35115da1040e73a"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/Catering"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Catering",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 349
-        },
-        "351": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Cargo.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Cargo.png_02dbe9532d35aba3ff3a8209a2c7baac"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/CargoOps"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Cargo",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 350
-        },
-        "352": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Bus.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Bus.png_45aed2f4fb908a243d463870a785520d"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/Bus"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Bus",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 351
-        },
-        "353": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Treppe.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Treppe.png_ece54cd3ef261e55926c653eda75b3d6"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/Stairs"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Treppe",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 352
-        },
-        "354": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Treppe_XPJ.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Treppe_XPJ.png_6dca876c2de3c313ff34337bde3c9e51"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/StairsXPJ"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Treppe XPJ",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 353
-        },
-        "355": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Treppe_XPJ2.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Treppe_XPJ2.png_cbfb4916f2b7a975195076614715a153"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/StairsXPJ2"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Treppe XPJ2",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 354
-        },
-        "356": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Schlepper.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Schlepper.png_9044aa4d2496b589ca2f738ccc7abb9b"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/PB"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Schlepper",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 355
-        },
-        "357": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_PRM.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_PRM.png_55f3336c7546c2feccd1ecc42cbf8e10"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/PRM"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES PRM",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 356
-        },
-        "358": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_FollowMe.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_FollowMe.png_1a2fca5e7b3fde3896e781d9967d8bef"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/FM"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES FollowMe",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 357
-        },
-        "359": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Enteisung.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Enteisung.png_f1be7f49a383111058678bdaf2595913"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/Deice"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Enteisung",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 358
-        },
-        "360": {
-            "Key": {
-                "Comments": "Einheitlicher Tastensatz STD",
-                "Conditional Backgrounds": {
-                    "0": {
-                        "Background Image Mode": 1,
-                        "Flashing Color": {
-                            "0": {
-                                "Blue": 0,
-                                "Green": 0,
-                                "Red": 0
-                            }
-                        },
-                        "Image Reference": {
-                            "Dynamic Lookup": false,
-                            "Name": "STD_SGES_Feuerwehr.png",
-                            "Path": "",
-                            "UUID": "STD_SGES_Feuerwehr.png_99c1339944764f6a7fc209823d6e639d"
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        }
-                    }
-                },
-                "Conditional Commands": {
-                    "0": {
-                        "Command Set": {
-                            "Commands": {
-                                "0": {
-                                    "Mode": "Single",
-                                    "Name": "Simple_Ground_Equipment_and_Services/Toggle/FireVehicle"
-                                }
-                            },
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        },
-                        "Logic Test": {
-                            "Comment": "",
-                            "Compare Value": "",
-                            "Logic Test Type": "Always True",
-                            "Negate": false,
-                            "Override Data Source": false
-                        },
-                        "Long Press Command Set": {
-                            "Speech Set": null,
-                            "Static Speech": ""
-                        }
-                    }
-                },
-                "Conditional Lines": null,
-                "Logic Dataref": {
-                    "Dataref": {
-                        "Dataref Index": 0,
-                        "Dataref Name": "",
-                        "Drag Factor": 0.0,
-                        "Formula ID": "",
-                        "Increment Amount": "",
-                        "Increment Mode": "None",
-                        "Max": "",
-                        "Min": "",
-                        "Multiply By": "",
-                        "Radio Value": 0.0,
-                        "Scale Factor": 1
-                    },
-                    "Use Expression": false
-                },
-                "Name": "STD SGES Feuerwehr",
-                "Numeric Dataref": {
-                    "Dataref Index": 0,
-                    "Dataref Name": "",
-                    "Drag Factor": 0.0,
-                    "Formula ID": "",
-                    "Increment Amount": "",
-                    "Increment Mode": "None",
-                    "Max": "",
-                    "Min": "",
-                    "Multiply By": "",
-                    "Radio Value": 0.0,
-                    "Scale Factor": 1,
-                    "Speech Set": null
-                },
-                "Prefix": "",
-                "Tag": ""
-            },
-            "Key Index": 359
-        },
-        "361": {
+        "342": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -75694,7 +73984,7 @@
             },
             "Key Index": 360
         },
-        "362": {
+        "343": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -75784,7 +74074,7 @@
             },
             "Key Index": 361
         },
-        "363": {
+        "344": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -75874,7 +74164,7 @@
             },
             "Key Index": 362
         },
-        "364": {
+        "345": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -75987,7 +74277,7 @@
             },
             "Key Index": 363
         },
-        "365": {
+        "346": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76077,7 +74367,7 @@
             },
             "Key Index": 364
         },
-        "366": {
+        "347": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76167,7 +74457,7 @@
             },
             "Key Index": 365
         },
-        "367": {
+        "348": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76257,7 +74547,7 @@
             },
             "Key Index": 366
         },
-        "368": {
+        "349": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76347,7 +74637,7 @@
             },
             "Key Index": 367
         },
-        "369": {
+        "350": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76437,7 +74727,7 @@
             },
             "Key Index": 368
         },
-        "370": {
+        "351": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76527,7 +74817,7 @@
             },
             "Key Index": 369
         },
-        "371": {
+        "352": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76617,7 +74907,7 @@
             },
             "Key Index": 370
         },
-        "372": {
+        "353": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76707,7 +74997,7 @@
             },
             "Key Index": 371
         },
-        "373": {
+        "354": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76797,7 +75087,7 @@
             },
             "Key Index": 372
         },
-        "374": {
+        "355": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76887,7 +75177,7 @@
             },
             "Key Index": 373
         },
-        "375": {
+        "356": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -76981,7 +75271,7 @@
             },
             "Key Index": 374
         },
-        "376": {
+        "357": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77075,7 +75365,7 @@
             },
             "Key Index": 375
         },
-        "377": {
+        "358": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77169,7 +75459,7 @@
             },
             "Key Index": 376
         },
-        "378": {
+        "359": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77263,7 +75553,7 @@
             },
             "Key Index": 377
         },
-        "379": {
+        "360": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77357,7 +75647,7 @@
             },
             "Key Index": 378
         },
-        "380": {
+        "361": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77451,7 +75741,7 @@
             },
             "Key Index": 379
         },
-        "381": {
+        "362": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77545,7 +75835,7 @@
             },
             "Key Index": 384
         },
-        "382": {
+        "363": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77639,7 +75929,7 @@
             },
             "Key Index": 385
         },
-        "383": {
+        "364": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77733,7 +76023,7 @@
             },
             "Key Index": 386
         },
-        "384": {
+        "365": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77827,7 +76117,7 @@
             },
             "Key Index": 387
         },
-        "385": {
+        "366": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -77921,7 +76211,7 @@
             },
             "Key Index": 388
         },
-        "386": {
+        "367": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78015,7 +76305,7 @@
             },
             "Key Index": 389
         },
-        "387": {
+        "368": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78109,7 +76399,7 @@
             },
             "Key Index": 390
         },
-        "388": {
+        "369": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78203,7 +76493,7 @@
             },
             "Key Index": 391
         },
-        "389": {
+        "370": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78297,7 +76587,7 @@
             },
             "Key Index": 392
         },
-        "390": {
+        "371": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78391,7 +76681,7 @@
             },
             "Key Index": 393
         },
-        "391": {
+        "372": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78481,7 +76771,7 @@
             },
             "Key Index": 394
         },
-        "392": {
+        "373": {
             "Key": {
                 "Comments": "Einheitlicher Tastensatz STD",
                 "Conditional Backgrounds": {
@@ -78571,7 +76861,7 @@
             },
             "Key Index": 395
         },
-        "393": {
+        "374": {
             "Key": {
                 "Comments": "Short: switch between open/close\nLong: set to auto",
                 "Conditional Backgrounds": {
@@ -78838,7 +77128,7 @@
             },
             "Key Index": 380
         },
-        "394": {
+        "375": {
             "Key": {
                 "Comments": "Short: switch between open/close\nLong: set to auto",
                 "Conditional Backgrounds": {
@@ -79105,7 +77395,7 @@
             },
             "Key Index": 381
         },
-        "395": {
+        "376": {
             "Key": {
                 "Comments": "Short: switch between open/close\nLong: set to auto",
                 "Conditional Backgrounds": {
@@ -79372,7 +77662,7 @@
             },
             "Key Index": 382
         },
-        "396": {
+        "377": {
             "Key": {
                 "Comments": "Short: switch between open/close\nLong: set to auto",
                 "Conditional Backgrounds": {

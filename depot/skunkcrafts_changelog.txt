@@ -1,3 +1,8 @@
+3.0.1
+- Simple Ground Equipment & Services (SGES) removed: the GROUND folder and its 17 keys are gone from all profiles and X-KeyPad configurations; SGES is no longer a prerequisite.
+- Start page: SIMLOAD and PUSHBACK each move one place to the left.
+- FPS E175/E190/E195: the door keys now actually move the doors (before, they only switched a display value of the EFB). DOORS page with all six doors: DOOR L1, DOOR R1, DOOR L2, DOOR R2 (service door), CARGO FWD and CARGO AFT.
+
 3.0
 - 68 aircraft, 110 profiles (previously 29/58); no longer marked as beta.
 - New airliners: FlyJSim 737-200, Sparky 747-400, FPS 747-8, Laminar A330-300, FPS E175/E190/E195, X-Crafts ERJ 135/140/145/145XR/Legacy 600, Just Flight BAe 146-100/-200/-300, Colimata Concorde.

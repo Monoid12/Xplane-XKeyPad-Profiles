@@ -1,6 +1,18 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.0.1 – 17.11.2026
+  - Simple Ground Equipment & Services (SGES) entfernt: GROUND-Ordner mit seinen 17 Tasten aus allen
+    Profilen und X-KeyPad-Konfigurationen; SGES ist keine Voraussetzung mehr.
+  - Startseite: SIMLOAD und PUSHBACK rücken je einen Platz nach links.
+  - FPS E175/E190/E195: Die Türtasten bewegen jetzt die Türen (vorher schalteten sie nur einen
+    Anzeigewert des EFB). DOORS-Seite mit allen sechs Türen: DOOR L1, DOOR R1, DOOR L2,
+    DOOR R2 (Servicetür), CARGO FWD und CARGO AFT.
+
+  EN: SGES removed (GROUND folder and its 17 keys, no longer a prerequisite); SIMLOAD and PUSHBACK
+  move one place to the left on the start page; FPS E-Jets: door keys now actually move the doors,
+  DOORS page with all six doors (L1, R1, L2, R2, CARGO FWD, CARGO AFT).
+
 Version 3.0 – November 2026
   - 68 Flugzeuge, 110 Profile (bisher 29/58); keine Beta-Kennzeichnung mehr.
   - Neue Airliner: FlyJSim 737-200, Sparky 747-400, FPS 747-8, Laminar A330-300,

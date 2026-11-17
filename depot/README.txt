@@ -1,4 +1,4 @@
-P_ Profiles for X-Plane 12 – Version 3.0
+P_ Profiles for X-Plane 12 – Version 3.0.1
 Unified Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (Deutsch: siehe LIESMICH.txt)
@@ -35,12 +35,12 @@ Unified Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Full manual with every page and every key: Handbook_P_Profiles_v3.0_EN.pdf
+Full manual with every page and every key: Handbook_P_Profiles_v3.0.1_EN.pdf
 
 QUICK START
 1. Install the prerequisites (handbook chapter 2):
    X-KeyPad (registered), X-Camera, FlyWithLua NG+, BetterPushback,
-   Simple Ground Equipment & Services, SimLoad Manager, AviTab, xPilot.
+   SimLoad Manager, AviTab, xPilot.
    Optional: Discord plugin for Stream Deck, AeroACARS (German Sky Group).
 2. Start the Stream Deck software once with the devices connected.
 3. Quit X-Plane.
