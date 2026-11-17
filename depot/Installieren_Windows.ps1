@@ -3,11 +3,12 @@
 # Gleicher Ablauf wie der macOS-Installer (StreamDeck/installer_macos.js):
 #   1. Prüfen: X-Plane beendet (im Update-Modus: warten, bis X-Plane beendet ist), X-Plane-Ordner (der Ordner über
 #      P_Profile, sonst Standard C:\X-Plane 12, sonst Auswahl).
-#   2. Auswahl der Profile (Häkchenliste). Vorbelegt: bereits installierte P_-Profile und Profile, deren Flugzeug im
+#   2.–5. Ein Fenster mit allen Wahlmöglichkeiten:
+#   2. Profile (Häkchen mit Status). Vorbelegt: bereits installierte P_-Profile und Profile, deren Flugzeug im
 #      Aircraft-Ordner gefunden wird (Update-Modus: nur die installierten). Ein erneuter Aufruf installiert weitere nach.
-#   3. Auswahl der FlyWithLua-Skripte (optional, vorbelegt: die für die gewählten Flugzeuge nötigen; Update-Modus:
-#      zusätzlich die bereits installierten).
-#   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (Update-Modus: bisherige Wahl).
+#   3. FlyWithLua-Skripte (optional, vorbelegt: die für die gewählten Flugzeuge nötigen; Update-Modus: zusätzlich die
+#      bereits installierten; neu angehakte Profile haken ihre nötigen Skripte mit an).
+#   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (vorbelegt: bisherige Wahl).
 #   5. Automatische Updates: Update-Helfer (geplante Aufgabe „P_Profile Update“) einrichten oder entfernen.
 #   6. Flugzeugdateien (X-KeyPad-Konfiguration, X-Camera-Sichten) neben die passende .acf-Datei kopieren.
 #   7. Stream-Deck-Profile nach %APPDATA%\Elgato\StreamDeck\ProfilesV3 (Geräte-Platzhalter → eigene Geräte), danach
@@ -58,22 +59,81 @@ function Zeilen($pfad) {
     Get-Content -Encoding UTF8 $pfad | Where-Object { $_.Trim() -ne '' -and -not $_.StartsWith('#') } | ForEach-Object { , $_.Split('|') }
 }
 
-# Häkchenliste: gibt die Indizes der angehakten Einträge zurück ($null bei Abbruch)
-function Auswahl($titel, $text, $eintraege, $vorbelegt, $abbrechenText) {
+# ---------- Auswahlfenster ----------
+# Ein Fenster statt mehrerer Dialoge (wie unter macOS): Profile (Häkchen + Status), Zusätze (Lua-Skripte, AeroACARS,
+# automatische Updates), Hinweise, „Später/Abbrechen“ und „Installieren“. Hakt man ein neues Profil an, werden die dafür
+# nötigen Lua-Skripte mit angehakt.
+# $o: Titel, Untertitel, Zeilen (Name, Status, Art = installiert|da|fehlt, An), Lua (Text, An, Fuer = Profil-Indizes),
+#     Aero, Helfer, Hinweis, Abbrechen, Ok  →  Hashtable Profil/Lua (bool-Listen), Aero, Helfer – oder $null
+function AuswahlFenster($o) {
+    $schrift = 'Segoe UI'
     $f = New-Object System.Windows.Forms.Form
-    $f.Text = $titel; $f.Width = 620; $f.Height = 560; $f.StartPosition = 'CenterScreen'; $f.TopMost = $true
-    $l = New-Object System.Windows.Forms.Label
-    $l.Text = $text; $l.Left = 10; $l.Top = 10; $l.Width = 585; $l.Height = 48
-    $c = New-Object System.Windows.Forms.CheckedListBox
-    $c.Left = 10; $c.Top = 62; $c.Width = 585; $c.Height = 400; $c.CheckOnClick = $true
-    for ($i = 0; $i -lt $eintraege.Count; $i++) { [void]$c.Items.Add($eintraege[$i], ($vorbelegt -contains $i)) }
-    $ok = New-Object System.Windows.Forms.Button
-    $ok.Text = 'OK'; $ok.Left = 410; $ok.Top = 475; $ok.DialogResult = 'OK'
-    $ab = New-Object System.Windows.Forms.Button
-    $ab.Text = $(if ($abbrechenText) { $abbrechenText } else { T 'Abbrechen' 'Cancel' }); $ab.Left = 500; $ab.Top = 475; $ab.DialogResult = 'Cancel'
-    $f.Controls.AddRange(@($l, $c, $ok, $ab)); $f.AcceptButton = $ok; $f.CancelButton = $ab
+    $f.Text = (T 'P_-Profile' 'P_ Profiles'); $f.StartPosition = 'CenterScreen'; $f.TopMost = $true
+    $f.FormBorderStyle = 'FixedDialog'; $f.MaximizeBox = $false; $f.MinimizeBox = $false
+    $f.Font = New-Object System.Drawing.Font($schrift, 9)
+    function Text($s, $x, $y, $w, $h, $groesse, $fett, $farbe) {
+        $l = New-Object System.Windows.Forms.Label
+        $l.Text = $s; $l.SetBounds($x, $y, $w, $h); $l.AutoSize = $false
+        $stil = $(if ($fett) { [System.Drawing.FontStyle]::Bold } else { [System.Drawing.FontStyle]::Regular })
+        $l.Font = New-Object System.Drawing.Font($schrift, $groesse, $stil)
+        if ($farbe) { $l.ForeColor = $farbe }
+        $f.Controls.Add($l)
+    }
+    $grau = [System.Drawing.Color]::DimGray
+    $farbe = @{ installiert = [System.Drawing.Color]::FromArgb(30, 140, 60); da = [System.Drawing.Color]::FromArgb(0, 100, 200); fehlt = [System.Drawing.Color]::Gray }
+
+    Text $o.Titel 20 14 560 28 13 $true $null
+    Text $o.Untertitel 20 44 560 20 9 $false $grau
+    $y = 74
+    Text (T 'Profile' 'Profiles') 20 $y 200 18 8 $true $grau; $y += 20
+    $lv = New-Object System.Windows.Forms.ListView
+    $lv.View = 'Details'; $lv.CheckBoxes = $true; $lv.FullRowSelect = $true; $lv.HeaderStyle = 'None'
+    $lv.SetBounds(20, $y, 560, 280)
+    [void]$lv.Columns.Add('Profil', 370); [void]$lv.Columns.Add('Status', 165)
+    foreach ($z in $o.Zeilen) {
+        $it = New-Object System.Windows.Forms.ListViewItem($z.Name)
+        $it.UseItemStyleForSubItems = $false
+        $sub = $it.SubItems.Add($z.Status); $sub.ForeColor = $farbe[$z.Art]
+        $it.Checked = [bool]$z.An
+        [void]$lv.Items.Add($it)
+    }
+    $f.Controls.Add($lv); $y += 288
+    $alle = New-Object System.Windows.Forms.Button; $alle.Text = (T 'Alle vorhandenen' 'All found'); $alle.SetBounds(20, $y, 140, 28)
+    $nur = New-Object System.Windows.Forms.Button; $nur.Text = (T 'Nur installierte' 'Installed only'); $nur.SetBounds(166, $y, 130, 28)
+    $f.Controls.AddRange(@($alle, $nur)); $y += 40
+
+    Text (T 'Zusätze' 'Extras') 20 $y 200 18 8 $true $grau; $y += 20
+    $luaKasten = @()
+    foreach ($l in $o.Lua) {
+        $k = New-Object System.Windows.Forms.CheckBox; $k.Text = $l.Text; $k.Checked = [bool]$l.An; $k.SetBounds(20, $y, 560, 22)
+        $f.Controls.Add($k); $luaKasten += $k; $y += 24
+    }
+    $aero = New-Object System.Windows.Forms.CheckBox; $aero.Text = (T 'AeroACARS-Kacheln anzeigen (Startseite XL, Reihe 4)' 'Show AeroACARS tiles (XL start page, row 4)')
+    $aero.Checked = [bool]$o.Aero; $aero.SetBounds(20, $y, 560, 22); $f.Controls.Add($aero); $y += 24
+    $helfer = New-Object System.Windows.Forms.CheckBox; $helfer.Text = (T 'Automatische Updates (Fenster öffnet sich nach jedem Update von selbst)' 'Automatic updates (this window opens by itself after every update)')
+    $helfer.Checked = [bool]$o.Helfer; $helfer.SetBounds(20, $y, 560, 22); $f.Controls.Add($helfer); $y += 32
+    if ($o.Hinweis) { Text $o.Hinweis 20 $y 560 20 9 $false ([System.Drawing.Color]::DarkOrange); $y += 24 }
+    Text (T 'Stream Deck wird dafür kurz neu gestartet; ersetzte Dateien werden vorher gesichert.' 'Stream Deck is restarted briefly; replaced files are backed up first.') 20 $y 560 18 8 $false $grau
+    $y += 30
+    $ab = New-Object System.Windows.Forms.Button; $ab.Text = $o.Abbrechen; $ab.SetBounds(330, $y, 120, 30); $ab.DialogResult = 'Cancel'
+    $ok = New-Object System.Windows.Forms.Button; $ok.Text = $o.Ok; $ok.SetBounds(460, $y, 120, 30); $ok.DialogResult = 'OK'
+    $f.Controls.AddRange(@($ab, $ok)); $f.AcceptButton = $ok; $f.CancelButton = $ab
+    $f.ClientSize = New-Object System.Drawing.Size(600, ($y + 46))
+
+    # Lua-Skripte für neu angehakte Profile mit anhaken; Schnellwahl-Knöpfe
+    $zeilen = $o.Zeilen; $lua = $o.Lua
+    $nachziehen = {
+        for ($j = 0; $j -lt $lua.Count; $j++) {
+            foreach ($i in $lua[$j].Fuer) { if ($lv.Items[$i].Checked -and $zeilen[$i].Art -ne 'installiert') { $luaKasten[$j].Checked = $true } }
+        }
+    }.GetNewClosure()
+    $lv.Add_ItemChecked($nachziehen)
+    $alle.Add_Click({ for ($i = 0; $i -lt $zeilen.Count; $i++) { if ($zeilen[$i].Art -ne 'fehlt') { $lv.Items[$i].Checked = $true } } }.GetNewClosure())
+    $nur.Add_Click({ for ($i = 0; $i -lt $zeilen.Count; $i++) { $lv.Items[$i].Checked = ($zeilen[$i].Art -eq 'installiert') } }.GetNewClosure())
+
     if ($f.ShowDialog() -ne 'OK') { return $null }
-    return @($c.CheckedIndices | ForEach-Object { [int]$_ })
+    return @{ Profil = @(for ($i = 0; $i -lt $lv.Items.Count; $i++) { $lv.Items[$i].Checked })
+              Lua = @($luaKasten | ForEach-Object { $_.Checked }); Aero = $aero.Checked; Helfer = $helfer.Checked }
 }
 
 function Sichern($pfad) {
@@ -137,54 +197,36 @@ function AcfOrdner($z) {
 }
 function FlugzeugDa($kurz) { @($Zuordnung | Where-Object { $_.Kurz -eq $kurz } | ForEach-Object { AcfOrdner $_ }).Count -gt 0 }
 
-# ---------- 2. Profile ----------
-$liste = @(); $vor = @()
-for ($i = 0; $i -lt $Profile.Count; $i++) {
-    $p = $Profile[$i]
-    if (Installiert $p.XL) { $liste += $p.Name + (T '  (installiert)' '  (installed)'); $vor += $i }
-    elseif (FlugzeugDa $p.Kurz) {
-        if ($Aktualisieren) { $liste += $p.Name + (T '  (Flugzeug vorhanden)' '  (aircraft found)') } else { $liste += $p.Name; $vor += $i }
-    }
-    else { $liste += $p.Name + (T '  (Flugzeug nicht gefunden)' '  (aircraft not found)') }
+# ---------- 2.–5. Auswahl im Fenster: Profile, Lua-Skripte, AeroACARS, automatische Updates ----------
+$StatusText = @{ installiert = (T 'installiert' 'installed'); da = (T 'Flugzeug vorhanden' 'aircraft found'); fehlt = (T 'Flugzeug nicht gefunden' 'aircraft not found') }
+$Zeilen = @(foreach ($p in $Profile) {
+    $art = $(if (Installiert $p.XL) { 'installiert' } elseif (FlugzeugDa $p.Kurz) { 'da' } else { 'fehlt' })
+    # vorbelegt: installierte; außerhalb des Update-Modus auch alle, deren Flugzeug gefunden wird
+    [pscustomobject]@{ Name = $p.Name; Art = $art; Status = $StatusText[$art]; An = ($art -eq 'installiert' -or (-not $Aktualisieren -and $art -eq 'da')) }
+})
+$LuaZeilen = @(foreach ($l in $Lua) {
+    $fuer = @(for ($i = 0; $i -lt $Profile.Count; $i++) { if ($l.Fuer -contains $Profile[$i].Kurz) { $i } })
+    # vorbelegt: für vorbelegte Profile nötig (Update-Modus: für neu gewählte) und – im Update-Modus – bereits installiert
+    $an = ($Aktualisieren -and (Test-Path (Join-Path $Skripte $l.Datei))) -or [bool]@($fuer | Where-Object { $Zeilen[$_].An -and -not ($Aktualisieren -and $Zeilen[$_].Art -eq 'installiert') }).Count
+    [pscustomobject]@{ Text = ($l.Datei + ' – ' + $l.Text); An = $an; Fuer = $fuer }
+})
+$nInst = @($Zeilen | Where-Object { $_.Art -eq 'installiert' }).Count
+$nNeu = @($Zeilen | Where-Object { $_.Art -eq 'da' }).Count
+$AeroVor = $(if ($nInst) { [bool](@($Profile | Where-Object { (Installiert $_.XL) -and (HatAero $_.XL) }).Count) } else { $true })
+$AltVersion = $(if (Test-Path (Join-Path $Zustand 'installiert.txt')) { (Get-Content (Join-Path $Zustand 'installiert.txt') -Raw).Trim() } else { '–' })
+$Fenster = @{
+    Titel = $(if ($Aktualisieren) { T "Version $Version ist bereit" "Version $Version is ready" } else { T "P_-Profile $Version installieren" "Install P_ Profiles $Version" })
+    Untertitel = $(if ($Aktualisieren) { T "Installiert: $AltVersion · $nInst von $($Profile.Count) Profilen auf diesem PC" "Installed: $AltVersion · $nInst of $($Profile.Count) profiles on this PC" } else { T "$nInst Profile installiert · $nNeu weitere Flugzeuge in X-Plane gefunden" "$nInst profiles installed · $nNeu more aircraft found in X-Plane" })
+    Zeilen = $Zeilen; Lua = $LuaZeilen; Aero = $AeroVor; Helfer = $true
+    Hinweis = $(if ($Aktualisieren -and (XPlaneLaeuft)) { T 'X-Plane läuft gerade – die Installation startet von selbst, sobald X-Plane beendet ist.' 'X-Plane is running – the installation starts by itself as soon as X-Plane has been quit.' } else { '' })
+    Abbrechen = $(if ($Aktualisieren) { T 'Später' 'Later' } else { T 'Abbrechen' 'Cancel' }); Ok = (T 'Installieren' 'Install')
 }
-if ($Aktualisieren) {
-    $wahl = Auswahl ((T 'P_-Profile – Update auf ' 'P_ Profiles – update to ') + $Version) (T "Neue Version $Version. Angehakt sind deine installierten Profile – sie werden aktualisiert. Weitere Profile kannst du dazunehmen." "New version $Version. Your installed profiles are ticked and will be updated. You can add more profiles.") $liste $vor (T 'Später' 'Later')
-    if ($null -eq $wahl) { Spaeter }
-} else {
-    $wahl = Auswahl (T 'P_-Profile – Profile wählen' 'P_ Profiles – choose profiles') (T 'Welche Profile sollen installiert bzw. aktualisiert werden? Bereits installierte, hier abgewählte Profile bleiben unverändert.' 'Which profiles should be installed or updated? Installed profiles that are not selected here stay unchanged.') $liste $vor
-    if ($null -eq $wahl) { Abbruch (T 'Abgebrochen.' 'Cancelled.') }
-}
-$Gewaehlt = @($wahl | ForEach-Object { $Profile[$_] })
-
-# ---------- 3. Lua ----------
-$luaListe = @($Lua | ForEach-Object { $_.Datei + ' – ' + $_.Text })
-$luaVor = @()
-for ($i = 0; $i -lt $Lua.Count; $i++) {
-    $noetig = $Gewaehlt | Where-Object { $Lua[$i].Fuer -contains $_.Kurz -and -not ($Aktualisieren -and (Installiert $_.XL)) }
-    if ($noetig -or ($Aktualisieren -and (Test-Path (Join-Path $Skripte $Lua[$i].Datei)))) { $luaVor += $i }
-}
-$lw = Auswahl (T 'P_-Profile – FlyWithLua-Skripte' 'P_ Profiles – FlyWithLua scripts') (T 'Welche FlyWithLua-Skripte sollen installiert werden? (optional; vorbelegt: für die gewählten Flugzeuge nötig bzw. bereits installiert)' 'Which FlyWithLua scripts should be installed? (optional; preselected: required for the chosen aircraft or already installed)') $luaListe $luaVor
-$LuaGewaehlt = @(); if ($lw) { $LuaGewaehlt = @($lw | ForEach-Object { $Lua[$_] }) }
-
-# ---------- 4. AeroACARS ----------
-if ($Aktualisieren) {
-    $Aero = [bool](@($Profile | Where-Object { (Installiert $_.XL) -and (HatAero $_.XL) }).Count)
-} else {
-    $antw = [System.Windows.Forms.MessageBox]::Show((T "AeroACARS-Kacheln (Startseite des Stream Deck XL, Reihe 4, 7 Tasten) anzeigen?`n`nSie funktionieren nur mit dem AeroACARS-Plugin für Piloten der German Sky Group. Bei „Nein“ bleiben die Plätze leer. Die Wahl gilt für alle installierten P_-Profile." "Show the AeroACARS tiles (Stream Deck XL start page, row 4, 7 keys)?`n`nThey only work with the AeroACARS plugin for German Sky Group pilots. With `"No`" the keys stay empty. The choice applies to all installed P_ profiles."), 'AeroACARS', 'YesNo')
-    $Aero = $antw -eq 'Yes'
-}
-
-# ---------- 5. Automatische Updates ----------
-if ($Aktualisieren) { $Helfer = $true } else {
-    $antw = [System.Windows.Forms.MessageBox]::Show((T "Updates automatisch einspielen?`n`nLiegt dieser Ordner als „P_Profile“ im X-Plane-12-Hauptordner und bringt ihn der SkunkCrafts Updater auf eine neue Version, öffnet sich danach von selbst ein Fenster mit deinen Profilen; nach „OK“ wird alles eingespielt. Dafür wird eine geplante Aufgabe „$Aufgabe“ eingerichtet (bei der Anmeldung und alle 30 Minuten).`n`nOhne Helfer: nach jedem Update diesen Installer erneut starten." "Install updates automatically?`n`nIf this folder sits as `"P_Profile`" in the X-Plane 12 main folder and the SkunkCrafts Updater brings it to a new version, a window with your profiles opens by itself afterwards; after `"OK`" everything is installed. A scheduled task `"$Aufgabe`" is set up for this (at logon and every 30 minutes).`n`nWithout the helper: run this installer again after every update."), (T 'Automatische Updates' 'Automatic updates'), 'YesNo')
-    $Helfer = $antw -eq 'Yes'
-}
-
-$text = (T 'Installieren: ' 'Install: ') + (($Gewaehlt | ForEach-Object { $_.Name }) -join ', ') + "`nLua: " + (($LuaGewaehlt | ForEach-Object { $_.Datei }) -join ', ') + "`nAeroACARS: " + $(if ($Aero) { T 'anzeigen' 'show' } else { T 'ausblenden' 'hide' }) + "`n" + (T 'Automatische Updates: ' 'Automatic updates: ') + $(if ($Helfer) { T 'ja' 'yes' } else { T 'nein' 'no' }) + "`n`n" + (T 'Die Stream-Deck-Software wird dafür kurz beendet und neu gestartet.' 'The Stream Deck software will be quit briefly and restarted.')
-if ($Aktualisieren -and (XPlaneLaeuft)) { $text += "`n`n" + (T 'X-Plane läuft gerade – die Installation startet von selbst, sobald X-Plane beendet ist.' 'X-Plane is running – the installation starts by itself as soon as X-Plane has been quit.') }
-if ([System.Windows.Forms.MessageBox]::Show($text, (T 'P_-Profile – Installation' 'P_ Profiles – Installation'), 'OKCancel') -ne 'OK') {
-    if ($Aktualisieren) { Spaeter } else { Abbruch (T 'Abgebrochen.' 'Cancelled.') }
-}
+$Auswahl = AuswahlFenster $Fenster
+if ($null -eq $Auswahl) { if ($Aktualisieren) { Spaeter } else { Abbruch (T 'Abgebrochen.' 'Cancelled.') } }
+$Gewaehlt = @(for ($i = 0; $i -lt $Profile.Count; $i++) { if ($Auswahl.Profil[$i]) { $Profile[$i] } })
+$LuaGewaehlt = @(for ($j = 0; $j -lt $Lua.Count; $j++) { if ($Auswahl.Lua[$j]) { $Lua[$j] } })
+$Aero = [bool]$Auswahl.Aero
+$Helfer = [bool]$Auswahl.Helfer
 
 # Update-Modus: nie bei laufendem X-Plane in die Stream-Deck-Software eingreifen – warten, bis X-Plane beendet ist
 if ($Aktualisieren -and (XPlaneLaeuft)) {
@@ -320,3 +362,8 @@ if (Test-Path $sdExe) { Start-Process $sdExe } else { Write-Host (T 'Bitte die S
 Write-Host ((T "`nFertig. Sicherung: " "`nDone. Backup: ") + $Sicherung)
 $fertig = $(if ($Aktualisieren) { T "Update auf $Version installiert." "Update to $Version installed." } else { T 'Installation abgeschlossen.' 'Installation complete.' })
 [System.Windows.Forms.MessageBox]::Show($fertig + (T "`n`nSicherung der ersetzten Dateien:`n" "`n`nBackup of replaced files:`n") + $Sicherung, (T 'P_-Profile' 'P_ Profiles')) | Out-Null
+# Update-Modus, automatische Updates abgewählt: geplante Aufgabe und Helfer entfernen (als letzte Aktion)
+if ($Aktualisieren -and -not $Helfer) {
+    Unregister-ScheduledTask -TaskName $Aufgabe -Confirm:$false -ErrorAction SilentlyContinue
+    Remove-Item -Force -ErrorAction SilentlyContinue $helferSkript
+}

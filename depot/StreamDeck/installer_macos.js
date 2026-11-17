@@ -4,13 +4,14 @@
 // Ablauf:
 //   1. Prüfen: X-Plane beendet (im Update-Modus: warten, bis X-Plane beendet ist), X-Plane-Ordner (der Ordner über
 //      P_Profile, sonst Standard ~/X-Plane 12, sonst Auswahl).
-//   2. Auswahl der Profile (Mehrfachauswahl). Vorbelegt: bereits installierte P_-Profile und Profile, deren Flugzeug
+//   2.–5. Ein Fenster (Cocoa, Rückfallebene: Einzeldialoge) mit allen Wahlmöglichkeiten:
+//   2. Profile (Kästchen mit Status installiert / Flugzeug vorhanden / nicht gefunden). Vorbelegt: bereits installierte P_-Profile und Profile, deren Flugzeug
 //      im Aircraft-Ordner gefunden wird (Update-Modus: nur die installierten). Ein erneuter Aufruf installiert weitere
 //      Profile nach.
-//   3. Auswahl der FlyWithLua-Skripte (optional, vorbelegt: die für die gewählten Flugzeuge nötigen; Update-Modus:
+//   3. FlyWithLua-Skripte (optional, vorbelegt: die für die gewählten Flugzeuge nötigen; Update-Modus:
 //      zusätzlich die bereits installierten).
-//   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (Update-Modus: bisherige Wahl).
-//   5. Automatische Updates: Update-Helfer einrichten oder entfernen (Update-Modus: bleibt eingerichtet).
+//   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (vorbelegt: bisherige Wahl).
+//   5. Automatische Updates: Update-Helfer einrichten oder entfernen (vorbelegt: ja).
 //   6. Flugzeugdateien (X-KeyPad-Konfiguration, X-Camera-Sichten) neben die passende .acf-Datei kopieren.
 //   7. Stream-Deck-Profile kopieren (Geräte-Platzhalter → eigene Geräte), danach Vor/Zurück aller installierten
 //      P_-Profile im Kreis neu verknüpfen (nur gewählte + bereits installierte) und die AeroACARS-Wahl auf alle
@@ -27,15 +28,18 @@
 // StreamDeck/update_helfer.sh.
 // Testmodus (nur Entwicklung): Umgebungsvariablen P_TEST_SD (Profilordner), P_TEST_XP (X-Plane-Ordner),
 // P_TEST_ZUSTAND (Ordner für Zustand, Helfer und LaunchAgent-Datei), P_TEST_WAHL (Kürzel, kommagetrennt),
-// P_TEST_LUA (Dateien, kommagetrennt), P_TEST_AERO (an|aus), P_TEST_HELFER (an|aus) ersetzen Ordner und Dialoge;
+// P_TEST_LUA (Dateien, kommagetrennt), P_TEST_AERO (an|aus), P_TEST_HELFER (an|aus) ersetzen Ordner und Fenster;
+// P_TEST_BILD (Pfad .png, dazu P_TEST_HELL an|aus) speichert nur das Fenster als Bild;
 // die Stream-Deck-Software wird dann weder beendet noch gestartet, launchctl wird nicht aufgerufen.
 
-ObjC.import('Foundation');
+ObjC.import('Cocoa');
 const app = Application.currentApplication();
 app.includeStandardAdditions = true;
 
-const DE = (() => { try { return app.doShellScript('defaults read -g AppleLocale').toLowerCase().startsWith('de'); }
-                    catch (e) { return true; } })();
+const SPRACHE = (() => { const v = $.NSProcessInfo.processInfo.environment.objectForKey('P_TEST_SPRACHE'); return v.isNil() ? '' : ObjC.unwrap(v); })();
+const DE = SPRACHE ? SPRACHE === 'de' :          // P_TEST_SPRACHE (de|en): nur Entwicklung, z. B. Handbuch-Bilder
+  (() => { try { return app.doShellScript('defaults read -g AppleLocale').toLowerCase().startsWith('de'); }
+           catch (e) { return true; } })();
 const T = (de, en) => (DE ? de : en);
 const sh = (cmd) => app.doShellScript(cmd);
 const q = (s) => "'" + String(s).replace(/'/g, "'\\''") + "'";
@@ -59,6 +63,169 @@ function abbruch(text) {
 
 const umgebung = (n) => { const v = $.NSProcessInfo.processInfo.environment.objectForKey(n); return v.isNil() ? '' : ObjC.unwrap(v); };
 const TEST = umgebung('P_TEST_SD') !== '';
+
+// ---------- Auswahlfenster (Cocoa) ----------
+// Ein Fenster statt mehrerer Dialoge: Profile (Kästchen + Status), Zusätze (Lua-Skripte, AeroACARS, automatische
+// Updates), Hinweise, „Später/Abbrechen“ und „Installieren“. Hakt man ein neues Profil an, werden die dafür nötigen
+// Lua-Skripte mit angehakt.
+let FENSTER = null;                                 // Zustand für die Knopf-Aktionen
+
+function fensterKlasse() {
+  if (!$.NSClassFromString('PPFensterZiel').isNil()) return;
+  ObjC.registerSubclass({
+    name: 'PPFensterZiel', superclass: 'NSObject',
+    methods: {
+      'installieren:': { types: ['void', ['id']], implementation: function (s) { $.NSApp.stopModalWithCode(1000); } },
+      'abbrechen:': { types: ['void', ['id']], implementation: function (s) { $.NSApp.stopModalWithCode(1001); } },
+      'alleDa:': { types: ['void', ['id']], implementation: function (s) {
+        FENSTER.profil.forEach((k, i) => { if (FENSTER.zeilen[i].art !== 'fehlt') k.state = 1; });
+        FENSTER.luaNachziehen(); } },
+      'nurInstalliert:': { types: ['void', ['id']], implementation: function (s) {
+        FENSTER.profil.forEach((k, i) => { k.state = FENSTER.zeilen[i].art === 'installiert' ? 1 : 0; }); } },
+      'profilGeklickt:': { types: ['void', ['id']], implementation: function (s) { FENSTER.luaNachziehen(); } },
+    },
+  });
+}
+
+// o: { titel, untertitel, zeilen:[{name, status, art: installiert|da|fehlt, an}], lua:[{text, an, fuer:[Index…]}],
+//      aero, helfer, hinweis, abbrechen, ok, bild, hell }
+// → { profil:[bool], lua:[bool], aero, helfer } oder null („Später“/„Abbrechen“)
+function auswahlFenster(o) {
+  fensterKlasse();
+  const W = 600, R = 20, ZH = 22, LISTE = 290;
+  const zusatzH = (o.lua.length + 2) * ZH;
+  const H = R + 46 + 12 + 18 + LISTE + 8 + 26 + 14 + 18 + zusatzH + 10 + (o.hinweis ? 22 : 0) + 22 + 52;
+  $.NSApplication.sharedApplication;
+  const win = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer($.NSMakeRect(0, 0, W, H), 1, 2, false);
+  win.title = T('P_-Profile', 'P_ Profiles');
+  const cv = win.contentView;
+  const ziel = $.PPFensterZiel.alloc.init;
+  let y = H - R;                                    // obere Kante der nächsten Zeile (AppKit zählt von unten)
+  const farbe = { installiert: $.NSColor.systemGreenColor, da: $.NSColor.systemBlueColor, fehlt: $.NSColor.tertiaryLabelColor };
+  function text(s, x, oben, w, h, groesse, fett, f, rechts) {
+    const t = $.NSTextField.labelWithString(s);
+    t.font = fett ? $.NSFont.boldSystemFontOfSize(groesse) : $.NSFont.systemFontOfSize(groesse);
+    if (f) t.textColor = f;
+    if (rechts) t.alignment = $.NSTextAlignmentRight;
+    t.frame = $.NSMakeRect(x, oben - h, w, h);
+    return t;
+  }
+  function kasten(titel, an, x, oben, w, aktion) {
+    const b = $.NSButton.alloc.initWithFrame($.NSMakeRect(x, oben - 20, w, 20));
+    b.setButtonType(3);                             // NSButtonTypeSwitch: Kästchen
+    b.title = titel; b.state = an ? 1 : 0;
+    if (aktion) { b.target = ziel; b.action = aktion; }
+    return b;
+  }
+  function knopf(titel, x, unten, w, aktion, taste) {
+    const b = $.NSButton.alloc.initWithFrame($.NSMakeRect(x, unten, w, 32));
+    b.bezelStyle = 1; b.title = titel; b.target = ziel; b.action = aktion;
+    if (taste) b.keyEquivalent = taste;
+    cv.addSubview(b); return b;
+  }
+
+  // Kopf: Symbol, Titel, Untertitel
+  const sym = $.NSImage.imageWithSystemSymbolNameAccessibilityDescription('arrow.triangle.2.circlepath.circle.fill', 'Update');
+  if (!sym.isNil()) {
+    const iv = $.NSImageView.imageViewWithImage(sym);
+    iv.frame = $.NSMakeRect(R, y - 40, 40, 40);
+    iv.symbolConfiguration = $.NSImageSymbolConfiguration.configurationWithPointSizeWeight(30, 0);
+    iv.contentTintColor = $.NSColor.controlAccentColor;
+    cv.addSubview(iv);
+  }
+  cv.addSubview(text(o.titel, R + 50, y - 2, W - 2 * R - 50, 20, 15, true));
+  cv.addSubview(text(o.untertitel, R + 50, y - 22, W - 2 * R - 50, 18, 12, false, $.NSColor.secondaryLabelColor));
+  y -= 46 + 12;
+
+  // Profile: Liste mit Kästchen und Status
+  cv.addSubview(text(T('Profile', 'Profiles'), R, y, 200, 16, 11, true, $.NSColor.secondaryLabelColor)); y -= 18;
+  const sv = $.NSScrollView.alloc.initWithFrame($.NSMakeRect(R, y - LISTE, W - 2 * R, LISTE));
+  sv.hasVerticalScroller = true; sv.borderType = 2; sv.autohidesScrollers = true;
+  const dw = W - 2 * R - 18, dh = Math.max(LISTE - 4, o.zeilen.length * ZH + 6);
+  const doc = $.NSView.alloc.initWithFrame($.NSMakeRect(0, 0, dw, dh));
+  const profil = o.zeilen.map((z, i) => {
+    const oben = dh - 3 - i * ZH;
+    const k = kasten(z.name, z.an, 8, oben, dw - 190, 'profilGeklickt:');
+    doc.addSubview(k);
+    doc.addSubview(text(z.status, dw - 180, oben - 2, 170, 16, 11, false, farbe[z.art], true));
+    return k;
+  });
+  sv.documentView = doc;
+  doc.scrollPoint($.NSMakePoint(0, dh));
+  cv.addSubview(sv);
+  y -= LISTE + 8;
+  knopf(T('Alle vorhandenen', 'All found'), R - 6, y - 26, 150, 'alleDa:');
+  knopf(T('Nur installierte', 'Installed only'), R + 150, y - 26, 140, 'nurInstalliert:');
+  y -= 26 + 14;
+
+  // Zusätze
+  cv.addSubview(text(T('Zusätze', 'Extras'), R, y, 200, 16, 11, true, $.NSColor.secondaryLabelColor)); y -= 18;
+  const lua = o.lua.map((l, i) => { const k = kasten(l.text, l.an, R, y - i * ZH, W - 2 * R); cv.addSubview(k); return k; });
+  y -= o.lua.length * ZH;
+  const aero = kasten(T('AeroACARS-Kacheln anzeigen (Startseite XL, Reihe 4)', 'Show AeroACARS tiles (XL start page, row 4)'),
+                      o.aero, R, y, W - 2 * R);
+  cv.addSubview(aero); y -= ZH;
+  const helfer = kasten(T('Automatische Updates (Fenster öffnet sich nach jedem Update von selbst)',
+                          'Automatic updates (this window opens by itself after every update)'), o.helfer, R, y, W - 2 * R);
+  cv.addSubview(helfer); y -= ZH + 10;
+
+  if (o.hinweis) { cv.addSubview(text(o.hinweis, R, y, W - 2 * R, 18, 12, false, $.NSColor.systemOrangeColor)); y -= 22; }
+  cv.addSubview(text(T('Stream Deck wird dafür kurz neu gestartet; ersetzte Dateien werden vorher gesichert.',
+                       'Stream Deck is restarted briefly; replaced files are backed up first.'),
+                     R, y, W - 2 * R, 18, 11, false, $.NSColor.secondaryLabelColor));
+
+  // Knöpfe (Eingabe = Installieren, Esc = Später/Abbrechen)
+  const ok = knopf(o.ok, W - R - 130 + 6, R - 6, 130, 'installieren:', '\r');
+  knopf(o.abbrechen, W - R - 260 + 6, R - 6, 124, 'abbrechen:', '\u001b');
+  win.defaultButtonCell = ok.cell;
+
+  FENSTER = { profil, zeilen: o.zeilen,
+    luaNachziehen: () => o.lua.forEach((l, j) => {
+      if (l.fuer.some((i) => Number(profil[i].state) === 1 && o.zeilen[i].art !== 'installiert')) lua[j].state = 1; }) };
+
+  if (o.bild) {                                     // nur Entwicklung: Fenster als Bild speichern statt anzeigen
+    if (o.hell !== undefined) win.appearance = $.NSAppearance.appearanceNamed(o.hell ? 'NSAppearanceNameAqua' : 'NSAppearanceNameDarkAqua');
+    const fv = cv.superview;
+    fv.layoutSubtreeIfNeeded; win.displayIfNeeded;
+    const rep = fv.bitmapImageRepForCachingDisplayInRect(fv.bounds);
+    fv.cacheDisplayInRectToBitmapImageRep(fv.bounds, rep);
+    rep.representationUsingTypeProperties(4, $()).writeToFileAtomically(o.bild, true);
+    return null;
+  }
+  $.NSApp.setActivationPolicy(1);                   // Zubehör-App: Fenster ohne Dock-Symbol, aber im Vordergrund
+  $.NSApp.activateIgnoringOtherApps(true);
+  win.center; win.makeKeyAndOrderFront($());
+  const code = $.NSApp.runModalForWindow(win);
+  win.orderOut($());
+  if (Number(code) !== 1000) return null;          // die Brücke liefert den Rückgabewert als Text („1000“)
+  return { profil: profil.map((k) => Number(k.state) === 1), lua: lua.map((k) => Number(k.state) === 1),
+           aero: Number(aero.state) === 1, helfer: Number(helfer.state) === 1 };
+}
+
+// Rückfallebene, falls das Fenster nicht aufgeht: die bisherigen Einzeldialoge (gleiches Ergebnis-Format)
+function auswahlDialoge(o) {
+  const nr = (z, i) => z.name + '  (' + z.status + ')';
+  const wahl = app.chooseFromList(o.zeilen.map(nr), { withTitle: o.titel, withPrompt: o.untertitel,
+    okButtonName: T('Weiter', 'Next'), cancelButtonName: o.abbrechen,
+    defaultItems: o.zeilen.filter((z) => z.an).map(nr), multipleSelectionsAllowed: true, emptySelectionAllowed: true });
+  if (wahl === false) return null;
+  const profil = o.zeilen.map((z) => wahl.includes(nr(z)));
+  const lw = app.chooseFromList(o.lua.map((l) => l.text), { withTitle: T('FlyWithLua-Skripte', 'FlyWithLua scripts'),
+    withPrompt: T('Welche FlyWithLua-Skripte sollen installiert werden? (optional)', 'Which FlyWithLua scripts should be installed? (optional)'),
+    defaultItems: o.lua.filter((l, j) => l.an || l.fuer.some((i) => profil[i] && o.zeilen[i].art !== 'installiert')).map((l) => l.text),
+    multipleSelectionsAllowed: true, emptySelectionAllowed: true });
+  const ja = T('Ja', 'Yes'), nein = T('Nein', 'No');
+  const frage = (t, vor) => app.displayDialog(t, { buttons: [nein, ja], defaultButton: vor ? ja : nein, withTitle: o.titel }).buttonReturned === ja;
+  const aero = frage(T('AeroACARS-Kacheln (Startseite XL, Reihe 4) anzeigen?', 'Show the AeroACARS tiles (XL start page, row 4)?'), o.aero);
+  const helfer = frage(T('Automatische Updates einrichten? (Fenster öffnet sich nach jedem Update von selbst)',
+                         'Set up automatic updates? (the window opens by itself after every update)'), o.helfer);
+  try {
+    app.displayDialog(T('Jetzt installieren? Stream Deck wird dafür kurz neu gestartet.', 'Install now? Stream Deck is restarted briefly.') +
+                      (o.hinweis ? '\n\n' + o.hinweis : ''),
+                      { buttons: [o.abbrechen, o.ok], defaultButton: o.ok, cancelButton: o.abbrechen, withTitle: o.titel });
+  } catch (e) { return null; }
+  return { profil, lua: o.lua.map((l) => lw !== false && lw.includes(l.text)), aero, helfer };
+}
 
 function run(argv) {
   const HIER = argv[0];
@@ -141,92 +308,56 @@ function run(argv) {
   }
   const flugzeugDa = (kurz) => zuordnung.some((z) => z.kurz === kurz && acfOrdner(z).length);
 
-  // ---------- 2. Auswahl der Profile ----------
-  const eintrag = (p) => p.name + (installiert(p.xl) ? T('  (installiert)', '  (installed)') :
-                                    flugzeugDa(p.kurz) ? (UPDATE ? T('  (Flugzeug vorhanden)', '  (aircraft found)') : '') :
-                                    T('  (Flugzeug nicht gefunden)', '  (aircraft not found)'));
-  const liste = profile.map(eintrag);
-  const vorbelegt = profile.filter((p) => installiert(p.xl) || (!UPDATE && flugzeugDa(p.kurz))).map(eintrag);
-  const wahl = TEST ? profile.filter((p) => umgebung('P_TEST_WAHL').split(',').includes(p.kurz)).map(eintrag) :
-    app.chooseFromList(liste, {
-    withTitle: UPDATE ? T('P_-Profile – Update auf ', 'P_ Profiles – update to ') + version
-                      : T('P_-Profile – Profile wählen', 'P_ Profiles – choose profiles'),
-    withPrompt: UPDATE
-      ? T('Neue Version ' + version + '. Angehakt sind deine installierten Profile – sie werden aktualisiert. ' +
-          'Weitere Profile kannst du mit ⌘-Klick dazunehmen.',
-          'New version ' + version + '. Your installed profiles are ticked and will be updated. ' +
-          'You can add more profiles with ⌘-click.')
-      : T('Welche Profile sollen installiert bzw. aktualisiert werden? (Mehrfachauswahl mit ⌘)\n' +
-          'Bereits installierte, hier abgewählte Profile bleiben unverändert.',
-          'Which profiles should be installed or updated? (multiple selection with ⌘)\n' +
-          'Installed profiles that are not selected here stay unchanged.'),
-    okButtonName: T('Weiter', 'Next'), cancelButtonName: UPDATE ? T('Später', 'Later') : T('Abbrechen', 'Cancel'),
-    defaultItems: vorbelegt, multipleSelectionsAllowed: true, emptySelectionAllowed: true });
-  if (wahl === false) { if (UPDATE) spaeter(); abbruch(T('Abgebrochen.', 'Cancelled.')); }
-  const gewaehlt = profile.filter((p) => wahl.includes(eintrag(p)));
-
-  // ---------- 3. Lua-Skripte ----------
-  const luaText = (l) => l.datei + ' – ' + l.text;
+  // ---------- 2.–5. Auswahl im Fenster: Profile, Lua-Skripte, AeroACARS, automatische Updates ----------
+  const statusText = { installiert: T('installiert', 'installed'), da: T('Flugzeug vorhanden', 'aircraft found'),
+                       fehlt: T('Flugzeug nicht gefunden', 'aircraft not found') };
+  const zeilenP = profile.map((p) => {
+    const art = installiert(p.xl) ? 'installiert' : flugzeugDa(p.kurz) ? 'da' : 'fehlt';
+    // vorbelegt: installierte; außerhalb des Update-Modus auch alle, deren Flugzeug gefunden wird
+    return { name: p.name, art, status: statusText[art], an: art === 'installiert' || (!UPDATE && art === 'da') };
+  });
   const luaDa = (l) => existiert(SKRIPTE + '/' + l.datei);
-  const luaListe = lua.map(luaText);
-  const luaVor = lua.filter((l) => gewaehlt.some((p) => l.fuer.includes(p.kurz) && !(UPDATE && installiert(p.xl))) ||
-                                   (UPDATE && luaDa(l))).map(luaText);
-  const luaWahl = TEST ? lua.filter((l) => umgebung('P_TEST_LUA').split(',').includes(l.datei)).map(luaText) :
-    app.chooseFromList(luaListe, {
-    withTitle: T('P_-Profile – FlyWithLua-Skripte', 'P_ Profiles – FlyWithLua scripts'),
-    withPrompt: UPDATE
-      ? T('FlyWithLua-Skripte (optional; vorbelegt: bereits installierte und für neu gewählte Flugzeuge nötige)',
-          'FlyWithLua scripts (optional; preselected: already installed and required for newly chosen aircraft)')
-      : T('Welche FlyWithLua-Skripte sollen installiert werden? (optional; vorbelegt: für die gewählten Flugzeuge nötig)',
-          'Which FlyWithLua scripts should be installed? (optional; preselected: required for the chosen aircraft)'),
-    defaultItems: luaVor, multipleSelectionsAllowed: true, emptySelectionAllowed: true });
-  const luaGewaehlt = luaWahl === false ? [] : lua.filter((l) => luaWahl.includes(luaText(l)));
-
-  // ---------- 4. AeroACARS ----------
-  const knopfAn = T('Anzeigen', 'Show'), knopfAus = T('Ausblenden', 'Hide');
-  const aero = TEST ? umgebung('P_TEST_AERO') === 'an'
-    : UPDATE ? profile.some((p) => installiert(p.xl) && hatAero(p.xl))
-    : app.displayDialog(T('AeroACARS-Kacheln (Startseite des Stream Deck XL, Reihe 4, 7 Tasten) anzeigen?\n' +
-                          'Sie funktionieren nur mit dem AeroACARS-Plugin für Piloten der German Sky Group. ' +
-                          'Ausgeblendet bleiben die Plätze leer. Die Wahl gilt für alle installierten P_-Profile.',
-                          'Show the AeroACARS tiles (Stream Deck XL start page, row 4, 7 keys)?\n' +
-                          'They only work with the AeroACARS plugin for German Sky Group pilots. When hidden, ' +
-                          'the keys stay empty. The choice applies to all installed P_ profiles.'),
-                        { buttons: [knopfAus, knopfAn], defaultButton: knopfAn,
-                          withTitle: 'AeroACARS' }).buttonReturned === knopfAn;
-
-  // ---------- 5. Automatische Updates ----------
-  const ja = T('Ja', 'Yes'), nein = T('Nein', 'No');
-  const helfer = UPDATE ? true : TEST ? umgebung('P_TEST_HELFER') === 'an'
-    : app.displayDialog(T('Updates automatisch einspielen?\n\nLiegt dieser Ordner als „P_Profile“ im X-Plane-12-Hauptordner ' +
-                          'und bringt ihn der SkunkCrafts Updater auf eine neue Version, öffnet sich danach von selbst ' +
-                          'ein Fenster mit deinen Profilen; nach „Installieren“ wird alles eingespielt. Dafür wird ein ' +
-                          'kleiner Hintergrund-Helfer eingerichtet (macOS meldet einmalig „Hintergrundobjekt hinzugefügt“).\n\n' +
-                          'Ohne Helfer: nach jedem Update diesen Installer erneut starten.',
-                          'Install updates automatically?\n\nIf this folder sits as “P_Profile” in the X-Plane 12 main ' +
-                          'folder and the SkunkCrafts Updater brings it to a new version, a window with your profiles ' +
-                          'opens by itself afterwards; after “Install” everything is installed. A small background helper ' +
-                          'is set up for this (macOS reports “Background item added” once).\n\n' +
-                          'Without the helper: run this installer again after every update.'),
-                        { buttons: [nein, ja], defaultButton: ja, withTitle: T('Automatische Updates', 'Automatic updates') })
-        .buttonReturned === ja;
-
-  if (!TEST) {
-    try {
-      app.displayDialog(
-        T('Installieren:\n• ', 'Install:\n• ') + (gewaehlt.map((p) => p.name).join(', ') || T('keine Profile', 'no profiles')) +
-        T('\n• Lua: ', '\n• Lua: ') + (luaGewaehlt.map((l) => l.datei).join(', ') || '–') +
-        '\n• AeroACARS: ' + (aero ? knopfAn : knopfAus) +
-        T('\n• Automatische Updates: ', '\n• Automatic updates: ') + (helfer ? ja : nein) +
-        T('\n\nDie Stream-Deck-Software wird dafür kurz beendet und neu gestartet.',
-          '\n\nThe Stream Deck software will be quit briefly and restarted.') +
-        (UPDATE && xpLaeuft() ? T('\n\nX-Plane läuft gerade – die Installation startet von selbst, sobald X-Plane beendet ist.',
-                                  '\n\nX-Plane is running – the installation starts by itself as soon as X-Plane has been quit.') : ''),
-        { buttons: [UPDATE ? T('Später', 'Later') : T('Abbrechen', 'Cancel'), T('Installieren', 'Install')],
-          defaultButton: T('Installieren', 'Install'),
-          cancelButton: UPDATE ? T('Später', 'Later') : T('Abbrechen', 'Cancel'), withTitle: TITEL });
-    } catch (e) { if (UPDATE) spaeter(); throw e; }
+  const zeilenL = lua.map((l) => {
+    const fuer = profile.map((p, i) => (l.fuer.includes(p.kurz) ? i : -1)).filter((i) => i >= 0);
+    // vorbelegt: für vorbelegte Profile nötig (Update-Modus: für neu gewählte) und – im Update-Modus – bereits installiert
+    const an = (UPDATE && luaDa(l)) || fuer.some((i) => zeilenP[i].an && !(UPDATE && zeilenP[i].art === 'installiert'));
+    return { text: l.datei + ' – ' + l.text, an, fuer };
+  });
+  const nInst = zeilenP.filter((z) => z.art === 'installiert').length, nNeu = zeilenP.filter((z) => z.art === 'da').length;
+  const aeroVor = nInst ? profile.some((p) => installiert(p.xl) && hatAero(p.xl)) : true;
+  const altVersion = existiert(ZUSTAND + '/installiert.txt') ? lesen(ZUSTAND + '/installiert.txt').trim() : '';
+  const fenster = {
+    titel: UPDATE ? T('Version ' + version + ' ist bereit', 'Version ' + version + ' is ready')
+                  : T('P_-Profile ' + version + ' installieren', 'Install P_ Profiles ' + version),
+    untertitel: UPDATE
+      ? T('Installiert: ' + (altVersion || '–') + ' · ' + nInst + ' von ' + profile.length + ' Profilen auf diesem Mac',
+          'Installed: ' + (altVersion || '–') + ' · ' + nInst + ' of ' + profile.length + ' profiles on this Mac')
+      : T(nInst + ' Profile installiert · ' + nNeu + ' weitere Flugzeuge in X-Plane gefunden',
+          nInst + ' profiles installed · ' + nNeu + ' more aircraft found in X-Plane'),
+    zeilen: zeilenP, lua: zeilenL, aero: aeroVor, helfer: true,
+    hinweis: UPDATE && xpLaeuft() ? T('X-Plane läuft gerade – die Installation startet von selbst, sobald X-Plane beendet ist.',
+                                      'X-Plane is running – the installation starts by itself as soon as X-Plane has been quit.') : '',
+    abbrechen: UPDATE ? T('Später', 'Later') : T('Abbrechen', 'Cancel'), ok: T('Installieren', 'Install'),
+  };
+  let auswahl;
+  if (TEST && umgebung('P_TEST_BILD')) {             // nur Entwicklung: Fenster als Bild speichern
+    auswahlFenster(Object.assign(fenster, { bild: umgebung('P_TEST_BILD'), hell: umgebung('P_TEST_HELL') === 'an' }));
+    return;
   }
+  if (TEST) {
+    const w = umgebung('P_TEST_WAHL').split(','), lw = umgebung('P_TEST_LUA').split(',');
+    auswahl = { profil: profile.map((p) => w.includes(p.kurz)), lua: lua.map((l) => lw.includes(l.datei)),
+                aero: umgebung('P_TEST_AERO') === 'an', helfer: umgebung('P_TEST_HELFER') === 'an' || (UPDATE && umgebung('P_TEST_HELFER') === '') };
+  } else {
+    try { auswahl = auswahlFenster(fenster); }
+    catch (e) { log(T('Fenster nicht verfügbar (', 'Window not available (') + e + T(') – Einzeldialoge.', ') – single dialogs.'));
+                auswahl = auswahlDialoge(fenster); }
+  }
+  if (!auswahl) { if (UPDATE) spaeter(); abbruch(T('Abgebrochen.', 'Cancelled.')); }
+  const gewaehlt = profile.filter((p, i) => auswahl.profil[i]);
+  const luaGewaehlt = lua.filter((l, j) => auswahl.lua[j]);
+  const aero = auswahl.aero, helfer = auswahl.helfer;
+  const knopfAn = T('Anzeigen', 'Show'), knopfAus = T('Ausblenden', 'Hide');
 
   // Update-Modus: nie bei laufendem X-Plane in die Stream-Deck-Software eingreifen – warten, bis X-Plane beendet ist
   if (UPDATE && xpLaeuft()) {
@@ -346,10 +477,10 @@ function run(argv) {
     sh('cp ' + q(HIER + '/StreamDeck/update_helfer.sh') + ' ' + q(skript) + ' && chmod 755 ' + q(skript));
   // Den LaunchAgent nur außerhalb des Update-Modus neu laden: im Update-Modus läuft dieser Installer als Kind des
   // Helfers, und „launchctl bootout“ würde ihn mitten in der Arbeit beenden.
+  const agenten = TEST ? ZUSTAND : HOME + '/Library/LaunchAgents';
+  const plist = agenten + '/' + AGENT + '.plist';
+  const uid = sh('id -u');
   if (!UPDATE) {
-    const agenten = TEST ? ZUSTAND : HOME + '/Library/LaunchAgents';
-    const plist = agenten + '/' + AGENT + '.plist';
-    const uid = sh('id -u');
     if (!TEST) sh('launchctl bootout gui/' + uid + '/' + AGENT + ' 2>/dev/null; true');
     if (helfer) {
       sh('mkdir -p ' + q(agenten));
@@ -377,6 +508,10 @@ function run(argv) {
   // Update-Modus: nur die letzten drei Sicherungen behalten
   if (UPDATE) sh('cd ' + q(ZUSTAND + '/Sicherungen') + ' 2>/dev/null && ls -1 | sort -r | tail -n +4 | while read -r d; do rm -rf "$d"; done; true');
 
+  // Update-Modus, automatische Updates abgewählt: Helfer-Dateien entfernen; den LaunchAgent erst ganz am Ende abmelden
+  const helferAbmelden = UPDATE && !helfer;
+  if (helferAbmelden) { sh('rm -f ' + q(plist) + ' ' + q(skript)); log(T('  – Automatische Updates: aus.', '  – Automatic updates: off.')); }
+
   if (TEST) return;
   sh('open -a "Elgato Stream Deck" || true');
   log(T('\nFertig. Sicherung: ', '\nDone. Backup: ') + SICHERUNG);
@@ -384,4 +519,6 @@ function run(argv) {
                             : T('Installation abgeschlossen.', 'Installation complete.')) +
                     T('\n\nSicherung der ersetzten Dateien:\n', '\n\nBackup of replaced files:\n') + SICHERUNG,
                     { buttons: ['OK'], defaultButton: 'OK', withTitle: T('P_-Profile', 'P_ Profiles') });
+  // als letzte Aktion: beendet diesen Installer mit, weil er als Kind des Helfers läuft – alles ist dann erledigt
+  if (helferAbmelden) sh('launchctl bootout gui/' + uid + '/' + AGENT + ' 2>/dev/null; true');
 }

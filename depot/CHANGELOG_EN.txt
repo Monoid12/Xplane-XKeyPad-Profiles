@@ -1,6 +1,12 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.2 – 17 November 2026
+  - New installer window: profiles (with status installed / aircraft found / not found), Lua scripts,
+    AeroACARS and automatic updates in ONE window instead of several dialogs – for installation and for
+    every automatic update. Quick selection "All found" / "Installed only"; newly ticked aircraft tick
+    their required Lua scripts too. AeroACARS can now also be changed during an update.
+
 Version 3.1 – 17 November 2026
   - Automatic updates: when the SkunkCrafts Updater brings the folder "P_Profile" to a new version, a
     window with your installed profiles opens by itself afterwards; you can add more, and "Install"

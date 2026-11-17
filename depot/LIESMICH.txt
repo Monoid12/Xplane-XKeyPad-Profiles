@@ -1,4 +1,4 @@
-P_-Profile für X-Plane 12 – Version 3.1
+P_-Profile für X-Plane 12 – Version 3.2
 Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (English: see README.txt)
@@ -35,7 +35,7 @@ Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.1.pdf
+Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.2.pdf
 
 KURZANLEITUNG
 1. Voraussetzungen installieren (Handbuch Kapitel 2):
@@ -47,8 +47,8 @@ KURZANLEITUNG
 4. Installer starten:
    macOS:   Installieren_macOS.command  (Rechtsklick › Öffnen)
    Windows: Installieren_Windows.bat    (Doppelklick)
-   Im Installer: Profile wählen, FlyWithLua-Skripte wählen (vorbelegt: die nötigen),
-   AeroACARS-Kacheln anzeigen oder ausblenden, automatische Updates ja/nein.
+   Im Installer-Fenster: Profile, FlyWithLua-Skripte (vorbelegt: die nötigen),
+   AeroACARS-Kacheln und automatische Updates wählen, dann „Installieren“.
 5. In der Stream-Deck-Software das Profil des Flugzeugs wählen (z. B. P_A320 oder P_C172),
    danach wechseln VOR/ZURÜCK auf dem XL beide Geräte gemeinsam.
 
