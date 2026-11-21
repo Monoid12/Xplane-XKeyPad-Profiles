@@ -48,6 +48,11 @@ ERJ|Legacy||Embraer ERJ Family/X-KeyPad-SD_Legacy.json|Embraer ERJ Family/X-Came
 E175F|FPSE-175||FPSE-175_V1.3/X-KeyPad-SD_FPSE-175.json|FPSE-175_V1.3/X-Camera_FPSE-175.csv
 E190F|FPSE-190||FPSE-190_V1.2/X-KeyPad-SD_FPSE-190.json|FPSE-190_V1.2/X-Camera_FPSE-190.csv
 E195F|FPSE-195||FPSE-195/X-KeyPad-SD_FPSE-195.json|FPSE-195/X-Camera_FPSE-195.csv
+E170X|E170||Embraer E-Jets Family/X-KeyPad-SD_E170.json|Embraer E-Jets Family/X-Camera_E170.csv
+E175X|E175||Embraer E-Jets Family/X-KeyPad-SD_E175.json|Embraer E-Jets Family/X-Camera_E175.csv
+E190X|E190||Embraer E-Jets Family/X-KeyPad-SD_E190.json|Embraer E-Jets Family/X-Camera_E190.csv
+E195X|E195||Embraer E-Jets Family/X-KeyPad-SD_E195.json|Embraer E-Jets Family/X-Camera_E195.csv
+LINX|Lineage||Embraer E-Jets Family/X-KeyPad-SD_Lineage.json|Embraer E-Jets Family/X-Camera_Lineage.csv
 B146|JF_BAe_146_100||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_100.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_100.csv
 B146|JF_BAe_146_200||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_200.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_200.csv
 B146|JF_BAe_146_300||JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_300.json|JF12_BAe_146_v1/X-Camera_JF_BAe_146_300.csv

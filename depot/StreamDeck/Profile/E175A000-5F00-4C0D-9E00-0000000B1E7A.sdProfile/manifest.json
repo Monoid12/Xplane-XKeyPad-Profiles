@@ -1,0 +1,17 @@
+{
+ "Device": {
+  "Model": "20GBD9901",
+  "UUID": "@(1)[4057/132/P0PROFILPLUS0]"
+ },
+ "Name": "P_E175X",
+ "Pages": {
+  "Current": "49b82535-deee-436c-86da-15377fa3f53e",
+  "Default": "219a853c-f73b-4acc-bf76-c2028b715dd8",
+  "Pages": [
+   "49b82535-deee-436c-86da-15377fa3f53e",
+   "29806074-715e-4d6b-9962-91aa2592bdc1",
+   "2b23dee1-11b9-40e8-a0dd-ba31b1ced495"
+  ]
+ },
+ "Version": "3.0"
+}

@@ -1,6 +1,12 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.4 – 21 November 2026
+  - New: Embraer E-Jets by X-Crafts – E170, E175, E190, E195 and Lineage 1000, each with its own profile
+    (P_E170X, P_E175X, P_E190X, P_E195X, P_LINX) and X-Camera views 1–15; Lineage with a cabin page.
+  - VOR/ZURÜCK circle sorted by type (E175 FPS → E175 X etc.); unique type key "E190 FPS" /
+    "E190 X-CRAFTS" on the XL start page.
+
 Version 3.3 – 21 November 2026
   - Airbus A330-300 (Laminar): doors page with all 12 doors; NOSE shows OFF/TAXI/T.O.; BARO on the Plus
     sets captain and first officer together (press STD/QNH, tap hPa/inHg), BARO 2 removed; FCU dials as

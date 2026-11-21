@@ -1,6 +1,15 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.4 – 21.11.2026
+  - Neu: Embraer E-Jets von X-Crafts – E170, E175, E190, E195 und Lineage 1000, je ein eigenes Profil
+    (P_E170X, P_E175X, P_E190X, P_E195X, P_LINX) mit X-Camera-Sichten 1–15; Lineage mit Kabinenseite.
+  - Kreis VOR/ZURÜCK nach Typ sortiert (E175 FPS → E175 X usw.); eindeutige Typtaste „E190 FPS“ /
+    „E190 X-CRAFTS“ auf der XL-Startseite.
+
+  EN: New X-Crafts E-Jets (E170, E175, E190, E195, Lineage 1000) with their own profiles and camera
+  views; circle sorted by type; unique type key "E190 FPS" / "E190 X-CRAFTS".
+
 Version 3.3 – 21.11.2026
   - Airbus A330-300 (Laminar): Türseite mit allen 12 Türen; NOSE zeigt OFF/TAXI/T.O.; BARO am Plus stellt
     Kapitän und Kopilot gemeinsam ein (Druck STD/QNH, Tippen hPa/inHg), BARO 2 entfällt; FCU-Regler wie bei
