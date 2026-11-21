@@ -1,4 +1,4 @@
-P_ Profiles for X-Plane 12 – version 3.5
+P_ Profiles for X-Plane 12 – version 3.6
 Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad – keys as in the cockpit
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (Deutsch: siehe LIESMICH.txt)
@@ -37,7 +37,7 @@ Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad – keys as 
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Full manual with every page and every key: Handbook_P_Profiles_v3.5_EN.pdf
+Full manual with every page and every key: Handbook_P_Profiles_v3.6_EN.pdf
 
 REQUIREMENTS
   Required: X-Plane 12, Stream Deck software (7.1 or later), X-KeyPad (registered), FlyWithLua NG+
@@ -57,7 +57,12 @@ INSTALLATION
    afterwards NEXT/PREV on the XL switches both devices together.
 
 Running the installer again adds further profiles. The installer backs up every file it
-replaces to Documents/P_Profile_Sicherung_<date>.
+replaces to Documents/P_Profile_Sicherung_<date>; your own configurations are also kept
+permanently as originals.
+
+RESTORE
+Start Wiederherstellen_macOS.command or Wiederherstellen_Windows.bat (X-Plane closed) and
+choose the original state before the P_ Profiles or a backup (handbook chapter 3.8).
 
 UPDATES
 The SkunkCrafts Updater finds the folder "P_Profile" in "Resources/plugins" by itself and keeps

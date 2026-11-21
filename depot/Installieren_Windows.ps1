@@ -32,9 +32,14 @@
 # Updater im Ordner X-Plane 12\P_Profile eine neuere Version abgelegt hat. „Später“ merkt Version und Zeitpunkt in
 # abgelehnt.txt; der Helfer fragt nach 12 Stunden erneut.
 # Vorhandene Dateien werden vorher nach Dokumente\P_Profile_Sicherung_<Zeitstempel>\ gesichert, im Update-Modus nach
-# %LOCALAPPDATA%\P_Profile\Sicherungen\<Zeitstempel>\ (die letzten drei bleiben).
+# %LOCALAPPDATA%\P_Profile\Sicherungen\<Zeitstempel>\ (die letzten drei bleiben); inhalt.txt nennt je Eintrag den Originalpfad.
+# Originale: Ersetzt der Installer eine Flugzeugdatei, die nicht von den P_-Profilen stammt (z. B. eine eigene
+# X-KeyPad-Konfiguration), kommt sie einmalig und dauerhaft nach %LOCALAPPDATA%\P_Profile\Original\<Laufwerk>\<Pfad>;
+# dateien.txt merkt je Datei „ersetzt“, „neu“ (gab es vorher nicht) oder „p“ (war schon eine P_-Datei).
+# Wiederherstellen (Schalter -Wiederherstellen, gestartet von Wiederherstellen_Windows.bat): „Originalzustand vor den
+# P_-Profilen“ oder eine Sicherung wählen; der aktuelle Stand wird vorher gesichert.
 # Start über Installieren_Windows.bat (umgeht die Ausführungsrichtlinie nur für dieses Skript).
-param([switch]$Aktualisieren)
+param([switch]$Aktualisieren, [switch]$Wiederherstellen)
 
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Windows.Forms
@@ -183,13 +188,51 @@ function AuswahlFenster($o) {
               Aero = $aero.Checked; Discord = $discord.Checked; Helfer = $helfer.Checked }
 }
 
+# Sicherung: Kopie unter $Sicherung\<Pfad ohne Laufwerk>, Originalpfad in inhalt.txt
 function Sichern($pfad) {
     if (Test-Path $pfad) {
         $rel = ($pfad -replace '^[A-Za-z]:', '').TrimStart('\')
         $ziel = Join-Path $Sicherung $rel
         New-Item -ItemType Directory -Force -Path (Split-Path -Parent $ziel) | Out-Null
         Copy-Item -Recurse -Force $pfad $ziel
+        [IO.File]::AppendAllText((Join-Path $Sicherung 'inhalt.txt'), "$rel|$pfad`r`n", $Utf8)
     }
+}
+
+# Originale: beim ersten Ersetzen eine fremde (eigene) Datei dauerhaft ablegen bzw. merken, dass es keine gab
+$Original = Join-Path $Zustand 'Original'
+$DateiListe = Join-Path $Zustand 'dateien.txt'
+$Register = [ordered]@{}
+if (Test-Path $DateiListe) { foreach ($z in @(Zeilen $DateiListe)) { $Register[$z[1]] = $z[0] } }
+function OriginalPfad($pfad) { Join-Path $Original ($pfad -replace ':', '') }
+function OriginalMerken($pfad, $istP) {
+    if ($Register.Contains($pfad)) { return }
+    if (-not (Test-Path $pfad)) { $Register[$pfad] = 'neu' }
+    elseif ($istP) { $Register[$pfad] = 'p' }
+    else {
+        $op = OriginalPfad $pfad
+        New-Item -ItemType Directory -Force -Path (Split-Path -Parent $op) | Out-Null
+        Copy-Item -Force $pfad $op
+        $Register[$pfad] = 'ersetzt'
+    }
+}
+function RegisterSchreiben {
+    New-Item -ItemType Directory -Force -Path $Zustand | Out-Null
+    $t = "# Art | Pfad (ersetzt = Original unter Original\, neu = gab es vorher nicht, p = war schon P_)`r`n"
+    foreach ($k in $Register.Keys) { $t += "$($Register[$k])|$k`r`n" }
+    [IO.File]::WriteAllText($DateiListe, $t, $Utf8)
+}
+# steht in jeder X-KeyPad-Konfiguration der P_-Profile
+function IstPKonfig($pfad) { (Test-Path $pfad) -and (Select-String -Path $pfad -SimpleMatch 'Einheitlicher Tastensatz STD' -Quiet) }
+
+# Stream-Deck-Software beenden und sicher warten, bis der Prozess weg ist (sonst schreibt sie alte Profile zurück)
+$script:sdExe = $null
+function StreamDeckBeenden {
+    $script:sdExe = (Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue | Select-Object -First 1).Path
+    if (-not $script:sdExe) { $script:sdExe = Join-Path $env:ProgramFiles 'Elgato\StreamDeck\StreamDeck.exe' }
+    Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue | Stop-Process -Force
+    for ($i = 0; $i -lt 40 -and (Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue); $i++) { Start-Sleep -Milliseconds 250 }
+    Start-Sleep -Seconds 3
 }
 
 function JsonLesen($p) { [IO.File]::ReadAllText($p, $Utf8) | ConvertFrom-Json }
@@ -252,6 +295,94 @@ $PluginTasten = @{}
 $TastenDatei = Join-Path $Hier 'X-Plane\plugin_tasten.txt'
 if (Test-Path $TastenDatei) { foreach ($z in @(Zeilen $TastenDatei)) { $PluginTasten[$z[0] + '|' + $z[1]] = $z[2].Split("`t") } }
 function Installiert($id) { Test-Path (Join-Path $SdProfile ($id.ToUpper() + '.sdProfile')) }
+
+# ---------- Wiederherstellen ----------
+if ($Wiederherstellen) {
+    if (XPlaneLaeuft) { Abbruch (T 'X-Plane läuft noch. Bitte X-Plane beenden und erneut starten.' 'X-Plane is still running. Please quit X-Plane and start again.') }
+    $titelW = (T 'P_-Profile – Wiederherstellen' 'P_ Profiles – Restore')
+    # Sicherungen: von Hand (Dokumente) und aus Updates, neueste zuerst
+    $sicherungen = @(@(Get-ChildItem ([Environment]::GetFolderPath('MyDocuments')) -Directory -Filter 'P_Profile_Sicherung_*' -ErrorAction SilentlyContinue) +
+                     @(Get-ChildItem (Join-Path $Zustand 'Sicherungen') -Directory -ErrorAction SilentlyContinue) |
+                     Sort-Object { $_.Name -replace '^.*?(\d{4}-\d\d-\d\d_\d{6})$', '$1' } -Descending)
+    $nOrig = @($Register.Values | Where-Object { $_ -eq 'ersetzt' -or $_ -eq 'neu' }).Count
+    $eintraege = @()
+    if ($nOrig) { $eintraege += (T 'Originalzustand vor den P_-Profilen' 'Original state before the P_ Profiles') }
+    foreach ($x in $sicherungen) {
+        $zeit = $x.Name -replace '^.*?(\d{4}-\d\d-\d\d)_(\d\d)(\d\d)\d\d$', '$1 $2:$3'
+        $eintraege += (T 'Sicherung vom ' 'Backup of ') + $zeit + $(if ($x.FullName -like '*\Sicherungen\*') { T ' (Update)' ' (update)' } else { '' })
+    }
+    if (-not $eintraege) { Abbruch (T 'Keine Sicherung gefunden.' 'No backup found.') }
+    $f = New-Object System.Windows.Forms.Form
+    $f.Text = $titelW; $f.StartPosition = 'CenterScreen'; $f.TopMost = $true; $f.FormBorderStyle = 'FixedDialog'
+    $f.ClientSize = New-Object System.Drawing.Size(460, 330); $f.MaximizeBox = $false; $f.MinimizeBox = $false
+    $l = New-Object System.Windows.Forms.Label; $l.Text = (T 'Was soll wiederhergestellt werden? Der aktuelle Stand wird vorher gesichert.' 'What should be restored? The current state is backed up first.')
+    $l.SetBounds(14, 10, 430, 36); $f.Controls.Add($l)
+    $lb = New-Object System.Windows.Forms.ListBox; $lb.SetBounds(14, 50, 430, 220); [void]$lb.Items.AddRange([object[]]$eintraege); $lb.SelectedIndex = 0; $f.Controls.Add($lb)
+    $ab = New-Object System.Windows.Forms.Button; $ab.Text = (T 'Abbrechen' 'Cancel'); $ab.SetBounds(214, 284, 110, 30); $ab.DialogResult = 'Cancel'
+    $ok = New-Object System.Windows.Forms.Button; $ok.Text = (T 'Wiederherstellen' 'Restore'); $ok.SetBounds(334, 284, 110, 30); $ok.DialogResult = 'OK'
+    $f.Controls.AddRange(@($ab, $ok)); $f.AcceptButton = $ok; $f.CancelButton = $ab
+    if ($f.ShowDialog() -ne 'OK') { Abbruch (T 'Abgebrochen.' 'Cancelled.') }
+    $wahl = $lb.SelectedIndex
+    function Frage($text) { [System.Windows.Forms.MessageBox]::Show($text, $titelW, 'YesNo') -eq 'Yes' }
+    $n = 0; $sdNeu = $false
+    if ($nOrig -and $wahl -eq 0) {
+        # Originalzustand: eigene Dateien zurück, von den P_-Profilen neu angelegte Dateien entfernen (vorher gesichert)
+        foreach ($pfad in @($Register.Keys)) {
+            $art = $Register[$pfad]
+            if ($art -eq 'ersetzt' -and (Test-Path (OriginalPfad $pfad))) { Sichern $pfad; Copy-Item -Force (OriginalPfad $pfad) $pfad; $n++; $Register.Remove($pfad) }
+            elseif ($art -eq 'neu') { if (Test-Path $pfad) { Sichern $pfad; Remove-Item -Force $pfad; $n++ }; $Register.Remove($pfad) }
+        }
+        RegisterSchreiben
+        Write-Host ("  OK $n " + (T 'Dateien auf den Originalzustand gesetzt.' 'files set to the original state.'))
+        if (Frage (T 'Auch die P_-Profile aus der Stream-Deck-Software entfernen und automatische Updates abschalten?' 'Also remove the P_ profiles from the Stream Deck software and turn off automatic updates?')) {
+            StreamDeckBeenden; Sichern $SdProfile
+            foreach ($p in $Profile) { foreach ($id in @($p.XL, $p.Plus)) { Remove-Item -Recurse -Force -ErrorAction SilentlyContinue (Join-Path $SdProfile ($id.ToUpper() + '.sdProfile')) } }
+            Unregister-ScheduledTask -TaskName $Aufgabe -Confirm:$false -ErrorAction SilentlyContinue
+            Remove-Item -Force -ErrorAction SilentlyContinue (Join-Path $Zustand 'update_helfer.ps1'), (Join-Path $Zustand 'installiert.txt')
+            Write-Host (T '  OK P_-Profile entfernt, automatische Updates aus.' '  OK P_ profiles removed, automatic updates off.')
+            $sdNeu = $true
+        }
+    } else {
+        # Sicherung: Dateien an ihren Originalpfad zurück; den Stream-Deck-Profilordner nur auf Nachfrage
+        $quelle = $sicherungen[$wahl - $(if ($nOrig) { 1 } else { 0 })].FullName
+        $sdRel = ($SdProfile -replace '^[A-Za-z]:', '').TrimStart('\')
+        $liste = @()
+        $inhalt = Join-Path $quelle 'inhalt.txt'
+        if (Test-Path $inhalt) { $liste = @(Zeilen $inhalt) }
+        else {                                    # ältere Sicherung ohne inhalt.txt: Pfade aus dem Ordneraufbau
+            $laufwerke = @(Get-PSDrive -PSProvider FileSystem | ForEach-Object { $_.Root.TrimEnd('\') })
+            foreach ($d in Get-ChildItem $quelle -Recurse -File) {
+                $rel = $d.FullName.Substring($quelle.Length).TrimStart('\')
+                if ($rel.StartsWith($sdRel + '\')) { continue }
+                $lw = @($laufwerke | Where-Object { Test-Path (Split-Path -Parent (Join-Path $_ $rel)) } | Select-Object -First 1)
+                if ($lw) { $liste += , @($rel, (Join-Path $lw[0] $rel)) }
+            }
+            if (Test-Path (Join-Path $quelle $sdRel)) { $liste += , @($sdRel, $SdProfile) }
+        }
+        $gesehen = @{}
+        foreach ($e in $liste) {
+            $rel, $pfad = $e[0], $e[1]
+            if ($gesehen.ContainsKey($pfad) -or -not (Test-Path (Join-Path $quelle $rel))) { continue }
+            $gesehen[$pfad] = $true
+            if ($pfad -eq $SdProfile) {
+                if (-not (Frage (T 'Diese Sicherung enthält auch die Stream-Deck-Profile. Alle Stream-Deck-Profile auf diesen Stand zurücksetzen? (Spätere Änderungen an eigenen Profilen gehen dabei verloren.)' 'This backup also contains the Stream Deck profiles. Reset all Stream Deck profiles to this state? (Later changes to your own profiles are lost.)'))) { continue }
+                StreamDeckBeenden; Sichern $SdProfile
+                Remove-Item -Recurse -Force $SdProfile
+                Copy-Item -Recurse -Force (Join-Path $quelle $rel) $SdProfile
+                $sdNeu = $true; $n++
+                continue
+            }
+            Sichern $pfad
+            New-Item -ItemType Directory -Force -Path (Split-Path -Parent $pfad) | Out-Null
+            Copy-Item -Force (Join-Path $quelle $rel) $pfad
+            $n++
+        }
+        Write-Host ("  OK $n " + (T 'Einträge wiederhergestellt aus ' 'entries restored from ') + $quelle)
+    }
+    if ($sdNeu) { if ($script:sdExe -and (Test-Path $script:sdExe)) { Start-Process $script:sdExe } else { Write-Host (T 'Bitte die Stream-Deck-Software jetzt von Hand starten.' 'Please start the Stream Deck software manually now.') } }
+    [System.Windows.Forms.MessageBox]::Show((T "Wiederherstellen abgeschlossen ($n Einträge).`n`nDer Stand davor ist gesichert unter:`n" "Restore complete ($n entries).`n`nThe previous state is backed up in:`n") + $Sicherung, $titelW) | Out-Null
+    exit 0
+}
 function HatPlugin($id, $uuid) {
     try { $a = Tasten (Startseite (Join-Path $SdProfile ($id.ToUpper() + '.sdProfile')))[1]
           return [bool]($a.PSObject.Properties | Where-Object { $_.Value.Plugin.UUID -eq $uuid }) }
@@ -329,9 +460,11 @@ foreach ($p in $Gewaehlt) {
         $ordner = @(AcfOrdner $z)
         if (-not $ordner) { Write-Host ('  – ' + $z.Acf + (T ': Flugzeug nicht gefunden, übersprungen' ': aircraft not found, skipped')); continue }
         foreach ($o in $ordner) {
+            $pOrdner = IstPKonfig (Join-Path $o (Split-Path -Leaf $z.Konfig.Replace('/', '\')))   # hatte schon P_-Dateien
             foreach ($d in @(if ($OhneKamera) { $z.Konfig } else { $z.Konfig; $z.Kamera })) {
                 $quelle = Join-Path $Hier ('X-Plane\Aircraft\' + $d.Replace('/', '\'))
                 $zielDatei = Join-Path $o (Split-Path -Leaf $quelle)
+                OriginalMerken $zielDatei $pOrdner
                 Sichern $zielDatei
                 if ($d -eq $z.Konfig -and $PluginsAus.Count) {
                     # Konfiguration mit unschädlich gemachten Tasten der abgewählten Plugins schreiben
@@ -350,12 +483,15 @@ if ($LuaGewaehlt) {
     if (-not (Test-Path $Skripte)) { Write-Host (T '  FlyWithLua ist nicht installiert – Skripte übersprungen.' '  FlyWithLua is not installed – scripts skipped.') }
     else {
         foreach ($l in $LuaGewaehlt) {
+            OriginalMerken (Join-Path $Skripte $l.Datei) $true       # P_*.lua sind immer Dateien der P_-Profile
             Sichern (Join-Path $Skripte $l.Datei)
             Copy-Item -Force (Join-Path $Hier ('X-Plane\FlyWithLua\Scripts\' + $l.Datei)) $Skripte
             Write-Host "  OK $($l.Datei)"
         }
     }
 }
+
+RegisterSchreiben
 
 # ---------- 7. Stream Deck ----------
 if (-not (Test-Path $SdProfile)) { Abbruch (T 'Stream-Deck-Profilordner nicht gefunden. Bitte die Stream-Deck-Software installieren, einmal mit angeschlossenen Geräten starten und den Installer erneut ausführen.' 'Stream Deck profile folder not found. Please install the Stream Deck software, start it once with the devices connected and run the installer again.') }
@@ -369,12 +505,8 @@ foreach ($d in Get-ChildItem $SdProfile -Directory -Filter '*.sdProfile') {
 if ($geraet[$ModellXL]) { Write-Host (T 'Stream Deck XL erkannt.' 'Stream Deck XL found.') } else { Write-Host (T 'Kein Stream Deck XL – XL-Profile übersprungen.' 'No Stream Deck XL – XL profiles skipped.') }
 if ($geraet[$ModellPlus]) { Write-Host (T 'Stream Deck + erkannt.' 'Stream Deck + found.') } else { Write-Host (T 'Kein Stream Deck + – Plus-Profile übersprungen.' 'No Stream Deck + – Plus profiles skipped.') }
 
-$sdExe = (Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue | Select-Object -First 1).Path
-if (-not $sdExe) { $sdExe = Join-Path $env:ProgramFiles 'Elgato\StreamDeck\StreamDeck.exe' }
-Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue | Stop-Process -Force
-# sicher warten, bis der Prozess weg ist – sonst schreibt die Software ihren alten Stand über die neuen Profile
-for ($i = 0; $i -lt 40 -and (Get-Process -Name 'StreamDeck' -ErrorAction SilentlyContinue); $i++) { Start-Sleep -Milliseconds 250 }
-Start-Sleep -Seconds 3
+StreamDeckBeenden
+$sdExe = $script:sdExe
 Sichern $SdProfile
 
 # Stream-Deck-Tasten, die auf X-KeyPad-Tasten abgewählter Plugins zeigen, aus allen Seiten eines Profils entfernen

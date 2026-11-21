@@ -1,6 +1,11 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.6 – 21.11.2026
+  - Sicherung und Wiederherstellen: Eigene X-KeyPad-Konfigurationen und X-Camera-Dateien, die der Installer
+    ersetzt, bleiben dauerhaft als Original erhalten. Neu: Wiederherstellen_macOS.command bzw.
+    Wiederherstellen_Windows.bat setzt auf den Originalzustand vor den P_-Profilen oder auf eine Sicherung zurück.
+
 Version 3.5 – 21.11.2026
   - Tasten wie im Cockpit: Auf allen Seiten liegen die Tasten so, wie die Schalter im Cockpit des jeweiligen
     Flugzeugs liegen – auch Autopilot und EFIS (ermittelt aus den 3D-Cockpits). Unverändert: FlightFactor

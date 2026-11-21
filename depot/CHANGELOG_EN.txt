@@ -1,6 +1,11 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.6 – 21 November 2026
+  - Backup and restore: your own X-KeyPad configurations and X-Camera files that the installer replaces are
+    kept permanently as originals. New: Wiederherstellen_macOS.command or Wiederherstellen_Windows.bat restores
+    the original state before the P_ Profiles or a backup.
+
 Version 3.5 – 21 November 2026
   - Keys as in the cockpit: on every page the keys are arranged the way the switches sit in the cockpit of the
     respective aircraft – including autopilot and EFIS (taken from the 3D cockpits). Unchanged: FlightFactor

@@ -15,6 +15,8 @@ Profiles for the **Elgato Stream Deck XL** and **Stream Deck +** with the X-Plan
 2. Run the installer in the folder (X-Plane closed), choose the language and the aircraft, then “Install”.
 3. Updates come via the **SkunkCrafts Updater** (4.x), which finds the folder by itself. With “Automatic updates”
    the installer window opens by itself after every update.
+4. **Restore:** `Wiederherstellen_macOS.command` / `Wiederherstellen_Windows.bat` brings back your own configurations
+   (original state before the P_ Profiles) or any backup the installer made.
 
 The updater depot lives in [`depot/`](depot) and is served from
 `https://raw.githubusercontent.com/Monoid12/Xplane-XKeyPad-Profiles/main/depot`.

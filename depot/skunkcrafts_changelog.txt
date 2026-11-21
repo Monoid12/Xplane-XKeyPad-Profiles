@@ -1,3 +1,6 @@
+3.6
+- Backup and restore: your own X-KeyPad configurations and X-Camera files that the installer replaces are kept permanently as originals. New: Wiederherstellen_macOS.command or Wiederherstellen_Windows.bat restores the original state before the P_ Profiles or a backup.
+
 3.5
 - Keys as in the cockpit: on every page the keys are arranged the way the switches sit in the cockpit of the respective aircraft – including autopilot and EFIS (taken from the 3D cockpits). Unchanged: FlightFactor (already arranged this way), ToLiss A319–A321 (by hand), DOORS (fuselage from above), home page.
 - Language selectable: Deutsch or English before installing (English: PREV, NEXT, MUTE, DEAF, BACK).

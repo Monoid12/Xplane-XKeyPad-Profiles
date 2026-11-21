@@ -37,14 +37,22 @@
 // abgelegt hat. „Später“ merkt Version und Zeitpunkt in abgelehnt.txt; der Helfer fragt nach 12 Stunden erneut.
 //
 // Jede ersetzte Datei und der Stream-Deck-Profilordner werden vorher gesichert: nach ~/Documents/P_Profile_Sicherung_
-// <Zeit>/, im Update-Modus nach ~/Library/Application Support/P_Profile/Sicherungen/<Zeit>/ (die letzten drei bleiben).
+// <Zeit>/, im Update-Modus nach ~/Library/Application Support/P_Profile/Sicherungen/<Zeit>/ (die letzten drei bleiben);
+// inhalt.txt in der Sicherung nennt den Originalpfad jedes Eintrags.
+// Originale: Ersetzt der Installer eine Flugzeugdatei oder ein Lua-Skript, das nicht von den P_-Profilen stammt (z. B. eine
+// eigene X-KeyPad-Konfiguration), kommt sie einmalig und dauerhaft nach ~/Library/Application Support/P_Profile/Original/
+// <voller Pfad>; dateien.txt merkt je Datei „ersetzt“ (Original liegt vor), „neu“ (gab es vorher nicht) oder „p“ (war
+// schon eine P_-Datei, z. B. aus einer Version vor diesem Verfahren).
+// Wiederherstellen (Argument --wiederherstellen, gestartet von Wiederherstellen_macOS.command): Auswahl „Originalzustand
+// vor den P_-Profilen“ oder einer Sicherung; der aktuelle Stand wird vorher selbst gesichert.
 // Paketdateien: StreamDeck/profile.txt (Kreisfolge), X-Plane/zuordnung.txt, X-Plane/FlyWithLua/lua.txt,
 // X-Plane/plugins.txt, X-Plane/plugin_tasten.txt (optionale Plugins, siehe plugins_optional.py), StreamDeck/update_helfer.sh.
 // Gemerkte Plugin-Wahl: ~/Library/Application Support/P_Profile/plugins.txt (Zeilen „Kürzel=1|0“).
 // Testmodus (nur Entwicklung): Umgebungsvariablen P_TEST_SD (Profilordner), P_TEST_XP (X-Plane-Ordner),
 // P_TEST_ZUSTAND (Ordner für Zustand, Helfer und LaunchAgent-Datei), P_TEST_WAHL (Kürzel, kommagetrennt),
 // P_TEST_LUA (Dateien, kommagetrennt), P_TEST_AERO (an|aus), P_TEST_DISCORD (an|aus, nicht gesetzt = an),
-// P_TEST_SPRACHE (de|en, nicht gesetzt = Systemsprache), P_TEST_HELFER (an|aus), P_TEST_PLUGINS (Kürzel,
+// P_TEST_SPRACHE (de|en, nicht gesetzt = Systemsprache), P_TEST_HELFER (an|aus), P_TEST_WIEDER (Wiederherstellen:
+// „original“ oder Nummer der Sicherung in der Liste, 1 = neueste), P_TEST_SDZURUECK (an|aus), P_TEST_PLUGINS (Kürzel,
 // kommagetrennt; „keine“ = alle ab; nicht gesetzt = alle an) ersetzen Ordner und Fenster;
 // P_TEST_BILD (Pfad .png, dazu P_TEST_HELL an|aus) speichert nur das Fenster als Bild;
 // die Stream-Deck-Software wird dann weder beendet noch gestartet, launchctl wird nicht aufgerufen.
@@ -359,6 +367,126 @@ function run(argv) {
   if (existiert(HIER + '/X-Plane/plugin_tasten.txt'))
     for (const [kurz, plugin, namen] of zeilen(HIER + '/X-Plane/plugin_tasten.txt')) pluginTasten[kurz + '|' + plugin] = new Set(namen.split('\t'));
 
+  // ---------- Sicherung und Originale ----------
+  // Sicherung: Kopie unter SICHERUNG/<Pfad ohne Home bzw. ohne führenden />, Originalpfad in SICHERUNG/inhalt.txt
+  const sichern = (pfad) => {
+    if (!existiert(pfad)) return;
+    const rel = pfad.startsWith(HOME + '/') ? pfad.slice(HOME.length + 1) : pfad.replace(/^\//, '');
+    sh('mkdir -p ' + q(SICHERUNG + '/' + rel.replace(/\/[^/]+$/, '')) + ' && cp -Rp ' + q(pfad) + ' ' + q(SICHERUNG + '/' + rel));
+    sh("printf '%s\\n' " + q(rel + '|' + pfad) + ' >> ' + q(SICHERUNG + '/inhalt.txt'));
+  };
+  const ORIGINAL = ZUSTAND + '/Original', DATEILISTE = ZUSTAND + '/dateien.txt';
+  const register = {};                              // Pfad → ersetzt | neu | p
+  if (existiert(DATEILISTE)) for (const [art, pfad] of zeilen(DATEILISTE)) register[pfad] = art;
+  const P_KENNUNG = 'Einheitlicher Tastensatz STD';  // steht in jeder X-KeyPad-Konfiguration der P_-Profile
+  // vor dem Ersetzen: beim ersten Mal das Original dauerhaft ablegen (eigene Datei) bzw. merken, dass es keins gab
+  function originalMerken(pfad, istP) {
+    if (pfad in register) return;
+    if (!existiert(pfad)) register[pfad] = 'neu';
+    else if (istP) register[pfad] = 'p';
+    else {
+      sh('mkdir -p ' + q(ORIGINAL + pfad.replace(/\/[^/]+$/, '')) + ' && cp -p ' + q(pfad) + ' ' + q(ORIGINAL + pfad));
+      register[pfad] = 'ersetzt';
+    }
+  }
+  const registerSchreiben = () => {
+    sh('mkdir -p ' + q(ZUSTAND));
+    schreiben(DATEILISTE, '# Art | Pfad (ersetzt = Original unter Original/, neu = gab es vorher nicht, p = war schon P_)\n' +
+              Object.entries(register).map(([pfad, art]) => art + '|' + pfad).join('\n') + '\n');
+  };
+  const istPKonfig = (pfad) => existiert(pfad) && sh('grep -c ' + q(P_KENNUNG) + ' ' + q(pfad) + ' || true') !== '0';
+
+  const SD_PROZESS = 'Elgato Stream Deck.app/Contents/MacOS/Stream Deck';
+  function streamDeckBeenden() {                    // sicher warten, bis der Prozess weg ist (sonst schreibt er alte Profile)
+    if (TEST) return;
+    if (UPDATE) sh('pkill -TERM -f ' + q(SD_PROZESS) + ' 2>/dev/null; true');
+    else sh("pgrep -qf " + q(SD_PROZESS) + " && osascript -e 'tell application \"Elgato Stream Deck\" to quit' >/dev/null 2>&1; true");
+    sh('for i in $(seq 1 40); do pgrep -qf ' + q(SD_PROZESS) + ' || break; sleep 0.25; done; ' +
+       'pkill -9 -f ' + q(SD_PROZESS) + ' 2>/dev/null; sleep 3; true');
+  }
+
+  // ---------- Wiederherstellen ----------
+  if (argv.includes('--wiederherstellen')) {
+    if (xpLaeuft()) abbruch(T('X-Plane läuft noch. Bitte X-Plane beenden und erneut starten.', 'X-Plane is still running. Please quit X-Plane and start again.'));
+    // Sicherungen: von Hand (Dokumente) und aus Updates, neueste zuerst
+    const ordnerVon = (basis, muster) => (sh('ls -1d ' + q(basis) + '/' + muster + ' 2>/dev/null || true').split(/\r|\n/).filter(Boolean));
+    const sicherungen = ordnerVon((TEST ? umgebung('P_TEST_XP') + '/..' : HOME + '/Documents'), 'P_Profile_Sicherung_*')
+      .concat(ordnerVon(ZUSTAND + '/Sicherungen', '20*'))
+      .map((o) => ({ o, zeit: o.replace(/^.*?(\d{4}-\d\d-\d\d)_(\d\d)(\d\d)(\d\d)$/, '$1 $2:$3') }))
+      .sort((a, b) => (a.zeit < b.zeit ? 1 : -1));
+    const nOrig = Object.values(register).filter((a) => a === 'ersetzt' || a === 'neu').length;
+    const eintraege = (nOrig ? [T('Originalzustand vor den P_-Profilen', 'Original state before the P_ Profiles')] : [])
+      .concat(sicherungen.map((x) => T('Sicherung vom ', 'Backup of ') + x.zeit + (x.o.includes('/Sicherungen/') ? T(' (Update)', ' (update)') : '')));
+    if (!eintraege.length) abbruch(T('Keine Sicherung gefunden.', 'No backup found.'));
+    let wahl;
+    if (TEST) { const w = umgebung('P_TEST_WIEDER'); wahl = w === 'original' ? eintraege[0] : eintraege[(nOrig ? 0 : -1) + Number(w)]; }
+    else {
+      const r = app.chooseFromList(eintraege, { withTitle: T('P_-Profile – Wiederherstellen', 'P_ Profiles – Restore'),
+        withPrompt: T('Was soll wiederhergestellt werden? Der aktuelle Stand wird vorher gesichert.',
+                      'What should be restored? The current state is backed up first.'),
+        okButtonName: T('Wiederherstellen', 'Restore'), cancelButtonName: T('Abbrechen', 'Cancel') });
+      if (r === false) abbruch(T('Abgebrochen.', 'Cancelled.'));
+      wahl = r[0];
+    }
+    const frage = (text) => TEST ? umgebung('P_TEST_SDZURUECK') === 'an'
+      : app.displayDialog(text, { buttons: [T('Nein', 'No'), T('Ja', 'Yes')], defaultButton: T('Nein', 'No'),
+                                  withTitle: T('P_-Profile – Wiederherstellen', 'P_ Profiles – Restore') }).buttonReturned === T('Ja', 'Yes');
+    let n = 0, sdNeu = false;
+    if (nOrig && wahl === eintraege[0]) {
+      // Originalzustand: eigene Dateien zurück, von den P_-Profilen neu angelegte Dateien entfernen (vorher gesichert)
+      for (const [pfad, art] of Object.entries(register)) {
+        if (art === 'ersetzt' && existiert(ORIGINAL + pfad)) { sichern(pfad); sh('cp -p ' + q(ORIGINAL + pfad) + ' ' + q(pfad)); n++; delete register[pfad]; }
+        else if (art === 'neu') { if (existiert(pfad)) { sichern(pfad); sh('rm -f ' + q(pfad)); n++; } delete register[pfad]; }
+      }
+      registerSchreiben();
+      log(T('  ✓ ', '  ✓ ') + n + T(' Dateien auf den Originalzustand gesetzt.', ' files set to the original state.'));
+      if (frage(T('Auch die P_-Profile aus der Stream-Deck-Software entfernen und automatische Updates abschalten?',
+                  'Also remove the P_ profiles from the Stream Deck software and turn off automatic updates?'))) {
+        streamDeckBeenden(); sichern(SD);
+        for (const p of profile) for (const id of [p.xl, p.plus]) sh('rm -rf ' + q(SD + '/' + id.toUpperCase() + '.sdProfile'));
+        const plist = (TEST ? ZUSTAND : HOME + '/Library/LaunchAgents') + '/' + AGENT + '.plist';
+        if (!TEST) sh('launchctl bootout gui/' + sh('id -u') + '/' + AGENT + ' 2>/dev/null; true');
+        sh('rm -f ' + q(plist) + ' ' + q(ZUSTAND + '/update_helfer.sh') + ' ' + q(ZUSTAND + '/installiert.txt'));
+        log(T('  ✓ P_-Profile entfernt, automatische Updates aus.', '  ✓ P_ profiles removed, automatic updates off.'));
+        sdNeu = true;
+      }
+    } else {
+      // Sicherung: Dateien an ihren Originalpfad zurück; den Stream-Deck-Profilordner nur auf Nachfrage
+      const quelle = sicherungen[eintraege.indexOf(wahl) - (nOrig ? 1 : 0)].o;
+      let liste = existiert(quelle + '/inhalt.txt') ? zeilen(quelle + '/inhalt.txt') : null;
+      if (!liste) {                                 // ältere Sicherung ohne inhalt.txt: Pfade aus dem Ordneraufbau
+        const sdRel = SD.startsWith(HOME + '/') ? SD.slice(HOME.length + 1) : SD.replace(/^\//, '');
+        liste = sh('cd ' + q(quelle) + ' && find . -type f ! -path ' + q('./' + sdRel + '/*') + ' | sed "s|^\\./||" || true')
+          .split(/\r|\n/).filter(Boolean).map((rel) => [rel, existiert(HOME + '/' + rel.replace(/\/[^/]+$/, '')) ? HOME + '/' + rel : '/' + rel]);
+        if (existiert(quelle + '/' + sdRel)) liste.push([sdRel, SD]);
+      }
+      const gesehen = new Set();
+      for (const [rel, pfad] of liste) {
+        if (gesehen.has(pfad) || !existiert(quelle + '/' + rel)) continue;
+        gesehen.add(pfad);
+        if (pfad === SD) {
+          if (!frage(T('Diese Sicherung enthält auch die Stream-Deck-Profile. Alle Stream-Deck-Profile auf diesen Stand ' +
+                       'zurücksetzen? (Spätere Änderungen an eigenen Profilen gehen dabei verloren.)',
+                       'This backup also contains the Stream Deck profiles. Reset all Stream Deck profiles to this state? ' +
+                       '(Later changes to your own profiles are lost.)'))) continue;
+          streamDeckBeenden(); sichern(SD);
+          sh('rm -rf ' + q(SD) + ' && cp -Rp ' + q(quelle + '/' + rel) + ' ' + q(SD));
+          sdNeu = true; n++;
+          continue;
+        }
+        sichern(pfad);
+        sh('mkdir -p ' + q(pfad.replace(/\/[^/]+$/, '')) + ' && cp -p ' + q(quelle + '/' + rel) + ' ' + q(pfad));
+        n++;
+      }
+      log(T('  ✓ ', '  ✓ ') + n + T(' Einträge wiederhergestellt aus ', ' entries restored from ') + quelle);
+    }
+    if (sdNeu && !TEST) sh('open -a "Elgato Stream Deck" || true');
+    if (!TEST) app.displayDialog(T('Wiederherstellen abgeschlossen (' + n + ' Einträge).\n\nDer Stand davor ist gesichert unter:\n',
+                                   'Restore complete (' + n + ' entries).\n\nThe previous state is backed up in:\n') + SICHERUNG,
+                                 { buttons: ['OK'], defaultButton: 'OK', withTitle: T('P_-Profile', 'P_ Profiles') });
+    return;
+  }
+
   // Startseite eines XL-Profils: [Seitenordner, Manifest]; Tasten einer Seite
   function startseite(wurzel) {
     const m = JSON.parse(lesen(wurzel + '/manifest.json'));
@@ -461,12 +589,6 @@ function run(argv) {
     delay(5);
   }
 
-  const sichern = (pfad) => {
-    if (!existiert(pfad)) return;
-    const rel = pfad.startsWith(HOME + '/') ? pfad.slice(HOME.length + 1) : pfad.replace(/^\//, '');
-    sh('mkdir -p ' + q(SICHERUNG + '/' + rel.replace(/\/[^/]+$/, '')) + ' && cp -Rp ' + q(pfad) + ' ' + q(SICHERUNG + '/' + rel));
-  };
-
   // ---------- 6. Flugzeugdateien ----------
   log(T('\nFlugzeugdateien:', '\nAircraft files:'));
   for (const p of gewaehlt) {
@@ -474,8 +596,10 @@ function run(argv) {
       const ordner = acfOrdner(z);
       if (!ordner.length) { log('  – ' + z.acf + T(': Flugzeug nicht gefunden, übersprungen', ': aircraft not found, skipped')); continue; }
       for (const o of ordner) {
+        const pOrdner = istPKonfig(o + '/' + z.konfig.replace(/^.*\//, ''));   // Flugzeug hatte schon P_-Dateien
         for (const d of ohneKamera ? [z.konfig] : [z.konfig, z.kamera]) {
           const ziel = o + '/' + d.replace(/^.*\//, '');
+          originalMerken(ziel, pOrdner);
           sichern(ziel);
           if (d === z.konfig && pluginsAus.length) {
             // Konfiguration mit unschädlich gemachten Tasten der abgewählten Plugins schreiben
@@ -493,11 +617,14 @@ function run(argv) {
   if (luaGewaehlt.length) {
     if (!existiert(SKRIPTE)) log(T('  FlyWithLua ist nicht installiert – Skripte übersprungen.', '  FlyWithLua is not installed – scripts skipped.'));
     else for (const l of luaGewaehlt) {
+      originalMerken(SKRIPTE + '/' + l.datei, true);          // P_*.lua sind immer eigene Dateien der P_-Profile
       sichern(SKRIPTE + '/' + l.datei);
       sh('cp ' + q(HIER + '/X-Plane/FlyWithLua/Scripts/' + l.datei) + ' ' + q(SKRIPTE + '/'));
       log('  ✓ ' + l.datei);
     }
   }
+
+  registerSchreiben();
 
   // ---------- 7. Stream Deck ----------
   if (!existiert(SD)) abbruch(T('Stream-Deck-Profilordner nicht gefunden. Bitte die Stream-Deck-Software installieren, einmal mit ' +
@@ -518,13 +645,7 @@ function run(argv) {
 
   // Stream Deck beenden und sicher warten, bis der Prozess weg ist – sonst schreibt es beim Beenden seinen alten Stand
   // über die neuen Profile. Im Update-Modus per Signal statt Apple Event (keine Automations-Rückfrage im Hintergrund).
-  const SD_PROZESS = 'Elgato Stream Deck.app/Contents/MacOS/Stream Deck';
-  if (!TEST) {
-    if (UPDATE) sh('pkill -TERM -f ' + q(SD_PROZESS) + ' 2>/dev/null; true');
-    else sh("osascript -e 'tell application \"Elgato Stream Deck\" to quit' >/dev/null 2>&1 || true");
-    sh('for i in $(seq 1 40); do pgrep -qf ' + q(SD_PROZESS) + ' || break; sleep 0.25; done; ' +
-       'pkill -9 -f ' + q(SD_PROZESS) + ' 2>/dev/null; sleep 3; true');
-  }
+  streamDeckBeenden();
   sichern(SD);
 
   // Stream-Deck-Tasten, die auf X-KeyPad-Tasten abgewählter Plugins zeigen, aus allen Seiten eines Profils entfernen
