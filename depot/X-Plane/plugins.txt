@@ -1,0 +1,6 @@
+# Kürzel | Ordner in Resources/plugins | Präfixe der Kommandos/Datarefs | Anzeigename
+bp|BetterPushback|BetterPushback/,bp/|Better Pushback
+slm|SimLoadManager|SimLoadManager/|SimLoad
+xc|X-Camera|SRS/X-Camera/|X-Camera
+avi|AviTab|AviTab/|AviTab
+xp|xPilot|xpilot/|xPilot

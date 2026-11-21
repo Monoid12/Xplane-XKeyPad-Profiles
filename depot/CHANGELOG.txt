@@ -1,6 +1,24 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.5 – 21.11.2026
+  - Tasten wie im Cockpit: Auf allen Seiten liegen die Tasten so, wie die Schalter im Cockpit des jeweiligen
+    Flugzeugs liegen – auch Autopilot und EFIS (ermittelt aus den 3D-Cockpits). Unverändert: FlightFactor
+    (schon so angeordnet), ToLiss A319–A321 (von Hand), DOORS (Rumpf von oben), Startseite.
+  - Sprache wählbar: vor der Installation Deutsch oder English (englisch: PREV, NEXT, MUTE, DEAF, BACK).
+  - Discord-Tasten STUMM/TAUB im Installer ausblendbar.
+  - Ordner P_Profile liegt jetzt in X-Plane 12/Resources/plugins; der Installer verschiebt ihn dorthin.
+  - ToLiss: Ordner MFD, Fire und XPDR im einheitlichen Design; Engines mit übereinander liegenden
+    Schubrasten, TAXI/REV daneben (A320-Familie mit neuer REV-Taste); Air/Bleed wie das AIR-COND-Panel.
+  - Plugins wählbar: X-Camera, Better Pushback, SimLoad, AviTab und xPilot sind nicht mehr Pflicht. Der
+    Installer erkennt sie im Ordner Resources/plugins und hakt sie im Fenster an. Ein abgewähltes Plugin
+    wird weggelassen: seine Stream-Deck-Tasten und leer gewordene Ordner entfallen (der Platz bleibt leer),
+    seine Kommandos lösen in der X-KeyPad-Konfiguration nichts mehr aus – die Konfiguration lädt also auch
+    ohne das Plugin. Die Wahl gilt auch für spätere Updates.
+
+  EN: X-Camera, Better Pushback, SimLoad, AviTab and xPilot are now optional – the installer detects them,
+  and an unticked plugin's keys are left out so the configuration loads without it.
+
 Version 3.4 – 21.11.2026
   - Neu: Embraer E-Jets von X-Crafts – E170, E175, E190, E195 und Lineage 1000, je ein eigenes Profil
     (P_E170X, P_E175X, P_E190X, P_E195X, P_LINX) mit X-Camera-Sichten 1–15; Lineage mit Kabinenseite.

@@ -1,9 +1,10 @@
-P_-Profile für X-Plane 12 – Version 3.2
-Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
+P_-Profile für X-Plane 12 – Version 3.5
+Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad – Tasten wie im Cockpit
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (English: see README.txt)
 
-68 Flugzeuge, 110 Profile (55 je Stream Deck XL und Stream Deck +):
+73 Flugzeuge, 120 Profile (je 60 für Stream Deck XL und Stream Deck +)
+
  Airliner
   Zibo / LevelUp 737-800 Zibo, 737-600, 737-700, 737-800 (LevelUp)
   FlyJSim        737-200 TwinJet, Dash 8-400 (Q4XP)
@@ -18,6 +19,7 @@ Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
   Rotate         MD-11, MD-11F
   DeltaWing      ATR 72-600
   X-Crafts       ERJ 135, ERJ 140, ERJ 145, ERJ 145XR, Legacy 600
+                 E170, E175, E190, E195, Lineage 1000
   Just Flight    BAe 146-100, -200, -300
   Colimata       Concorde
  Business Jets
@@ -35,29 +37,29 @@ Einheitliche Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.2.pdf
+Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.5.pdf
 
-KURZANLEITUNG
-1. Voraussetzungen installieren (Handbuch Kapitel 2):
-   X-KeyPad (registriert), X-Camera, FlyWithLua NG+, BetterPushback,
-   SimLoad Manager, AviTab, xPilot.
-   Optional: Discord-Plugin für Stream Deck, AeroACARS (German Sky Group).
-2. Stream-Deck-Software einmal mit angeschlossenen Geräten starten.
-3. X-Plane beenden.
-4. Installer starten:
+VORAUSSETZUNGEN
+  Pflicht:  X-Plane 12, Stream-Deck-Software (ab 7.1), X-KeyPad (registriert), FlyWithLua NG+
+  Optional: X-Camera, BetterPushback, SimLoad Manager, AviTab, xPilot – der Installer erkennt sie
+            und lässt die Tasten fehlender Plugins weg; Discord-Plugin für Stream Deck;
+            AeroACARS (German Sky Group)
+
+INSTALLATION
+1. Stream-Deck-Software einmal mit angeschlossenen Geräten starten.
+2. X-Plane beenden.
+3. Den Ordner „P_Profile“ nach „X-Plane 12/Resources/plugins“ legen.
+4. Installer im Ordner starten:
    macOS:   Installieren_macOS.command  (Rechtsklick › Öffnen)
    Windows: Installieren_Windows.bat    (Doppelklick)
-   Im Installer-Fenster: Profile, FlyWithLua-Skripte (vorbelegt: die nötigen),
-   AeroACARS-Kacheln und automatische Updates wählen, dann „Installieren“.
-5. In der Stream-Deck-Software das Profil des Flugzeugs wählen (z. B. P_A320 oder P_C172),
+5. Sprache wählen, im Fenster Profile, Plugins und Zusätze prüfen, dann „Installieren“.
+6. In der Stream-Deck-Software das Profil des Flugzeugs wählen (z. B. P_A320);
    danach wechseln VOR/ZURÜCK auf dem XL beide Geräte gemeinsam.
 
-Ein erneuter Aufruf des Installers installiert weitere Profile nach und
-verknüpft den Kreis VOR/ZURÜCK über alle installierten P_-Profile neu.
-Der Installer sichert alle Dateien, die er ersetzt, nach
-Dokumente/P_Profile_Sicherung_<Datum>.
+Ein erneuter Aufruf installiert weitere Profile nach. Ersetzte Dateien sichert der
+Installer nach Dokumente/P_Profile_Sicherung_<Datum>.
 
 UPDATES
-Den Ordner „P_Profile“ ins X-Plane-12-Hauptverzeichnis legen; der SkunkCrafts Updater hält ihn
-aktuell. Mit „Automatische Updates: Ja“ im Installer öffnet sich nach jedem Update von selbst
-ein Fenster mit deinen Profilen – „Installieren“ spielt alles ein (Handbuch Kapitel 3.9).
+Der SkunkCrafts Updater findet den Ordner „P_Profile“ in „Resources/plugins“ selbst und hält
+ihn aktuell. Mit „Automatische Updates“ öffnet sich nach jedem Update das Installer-Fenster
+von selbst (Handbuch Kapitel 3.9).

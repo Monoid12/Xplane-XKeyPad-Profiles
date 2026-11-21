@@ -3,7 +3,8 @@
 #
 # Vom Installer als LaunchAgent com.p-profile.update eingerichtet (~/Library/LaunchAgents/com.p-profile.update.plist)
 # und nach ~/Library/Application Support/P_Profile/update_helfer.sh kopiert. launchd startet ihn, wenn sich der Ordner
-# <X-Plane>/P_Profile ändert (SkunkCrafts Updater), alle 30 Minuten und bei der Anmeldung.
+# P_Profile ändert (SkunkCrafts Updater), alle 30 Minuten und bei der Anmeldung. Der Ordner liegt in
+# <X-Plane>/Resources/plugins/P_Profile, bei älteren Installationen noch direkt in <X-Plane>/P_Profile.
 #
 # Er startet den Installer im Update-Modus (Fenster mit den Profilen), wenn
 #   - im Ordner P_Profile eine NEUERE Version liegt als die zuletzt installierte (installiert.txt),
@@ -21,7 +22,8 @@ emulate -L zsh
 autoload -Uz is-at-least
 
 XP="$1"
-PP="$XP/P_Profile"
+PP="$XP/Resources/plugins/P_Profile"
+[[ -d "$PP" ]] || PP="$XP/P_Profile"
 ZUSTAND="${P_TEST_ZUSTAND:-$HOME/Library/Application Support/P_Profile}"   # P_TEST_*: nur Entwicklung
 WARTEN=${P_TEST_WARTEN:-30}
 zeit() { date '+%Y-%m-%d %H:%M:%S' }

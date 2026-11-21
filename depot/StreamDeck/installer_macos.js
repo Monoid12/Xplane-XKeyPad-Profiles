@@ -2,21 +2,35 @@
 // oder im Update-Modus vom Update-Helfer)
 //
 // Ablauf:
-//   1. Prüfen: X-Plane beendet (im Update-Modus: warten, bis X-Plane beendet ist), X-Plane-Ordner (der Ordner über
-//      P_Profile, sonst Standard ~/X-Plane 12, sonst Auswahl).
+//   0. Sprache Deutsch/English wählen (vorbelegt: bisherige Wahl, sonst Systemsprache; Update-Modus: bisherige Wahl
+//      ohne Frage). Sie gilt für die Texte des Installers und für die Tastentexte auf dem Stream Deck: Deutsch
+//      ZURÜCK/VOR/STUMM/TAUB, Englisch PREV/NEXT/MUTE/DEAF und BACK auf den Unterseiten (Bilder aus StreamDeck/Sprache).
+//   1. Prüfen: X-Plane beendet (im Update-Modus: warten, bis X-Plane beendet ist), X-Plane-Ordner (P_Profile liegt in
+//      <X-Plane>/Resources/plugins oder – ältere Versionen – direkt in <X-Plane>; sonst Standard ~/X-Plane 12, sonst Auswahl).
 //   2.–5. Ein Fenster (Cocoa, Rückfallebene: Einzeldialoge) mit allen Wahlmöglichkeiten:
 //   2. Profile (Kästchen mit Status installiert / Flugzeug vorhanden / nicht gefunden). Vorbelegt: bereits installierte P_-Profile und Profile, deren Flugzeug
 //      im Aircraft-Ordner gefunden wird (Update-Modus: nur die installierten). Ein erneuter Aufruf installiert weitere
 //      Profile nach.
 //   3. FlyWithLua-Skripte (optional, vorbelegt: die für die gewählten Flugzeuge nötigen; Update-Modus:
 //      zusätzlich die bereits installierten).
-//   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (vorbelegt: bisherige Wahl).
+//   4. AeroACARS-Kacheln (Startseite XL, Reihe 4, 7 Tasten) anzeigen oder ausblenden (vorbelegt: bisherige Wahl);
+//      ebenso die Discord-Tasten STUMM/TAUB (Startseite XL 6,0 und 7,0; vorbelegt: bisherige Wahl, bei der ersten
+//      Installation: Discord-Plugin der Stream-Deck-Software vorhanden).
 //   5. Automatische Updates: Update-Helfer einrichten oder entfernen (vorbelegt: ja).
+//   Plugins: Better Pushback, SimLoad, X-Camera, AviTab, xPilot je ein Kästchen (vorbelegt: Ordner in
+//      Resources/plugins vorhanden; Update-Modus: bisherige Wahl). Ein abgewähltes Plugin gilt für die gewählten
+//      Profile: Kommandos des Plugins in der X-KeyPad-Konfiguration → sim/none/none, Datarefs → leer (reiner Textersatz,
+//      sonst verwirft X-KeyPad die ganze Konfiguration); Stream-Deck-Tasten auf diese X-KeyPad-Tasten entfallen, ebenso
+//      Ordner, deren Seite danach nur noch die Zurück-Taste hat (der Platz bleibt leer); ohne X-Camera keine Sichten-Datei.
 //   6. Flugzeugdateien (X-KeyPad-Konfiguration, X-Camera-Sichten) neben die passende .acf-Datei kopieren.
-//   7. Stream-Deck-Profile kopieren (Geräte-Platzhalter → eigene Geräte), danach Vor/Zurück aller installierten
+//   7. Stream-Deck-Profile kopieren (Geräte-Platzhalter → eigene Geräte, Tasten abgewählter Plugins entfernen), danach
+//      Vor/Zurück aller installierten
 //      P_-Profile im Kreis neu verknüpfen (nur gewählte + bereits installierte) und die AeroACARS-Wahl auf alle
 //      installierten P_-Profile anwenden.
 //   8. Installierte Version merken (~/Library/Application Support/P_Profile/installiert.txt), Helfer einrichten.
+//   9. Liegt der Ordner P_Profile noch direkt in <X-Plane>, verschiebt der Installer ihn zum Schluss nach
+//      <X-Plane>/Resources/plugins/P_Profile (ein dort schon vorhandener Ordner wandert in die Sicherung). Der SkunkCrafts
+//      Updater findet ihn dort ebenso.
 //
 // Update-Modus (Argument --aktualisieren): Der Update-Helfer (update_helfer.sh, LaunchAgent com.p-profile.update)
 // startet den Installer aus dem Ordner X-Plane 12/P_Profile, sobald der SkunkCrafts Updater dort eine neuere Version
@@ -25,10 +39,13 @@
 // Jede ersetzte Datei und der Stream-Deck-Profilordner werden vorher gesichert: nach ~/Documents/P_Profile_Sicherung_
 // <Zeit>/, im Update-Modus nach ~/Library/Application Support/P_Profile/Sicherungen/<Zeit>/ (die letzten drei bleiben).
 // Paketdateien: StreamDeck/profile.txt (Kreisfolge), X-Plane/zuordnung.txt, X-Plane/FlyWithLua/lua.txt,
-// StreamDeck/update_helfer.sh.
+// X-Plane/plugins.txt, X-Plane/plugin_tasten.txt (optionale Plugins, siehe plugins_optional.py), StreamDeck/update_helfer.sh.
+// Gemerkte Plugin-Wahl: ~/Library/Application Support/P_Profile/plugins.txt (Zeilen „Kürzel=1|0“).
 // Testmodus (nur Entwicklung): Umgebungsvariablen P_TEST_SD (Profilordner), P_TEST_XP (X-Plane-Ordner),
 // P_TEST_ZUSTAND (Ordner für Zustand, Helfer und LaunchAgent-Datei), P_TEST_WAHL (Kürzel, kommagetrennt),
-// P_TEST_LUA (Dateien, kommagetrennt), P_TEST_AERO (an|aus), P_TEST_HELFER (an|aus) ersetzen Ordner und Fenster;
+// P_TEST_LUA (Dateien, kommagetrennt), P_TEST_AERO (an|aus), P_TEST_DISCORD (an|aus, nicht gesetzt = an),
+// P_TEST_SPRACHE (de|en, nicht gesetzt = Systemsprache), P_TEST_HELFER (an|aus), P_TEST_PLUGINS (Kürzel,
+// kommagetrennt; „keine“ = alle ab; nicht gesetzt = alle an) ersetzen Ordner und Fenster;
 // P_TEST_BILD (Pfad .png, dazu P_TEST_HELL an|aus) speichert nur das Fenster als Bild;
 // die Stream-Deck-Software wird dann weder beendet noch gestartet, launchctl wird nicht aufgerufen.
 
@@ -37,7 +54,7 @@ const app = Application.currentApplication();
 app.includeStandardAdditions = true;
 
 const SPRACHE = (() => { const v = $.NSProcessInfo.processInfo.environment.objectForKey('P_TEST_SPRACHE'); return v.isNil() ? '' : ObjC.unwrap(v); })();
-const DE = SPRACHE ? SPRACHE === 'de' :          // P_TEST_SPRACHE (de|en): nur Entwicklung, z. B. Handbuch-Bilder
+let DE = SPRACHE ? SPRACHE === 'de' :            // P_TEST_SPRACHE (de|en): nur Entwicklung; sonst Abfrage in run()
   (() => { try { return app.doShellScript('defaults read -g AppleLocale').toLowerCase().startsWith('de'); }
            catch (e) { return true; } })();
 const T = (de, en) => (DE ? de : en);
@@ -54,10 +71,29 @@ const MODELL_XL = '20GAT9902', MODELL_PLUS = '20GBD9901';
 const PLATZ_XL = '@(1)[4057/143/P0PROFILXL000]', PLATZ_PLUS = '@(1)[4057/132/P0PROFILPLUS0]';
 const AEROACARS = 'eu.german-sky-group.aeroacars';
 const AGENT = 'com.p-profile.update';            // LaunchAgent des Update-Helfers
-const TITEL = T('P_-Profile – Installation', 'P_ Profiles – Installation');
+const LEER_KOMMANDO = 'sim/none/none';           // X-Plane-Kommando „Do nothing“
+const ZURUECK = 'com.elgato.streamdeck.profile.backtoparent', ORDNER = 'com.elgato.streamdeck.profile.openchild';
+
+// Abgewähltes Plugin in einer X-KeyPad-Konfiguration unschädlich machen (gleicher Ersatz wie plugins_optional.py):
+// Datarefs des Plugins → leer, Kommandos des Plugins → sim/none/none; Groß-/Kleinschreibung egal, führender „/“ mit.
+// Reiner Textersatz: der Rest der Datei bleibt unverändert, die Tastenliste lückenlos.
+function neutralisieren(text, praefixe) {
+  const alt = praefixe.map((p) => p.replace(/[.*+?^${}()|[\]\\\/]/g, '\\$&')).join('|');
+  text = text.replace(new RegExp('("Dataref Name"\\s*:\\s*)"/?(?:' + alt + ')[^"]*"', 'gi'), '$1""');
+  return text.replace(new RegExp('("Name"\\s*:\\s*)"/?(?:' + alt + ')[^"]*"', 'gi'), '$1"' + LEER_KOMMANDO + '"');
+}
+const titel = () => T('P_-Profile – Installation', 'P_ Profiles – Installation');
+const DISCORD = 'com.elgato.discord';             // Plugin-Kennung der Discord-Tasten STUMM/TAUB
+
+// Tastenbilder je Sprache (StreamDeck/Sprache/de|en): Rolle → Datei. ZURÜCK ist deutsch für Kreis und Unterseite gleich.
+const SPRACHBILD = {
+  de: { prev: 'zurueck.png', back: 'zurueck.png', next: 'vor.png', mute: 'd_mute.png', mute_an: 'd_mute_an.png',
+        deaf: 'd_deaf.png', deaf_an: 'd_deaf_an.png' },
+  en: { prev: 'en_prev.png', back: 'en_back.png', next: 'en_next.png', mute: 'en_mute.png', mute_an: 'en_mute_an.png',
+        deaf: 'en_deaf.png', deaf_an: 'en_deaf_an.png' } };
 
 function abbruch(text) {
-  app.displayDialog(text, { buttons: ['OK'], defaultButton: 'OK', withIcon: 'stop', withTitle: TITEL });
+  app.displayDialog(text, { buttons: ['OK'], defaultButton: 'OK', withIcon: 'stop', withTitle: titel() });
   throw new Error(text);
 }
 
@@ -88,13 +124,14 @@ function fensterKlasse() {
 }
 
 // o: { titel, untertitel, zeilen:[{name, status, art: installiert|da|fehlt, an}], lua:[{text, an, fuer:[Index…]}],
-//      aero, helfer, hinweis, abbrechen, ok, bild, hell }
-// → { profil:[bool], lua:[bool], aero, helfer } oder null („Später“/„Abbrechen“)
+//      plugins:[{name, an}], aero, discord, helfer, hinweis, abbrechen, ok, bild, hell }
+// → { profil:[bool], lua:[bool], plugins:[bool], aero, discord, helfer } oder null („Später“/„Abbrechen“)
 function auswahlFenster(o) {
   fensterKlasse();
   const W = 600, R = 20, ZH = 22, LISTE = 290;
-  const zusatzH = (o.lua.length + 2) * ZH;
-  const H = R + 46 + 12 + 18 + LISTE + 8 + 26 + 14 + 18 + zusatzH + 10 + (o.hinweis ? 22 : 0) + 22 + 52;
+  const zusatzH = (o.lua.length + 3) * ZH;
+  const PROREIHE = 3, pluginH = 18 + Math.ceil(o.plugins.length / PROREIHE) * ZH + 10;
+  const H = R + 46 + 12 + 18 + LISTE + 8 + 26 + 14 + pluginH + 18 + zusatzH + 10 + (o.hinweis ? 22 : 0) + 22 + 52;
   $.NSApplication.sharedApplication;
   const win = $.NSWindow.alloc.initWithContentRectStyleMaskBackingDefer($.NSMakeRect(0, 0, W, H), 1, 2, false);
   win.title = T('P_-Profile', 'P_ Profiles');
@@ -158,6 +195,16 @@ function auswahlFenster(o) {
   knopf(T('Nur installierte', 'Installed only'), R + 150, y - 26, 140, 'nurInstalliert:');
   y -= 26 + 14;
 
+  // Plugins: je eines ein Kästchen, drei pro Reihe
+  cv.addSubview(text(T('Plugins in X-Plane (abgewählt: ihre Tasten werden weggelassen)',
+                       'Plugins in X-Plane (unticked: their keys are left out)'), R, y, W - 2 * R, 16, 11, true,
+                     $.NSColor.secondaryLabelColor)); y -= 18;
+  const sp = (W - 2 * R) / PROREIHE;
+  const plugins = o.plugins.map((pl, i) => {
+    const k = kasten(pl.name, pl.an, R + (i % PROREIHE) * sp, y - Math.floor(i / PROREIHE) * ZH, sp - 8);
+    cv.addSubview(k); return k; });
+  y -= Math.ceil(o.plugins.length / PROREIHE) * ZH + 10;
+
   // Zusätze
   cv.addSubview(text(T('Zusätze', 'Extras'), R, y, 200, 16, 11, true, $.NSColor.secondaryLabelColor)); y -= 18;
   const lua = o.lua.map((l, i) => { const k = kasten(l.text, l.an, R, y - i * ZH, W - 2 * R); cv.addSubview(k); return k; });
@@ -165,6 +212,9 @@ function auswahlFenster(o) {
   const aero = kasten(T('AeroACARS-Kacheln anzeigen (Startseite XL, Reihe 4)', 'Show AeroACARS tiles (XL start page, row 4)'),
                       o.aero, R, y, W - 2 * R);
   cv.addSubview(aero); y -= ZH;
+  const discord = kasten(T('Discord-Tasten STUMM/TAUB anzeigen (Startseite XL, oben rechts)', 'Show Discord keys MUTE/DEAF (XL start page, top right)'),
+                         o.discord, R, y, W - 2 * R);
+  cv.addSubview(discord); y -= ZH;
   const helfer = kasten(T('Automatische Updates (Fenster öffnet sich nach jedem Update von selbst)',
                           'Automatic updates (this window opens by itself after every update)'), o.helfer, R, y, W - 2 * R);
   cv.addSubview(helfer); y -= ZH + 10;
@@ -199,7 +249,8 @@ function auswahlFenster(o) {
   win.orderOut($());
   if (Number(code) !== 1000) return null;          // die Brücke liefert den Rückgabewert als Text („1000“)
   return { profil: profil.map((k) => Number(k.state) === 1), lua: lua.map((k) => Number(k.state) === 1),
-           aero: Number(aero.state) === 1, helfer: Number(helfer.state) === 1 };
+           plugins: plugins.map((k) => Number(k.state) === 1), aero: Number(aero.state) === 1,
+           discord: Number(discord.state) === 1, helfer: Number(helfer.state) === 1 };
 }
 
 // Rückfallebene, falls das Fenster nicht aufgeht: die bisherigen Einzeldialoge (gleiches Ergebnis-Format)
@@ -214,9 +265,14 @@ function auswahlDialoge(o) {
     withPrompt: T('Welche FlyWithLua-Skripte sollen installiert werden? (optional)', 'Which FlyWithLua scripts should be installed? (optional)'),
     defaultItems: o.lua.filter((l, j) => l.an || l.fuer.some((i) => profil[i] && o.zeilen[i].art !== 'installiert')).map((l) => l.text),
     multipleSelectionsAllowed: true, emptySelectionAllowed: true });
+  const pw = app.chooseFromList(o.plugins.map((pl) => pl.name), { withTitle: T('Plugins', 'Plugins'),
+    withPrompt: T('Welche Plugins sind in X-Plane installiert? (abgewählt: ihre Tasten werden weggelassen)',
+                  'Which plugins are installed in X-Plane? (unticked: their keys are left out)'),
+    defaultItems: o.plugins.filter((pl) => pl.an).map((pl) => pl.name), multipleSelectionsAllowed: true, emptySelectionAllowed: true });
   const ja = T('Ja', 'Yes'), nein = T('Nein', 'No');
   const frage = (t, vor) => app.displayDialog(t, { buttons: [nein, ja], defaultButton: vor ? ja : nein, withTitle: o.titel }).buttonReturned === ja;
   const aero = frage(T('AeroACARS-Kacheln (Startseite XL, Reihe 4) anzeigen?', 'Show the AeroACARS tiles (XL start page, row 4)?'), o.aero);
+  const discord = frage(T('Discord-Tasten STUMM/TAUB anzeigen?', 'Show the Discord keys MUTE/DEAF?'), o.discord);
   const helfer = frage(T('Automatische Updates einrichten? (Fenster öffnet sich nach jedem Update von selbst)',
                          'Set up automatic updates? (the window opens by itself after every update)'), o.helfer);
   try {
@@ -224,7 +280,8 @@ function auswahlDialoge(o) {
                       (o.hinweis ? '\n\n' + o.hinweis : ''),
                       { buttons: [o.abbrechen, o.ok], defaultButton: o.ok, cancelButton: o.abbrechen, withTitle: o.titel });
   } catch (e) { return null; }
-  return { profil, lua: o.lua.map((l) => lw !== false && lw.includes(l.text)), aero, helfer };
+  return { profil, lua: o.lua.map((l) => lw !== false && lw.includes(l.text)),
+           plugins: o.plugins.map((pl) => (pw === false ? pl.an : pw.includes(pl.name))), aero, discord, helfer };
 }
 
 function run(argv) {
@@ -242,15 +299,26 @@ function run(argv) {
   log('================================================================');
   if (UPDATE && !TEST) app.activate();            // Dialoge nach vorn (Aufruf aus dem Hintergrund-Helfer)
 
+  // ---------- 0. Sprache ----------
+  const SPRACHDATEI = ZUSTAND + '/sprache.txt';
+  const gemerkteSprache = existiert(SPRACHDATEI) ? lesen(SPRACHDATEI).trim() : '';
+  if (!SPRACHE && gemerkteSprache) DE = gemerkteSprache === 'de';
+  if (!TEST && !UPDATE) {
+    const wahl = app.displayDialog('Sprache für Installer und Tastentexte wählen.\nChoose the language for the installer and key labels.',
+      { buttons: ['English', 'Deutsch'], defaultButton: DE ? 'Deutsch' : 'English', withTitle: 'P_-Profile / P_ Profiles' });
+    DE = wahl.buttonReturned === 'Deutsch';
+  }
+  const sprache = DE ? 'de' : 'en';
+
   // Update-Modus: „Später“ merken (Version, Zeitpunkt) – der Helfer fragt nach 12 Stunden erneut
   function spaeter() {
     sh('mkdir -p ' + q(ZUSTAND));
     schreiben(ZUSTAND + '/abgelehnt.txt', version + ' ' + sh('date +%s') + '\n');
     if (!TEST) app.displayDialog(T('Das Update auf ' + version + ' wurde verschoben. Du wirst in 12 Stunden erneut gefragt.\n\n' +
-                                   'Sofort installieren: Installieren_macOS.command im Ordner „P_Profile“ starten.',
+                                   'Sofort installieren: Installieren_macOS.command im Ordner „X-Plane 12/Resources/plugins/P_Profile“ starten.',
                                    'The update to ' + version + ' has been postponed. You will be asked again in 12 hours.\n\n' +
-                                   'To install now: start Installieren_macOS.command in the folder “P_Profile”.'),
-                                 { buttons: ['OK'], defaultButton: 'OK', withTitle: TITEL });
+                                   'To install now: start Installieren_macOS.command in the folder “X-Plane 12/Resources/plugins/P_Profile”.'),
+                                 { buttons: ['OK'], defaultButton: 'OK', withTitle: titel() });
     throw new Error('später');
   }
 
@@ -260,8 +328,11 @@ function run(argv) {
   if (!UPDATE && xpLaeuft())
     abbruch(T('X-Plane läuft noch. Bitte X-Plane beenden und den Installer erneut starten.',
               'X-Plane is still running. Please quit X-Plane and start the installer again.'));
-  const oben = HIER.replace(/\/[^/]+\/?$/, '');    // Ordner über dem Paket (P_Profile im X-Plane-Hauptordner)
-  let XP = TEST ? umgebung('P_TEST_XP') : existiert(oben + '/Aircraft') ? oben : HOME + '/X-Plane 12';
+  // Ordner über dem Paket: <X-Plane>/Resources/plugins (neu) oder <X-Plane> selbst (ältere Versionen)
+  const oben = HIER.replace(/\/[^/]+\/?$/, '');
+  const ueberPlugins = /\/Resources\/plugins$/.test(oben) ? oben.replace(/\/Resources\/plugins$/, '') : '';
+  let XP = TEST ? umgebung('P_TEST_XP') : existiert(oben + '/Aircraft') ? oben
+         : ueberPlugins && existiert(ueberPlugins + '/Aircraft') ? ueberPlugins : HOME + '/X-Plane 12';
   if (!existiert(XP + '/Aircraft')) {
     try {
       XP = app.chooseFolder({ withPrompt: T('Bitte den X-Plane-12-Ordner wählen (enthält Aircraft und Resources)',
@@ -280,6 +351,13 @@ function run(argv) {
     ({ datei, text: DE ? de : en, fuer: fuer.split(',') }));
   const installiert = (id) => existiert(SD + '/' + id.toUpperCase() + '.sdProfile');
   const SKRIPTE = XP + '/Resources/plugins/FlyWithLua/Scripts';
+  // optionale Plugins und je Profil die X-KeyPad-Tasten, die sie brauchen („Profil|Plugin“ → Set der Tastennamen)
+  const PLUGINS = existiert(HIER + '/X-Plane/plugins.txt')
+    ? zeilen(HIER + '/X-Plane/plugins.txt').map(([kurz, ordner, praefixe, name]) => ({ kurz, ordner, praefixe: praefixe.split(','), name }))
+    : [];
+  const pluginTasten = {};
+  if (existiert(HIER + '/X-Plane/plugin_tasten.txt'))
+    for (const [kurz, plugin, namen] of zeilen(HIER + '/X-Plane/plugin_tasten.txt')) pluginTasten[kurz + '|' + plugin] = new Set(namen.split('\t'));
 
   // Startseite eines XL-Profils: [Seitenordner, Manifest]; Tasten einer Seite
   function startseite(wurzel) {
@@ -289,11 +367,12 @@ function run(argv) {
     return [ordner, JSON.parse(lesen(ordner + '/manifest.json'))];
   }
   const tasten = (pm) => (pm.Controllers.find((c) => c.Type === 'Keypad') || {}).Actions || {};
-  const hatAero = (id) => {
+  const hatPlugin = (id, uuid) => {
     try { return Object.values(tasten(startseite(SD + '/' + id.toUpperCase() + '.sdProfile')[1]))
-                       .some((a) => a.Plugin && a.Plugin.UUID === AEROACARS); }
+                       .some((a) => a.Plugin && a.Plugin.UUID === uuid); }
     catch (e) { return false; }
   };
+  const hatAero = (id) => hatPlugin(id, AEROACARS);
 
   // Flugzeugdateien je .acf suchen (bis 4 Ebenen tief); bei gleichem .acf-Namen entscheidet „P acf/_name“
   const fundeCache = {};
@@ -325,7 +404,16 @@ function run(argv) {
   });
   const nInst = zeilenP.filter((z) => z.art === 'installiert').length, nNeu = zeilenP.filter((z) => z.art === 'da').length;
   const aeroVor = nInst ? profile.some((p) => installiert(p.xl) && hatAero(p.xl)) : true;
+  // Discord: bisherige Wahl; ohne installierte P_-Profile: Discord-Plugin der Stream-Deck-Software vorhanden
+  const discordVor = nInst ? profile.some((p) => installiert(p.xl) && hatPlugin(p.xl, DISCORD))
+                           : existiert(SD.replace(/\/[^/]+$/, '') + '/Plugins/' + DISCORD + '.sdPlugin');
   const altVersion = existiert(ZUSTAND + '/installiert.txt') ? lesen(ZUSTAND + '/installiert.txt').trim() : '';
+  // Plugins vorbelegt: Update-Modus mit gemerkter Wahl → diese, sonst Ordner in Resources/plugins vorhanden
+  const gemerkt = {};
+  if (existiert(ZUSTAND + '/plugins.txt'))
+    for (const z of lesen(ZUSTAND + '/plugins.txt').split(/\r?\n/)) { const [k, v] = z.split('='); if (k && v) gemerkt[k.trim()] = v.trim() === '1'; }
+  const pluginDa = (pl) => existiert(XP + '/Resources/plugins/' + pl.ordner);
+  const zeilenPl = PLUGINS.map((pl) => ({ name: pl.name, an: UPDATE && pl.kurz in gemerkt ? gemerkt[pl.kurz] : pluginDa(pl) }));
   const fenster = {
     titel: UPDATE ? T('Version ' + version + ' ist bereit', 'Version ' + version + ' is ready')
                   : T('P_-Profile ' + version + ' installieren', 'Install P_ Profiles ' + version),
@@ -334,7 +422,7 @@ function run(argv) {
           'Installed: ' + (altVersion || '–') + ' · ' + nInst + ' of ' + profile.length + ' profiles on this Mac')
       : T(nInst + ' Profile installiert · ' + nNeu + ' weitere Flugzeuge in X-Plane gefunden',
           nInst + ' profiles installed · ' + nNeu + ' more aircraft found in X-Plane'),
-    zeilen: zeilenP, lua: zeilenL, aero: aeroVor, helfer: true,
+    zeilen: zeilenP, lua: zeilenL, plugins: zeilenPl, aero: aeroVor, discord: discordVor, helfer: true,
     hinweis: UPDATE && xpLaeuft() ? T('X-Plane läuft gerade – die Installation startet von selbst, sobald X-Plane beendet ist.',
                                       'X-Plane is running – the installation starts by itself as soon as X-Plane has been quit.') : '',
     abbrechen: UPDATE ? T('Später', 'Later') : T('Abbrechen', 'Cancel'), ok: T('Installieren', 'Install'),
@@ -346,8 +434,10 @@ function run(argv) {
   }
   if (TEST) {
     const w = umgebung('P_TEST_WAHL').split(','), lw = umgebung('P_TEST_LUA').split(',');
+    const pt = umgebung('P_TEST_PLUGINS').split(',');
     auswahl = { profil: profile.map((p) => w.includes(p.kurz)), lua: lua.map((l) => lw.includes(l.datei)),
-                aero: umgebung('P_TEST_AERO') === 'an', helfer: umgebung('P_TEST_HELFER') === 'an' || (UPDATE && umgebung('P_TEST_HELFER') === '') };
+                plugins: PLUGINS.map((pl) => umgebung('P_TEST_PLUGINS') === '' || pt.includes(pl.kurz)),
+                aero: umgebung('P_TEST_AERO') === 'an', discord: umgebung('P_TEST_DISCORD') !== 'aus', helfer: umgebung('P_TEST_HELFER') === 'an' || (UPDATE && umgebung('P_TEST_HELFER') === '') };
   } else {
     try { auswahl = auswahlFenster(fenster); }
     catch (e) { log(T('Fenster nicht verfügbar (', 'Window not available (') + e + T(') – Einzeldialoge.', ') – single dialogs.'));
@@ -356,8 +446,11 @@ function run(argv) {
   if (!auswahl) { if (UPDATE) spaeter(); abbruch(T('Abgebrochen.', 'Cancelled.')); }
   const gewaehlt = profile.filter((p, i) => auswahl.profil[i]);
   const luaGewaehlt = lua.filter((l, j) => auswahl.lua[j]);
-  const aero = auswahl.aero, helfer = auswahl.helfer;
+  const aero = auswahl.aero, discord = auswahl.discord, helfer = auswahl.helfer;
   const knopfAn = T('Anzeigen', 'Show'), knopfAus = T('Ausblenden', 'Hide');
+  const pluginsAus = PLUGINS.filter((pl, i) => !auswahl.plugins[i]);
+  const ohneKamera = pluginsAus.some((pl) => pl.kurz === 'xc');
+  log(T('Plugins: ', 'Plugins: ') + PLUGINS.map((pl, i) => pl.name + (auswahl.plugins[i] ? ' ✓' : ' –')).join(' · '));
 
   // Update-Modus: nie bei laufendem X-Plane in die Stream-Deck-Software eingreifen – warten, bis X-Plane beendet ist
   if (UPDATE && xpLaeuft()) {
@@ -381,10 +474,15 @@ function run(argv) {
       const ordner = acfOrdner(z);
       if (!ordner.length) { log('  – ' + z.acf + T(': Flugzeug nicht gefunden, übersprungen', ': aircraft not found, skipped')); continue; }
       for (const o of ordner) {
-        for (const d of [z.konfig, z.kamera]) {
+        for (const d of ohneKamera ? [z.konfig] : [z.konfig, z.kamera]) {
           const ziel = o + '/' + d.replace(/^.*\//, '');
           sichern(ziel);
-          sh('cp ' + q(HIER + '/X-Plane/Aircraft/' + d) + ' ' + q(o + '/'));
+          if (d === z.konfig && pluginsAus.length) {
+            // Konfiguration mit unschädlich gemachten Tasten der abgewählten Plugins schreiben
+            let t = lesen(HIER + '/X-Plane/Aircraft/' + d);
+            for (const pl of pluginsAus) t = neutralisieren(t, pl.praefixe);
+            if (!schreiben(ziel, t)) abbruch(T('Konnte nicht schreiben: ', 'Could not write: ') + ziel);
+          } else sh('cp ' + q(HIER + '/X-Plane/Aircraft/' + d) + ' ' + q(o + '/'));
         }
         log('  ✓ ' + z.acf + ' → ' + o.replace(XP + '/', ''));
       }
@@ -428,6 +526,33 @@ function run(argv) {
        'pkill -9 -f ' + q(SD_PROZESS) + ' 2>/dev/null; sleep 3; true');
   }
   sichern(SD);
+
+  // Stream-Deck-Tasten, die auf X-KeyPad-Tasten abgewählter Plugins zeigen, aus allen Seiten eines Profils entfernen
+  // (auch in Mehrfachaktionen); danach Ordner-Tasten, deren Seite dadurch nur noch die Zurück-Taste hat (wiederholt,
+  // bis sich nichts mehr ändert). Der Platz bleibt leer.
+  function pluginTastenEntfernen(wurzel, weg) {
+    const seiten = {};
+    for (const id of ObjC.deepUnwrap($.NSFileManager.defaultManager.contentsOfDirectoryAtPathError(wurzel + '/Profiles', null)) || []) {
+      const mf = wurzel + '/Profiles/' + id + '/manifest.json';
+      if (existiert(mf)) seiten[id.toUpperCase()] = { mf, pm: JSON.parse(lesen(mf)), geaendert: false, geleert: false };
+    }
+    const trifft = (a) => (a && a.Settings && weg.has(a.Settings.KeyName)) || (a && Array.isArray(a.Actions) && a.Actions.some(trifft));
+    const aktionen = (s) => s.pm.Controllers.flatMap((c) => Object.entries(c.Actions || {}).map(([pos, a]) => [c, pos, a]));
+    for (const s of Object.values(seiten))
+      for (const [c, pos, a] of aktionen(s)) if (trifft(a)) { delete c.Actions[pos]; s.geaendert = true; }
+    for (let runde = true; runde;) {
+      runde = false;
+      for (const s of Object.values(seiten))
+        if (s.geaendert && !s.geleert && aktionen(s).every(([c, pos, a]) => a.UUID === ZURUECK)) s.geleert = true;
+      for (const s of Object.values(seiten))
+        for (const [c, pos, a] of aktionen(s)) {
+          const kind = a.UUID === ORDNER && a.Settings && seiten[String(a.Settings.ProfileUUID).toUpperCase()];
+          if (kind && kind.geleert) { delete c.Actions[pos]; s.geaendert = true; runde = true; }
+        }
+    }
+    for (const s of Object.values(seiten)) if (s.geaendert) schreiben(s.mf, JSON.stringify(s.pm, null, 1));
+  }
+
   const xlId = geraet[MODELL_XL] || PLATZ_XL, plusId = geraet[MODELL_PLUS] || PLATZ_PLUS;
   let n = 0;
   for (const p of gewaehlt) {
@@ -438,6 +563,9 @@ function run(argv) {
       // Platzhalter → eigene Geräte (Kennungen enthalten „/“, daher Textersetzung statt regulärer Ausdrücke)
       for (const mf of sh('find ' + q(ziel) + ' -name manifest.json').split('\r').join('\n').split('\n').filter(Boolean))
         schreiben(mf, lesen(mf).split(PLATZ_XL).join(xlId).split(PLATZ_PLUS).join(plusId));
+      const weg = new Set();
+      for (const pl of pluginsAus) for (const k of pluginTasten[p.kurz + '|' + pl.kurz] || []) weg.add(k);
+      if (weg.size) pluginTastenEntfernen(ziel, weg);
       n++;
     }
   }
@@ -454,23 +582,58 @@ function run(argv) {
       multi[0].Settings.ProfileUUID = nb.xl;
       multi[1].Settings.ProfileUUID = nb.plus;
     }
-    // AeroACARS: anzeigen = Kacheln aus dem Paket übernehmen, ausblenden = Kacheln entfernen
-    for (const pos of Object.keys(a)) if (a[pos].Plugin && a[pos].Plugin.UUID === AEROACARS) delete a[pos];
-    if (aero) {
-      const quelle = HIER + '/StreamDeck/Profile/' + p.xl.toUpperCase() + '.sdProfile';
-      if (existiert(quelle)) {
-        const qa = tasten(startseite(quelle)[1]);
-        for (const pos of Object.keys(qa)) if (qa[pos].Plugin && qa[pos].Plugin.UUID === AEROACARS) a[pos] = qa[pos];
+    // AeroACARS und Discord: anzeigen = Tasten aus dem Paket übernehmen (Bilder liegen im Seitenordner), ausblenden = entfernen
+    const quelle = HIER + '/StreamDeck/Profile/' + p.xl.toUpperCase() + '.sdProfile';
+    for (const [uuid, an] of [[AEROACARS, aero], [DISCORD, discord]]) {
+      for (const pos of Object.keys(a)) if (a[pos].Plugin && a[pos].Plugin.UUID === uuid) delete a[pos];
+      if (an && existiert(quelle)) {
+        const [qOrdner, qpm] = startseite(quelle), qa = tasten(qpm);
+        for (const pos of Object.keys(qa)) if (qa[pos].Plugin && qa[pos].Plugin.UUID === uuid) {
+          a[pos] = qa[pos];
+          for (const st of qa[pos].States || []) if (st.Image && !existiert(ordner + '/' + st.Image))
+            sh('mkdir -p ' + q(ordner + '/Images') + ' && cp ' + q(qOrdner + '/' + st.Image) + ' ' + q(ordner + '/' + st.Image));
+        }
       }
     }
     schreiben(ordner + '/manifest.json', JSON.stringify(pm, null, 1));
   });
   log(T('  ✓ Kreis Vor/Zurück: ', '  ✓ Next/previous circle: ') + kreis.map((p) => p.name).join(' → '));
   log('  ✓ AeroACARS: ' + (aero ? knopfAn : knopfAus));
+  log('  ✓ Discord: ' + (discord ? knopfAn : knopfAus));
+
+  // Sprache der Tastentexte auf alle installierten P_-Profile anwenden (XL und Plus, alle Seiten): Bilder der Rollen
+  // ZURÜCK (Kreis = prev, Unterseite = back), VOR, STUMM, TAUB auf die Datei der gewählten Sprache umstellen.
+  const rolle = {};
+  for (const [spr, tab] of Object.entries(SPRACHBILD)) for (const [r, datei] of Object.entries(tab)) rolle[datei] = r;
+  let nSprache = 0;
+  for (const p of profile) for (const id of [p.xl, p.plus]) {
+    const wurzel = SD + '/' + id.toUpperCase() + '.sdProfile';
+    if (!existiert(wurzel + '/Profiles')) continue;
+    for (const sid of ObjC.deepUnwrap($.NSFileManager.defaultManager.contentsOfDirectoryAtPathError(wurzel + '/Profiles', null)) || []) {
+      const sOrdner = wurzel + '/Profiles/' + sid, mf = sOrdner + '/manifest.json';
+      if (!existiert(mf)) continue;
+      const pm = JSON.parse(lesen(mf));
+      let geaendert = false;
+      for (const c of pm.Controllers) for (const a of Object.values(c.Actions || {})) (a.States || []).forEach((st) => {
+        const datei = st.Image ? st.Image.replace(/^Images\//, '') : '';
+        if (!(datei in rolle)) return;
+        let r = rolle[datei];
+        if (r === 'prev' || r === 'back') r = a.UUID === 'com.elgato.streamdeck.profile.backtoparent' ? 'back' : 'prev';
+        const neu = SPRACHBILD[sprache][r];
+        if (!existiert(sOrdner + '/Images/' + neu))
+          sh('mkdir -p ' + q(sOrdner + '/Images') + ' && cp ' + q(HIER + '/StreamDeck/Sprache/' + sprache + '/' + neu) + ' ' + q(sOrdner + '/Images/'));
+        if (st.Image !== 'Images/' + neu) { st.Image = 'Images/' + neu; geaendert = true; }
+      });
+      if (geaendert) { schreiben(mf, JSON.stringify(pm, null, 1)); nSprache++; }
+    }
+  }
+  log(T('  ✓ Tastentexte: Deutsch', '  ✓ Key labels: English') + ' (' + nSprache + T(' Seiten umgestellt)', ' pages changed)'));
 
   // ---------- 8. Installierte Version merken, Update-Helfer ----------
   sh('mkdir -p ' + q(ZUSTAND));
   schreiben(ZUSTAND + '/installiert.txt', version + '\n');
+  schreiben(SPRACHDATEI, sprache + '\n');
+  if (PLUGINS.length) schreiben(ZUSTAND + '/plugins.txt', PLUGINS.map((pl, i) => pl.kurz + '=' + (auswahl.plugins[i] ? 1 : 0)).join('\n') + '\n');
   sh('rm -f ' + q(ZUSTAND + '/abgelehnt.txt'));
   const skript = ZUSTAND + '/update_helfer.sh';
   if (helfer && existiert(HIER + '/StreamDeck/update_helfer.sh'))
@@ -480,9 +643,9 @@ function run(argv) {
   const agenten = TEST ? ZUSTAND : HOME + '/Library/LaunchAgents';
   const plist = agenten + '/' + AGENT + '.plist';
   const uid = sh('id -u');
-  if (!UPDATE) {
-    if (!TEST) sh('launchctl bootout gui/' + uid + '/' + AGENT + ' 2>/dev/null; true');
-    if (helfer) {
+  // LaunchAgent-Datei; Auslöser: Änderung im Ordner P_Profile (Updater) an beiden möglichen Orten, dazu alle
+  // 30 Minuten und bei der Anmeldung
+  const plistSchreiben = () => {
       sh('mkdir -p ' + q(agenten));
       schreiben(plist, [
         '<?xml version="1.0" encoding="UTF-8"?>',
@@ -491,13 +654,18 @@ function run(argv) {
         '  <key>Label</key><string>' + AGENT + '</string>',
         '  <key>ProgramArguments</key><array><string>/bin/zsh</string><string>' + xml(skript) + '</string>' +
         '<string>' + xml(XP) + '</string></array>',
-        // Auslöser: Änderung im Ordner P_Profile (Updater), dazu alle 30 Minuten und bei der Anmeldung
-        '  <key>WatchPaths</key><array><string>' + xml(XP + '/P_Profile') + '</string></array>',
+        '  <key>WatchPaths</key><array><string>' + xml(XP + '/Resources/plugins/P_Profile') + '</string>' +
+        '<string>' + xml(XP + '/P_Profile') + '</string></array>',
         '  <key>StartInterval</key><integer>1800</integer>',
         '  <key>RunAtLoad</key><true/>',
         '  <key>StandardOutPath</key><string>' + xml(ZUSTAND + '/helfer.log') + '</string>',
         '  <key>StandardErrorPath</key><string>' + xml(ZUSTAND + '/helfer.log') + '</string>',
         '</dict></plist>', ''].join('\n'));
+  };
+  if (!UPDATE) {
+    if (!TEST) sh('launchctl bootout gui/' + uid + '/' + AGENT + ' 2>/dev/null; true');
+    if (helfer) {
+      plistSchreiben();
       if (!TEST) sh('launchctl bootstrap gui/' + uid + ' ' + q(plist));
       log(T('  ✓ Automatische Updates eingerichtet.', '  ✓ Automatic updates set up.'));
     } else {
@@ -505,12 +673,22 @@ function run(argv) {
       log(T('  – Automatische Updates: aus.', '  – Automatic updates: off.'));
     }
   }
+  // Update-Modus: Datei auf den neuen Stand bringen (gilt ab der nächsten Anmeldung; neu laden ginge nur per bootout)
+  if (UPDATE && helfer) plistSchreiben();
   // Update-Modus: nur die letzten drei Sicherungen behalten
   if (UPDATE) sh('cd ' + q(ZUSTAND + '/Sicherungen') + ' 2>/dev/null && ls -1 | sort -r | tail -n +4 | while read -r d; do rm -rf "$d"; done; true');
 
   // Update-Modus, automatische Updates abgewählt: Helfer-Dateien entfernen; den LaunchAgent erst ganz am Ende abmelden
   const helferAbmelden = UPDATE && !helfer;
   if (helferAbmelden) { sh('rm -f ' + q(plist) + ' ' + q(skript)); log(T('  – Automatische Updates: aus.', '  – Automatic updates: off.')); }
+
+  // ---------- 9. Ordner P_Profile nach Resources/plugins ----------
+  const neuerOrt = XP + '/Resources/plugins/P_Profile';
+  if (HIER.replace(/\/$/, '') === XP + '/P_Profile' && existiert(XP + '/Resources/plugins')) {
+    if (existiert(neuerOrt)) sh('mkdir -p ' + q(SICHERUNG) + ' && mv ' + q(neuerOrt) + ' ' + q(SICHERUNG + '/P_Profile_plugins_alt'));
+    sh('mv ' + q(HIER.replace(/\/$/, '')) + ' ' + q(neuerOrt));
+    log(T('  ✓ Ordner P_Profile verschoben nach ', '  ✓ Folder P_Profile moved to ') + neuerOrt.replace(XP + '/', ''));
+  }
 
   if (TEST) return;
   sh('open -a "Elgato Stream Deck" || true');

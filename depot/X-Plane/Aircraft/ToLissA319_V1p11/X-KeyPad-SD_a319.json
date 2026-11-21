@@ -9858,6 +9858,14 @@
             "Path": "",
             "Svg": "",
             "UUID": "P_PF_VS__FPA.png_d4c59a53522c6f18799e472cb6df7acf"
+        },
+        "1027": {
+            "Base64": "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",
+            "Dynamic Lookup": false,
+            "Name": "WB_REV.png",
+            "Path": "",
+            "Svg": "",
+            "UUID": "WB_REV.png_613c7f5c91b145a4a913511be50cd78f"
         }
     },
     "Json Version": 2,
@@ -62766,6 +62774,96 @@
                 "Tag": ""
             },
             "Key Index": 385
+        },
+        "369": {
+            "Key": {
+                "Comments": "Widebody-Overhead (aus dem 3D-Cockpit)",
+                "Conditional Lines": null,
+                "Name": "WB REV",
+                "Prefix": "",
+                "Tag": "",
+                "Logic Dataref": {
+                    "Dataref": {
+                        "Dataref Index": 0,
+                        "Dataref Name": "",
+                        "Drag Factor": 0.0,
+                        "Formula ID": "",
+                        "Increment Amount": "",
+                        "Increment Mode": "None",
+                        "Max": "",
+                        "Min": "",
+                        "Multiply By": "",
+                        "Radio Value": 0.0,
+                        "Scale Factor": 1
+                    },
+                    "Use Expression": false
+                },
+                "Numeric Dataref": {
+                    "Dataref Index": 0,
+                    "Dataref Name": "",
+                    "Drag Factor": 0.0,
+                    "Formula ID": "",
+                    "Increment Amount": "",
+                    "Increment Mode": "None",
+                    "Max": "",
+                    "Min": "",
+                    "Multiply By": "",
+                    "Radio Value": 0.0,
+                    "Scale Factor": 1,
+                    "Speech Set": null
+                },
+                "Conditional Commands": {
+                    "0": {
+                        "Command Set": {
+                            "Commands": {
+                                "0": {
+                                    "Mode": "Single",
+                                    "Name": "sim/engines/thrust_reverse_toggle"
+                                }
+                            },
+                            "Speech Set": null,
+                            "Static Speech": ""
+                        },
+                        "Logic Test": {
+                            "Comment": "",
+                            "Compare Value": "",
+                            "Logic Test Type": "Always True",
+                            "Negate": false,
+                            "Override Data Source": false
+                        },
+                        "Long Press Command Set": {
+                            "Speech Set": null,
+                            "Static Speech": ""
+                        }
+                    }
+                },
+                "Conditional Backgrounds": {
+                    "0": {
+                        "Background Image Mode": 1,
+                        "Flashing Color": {
+                            "0": {
+                                "Blue": 0,
+                                "Green": 0,
+                                "Red": 0
+                            }
+                        },
+                        "Image Reference": {
+                            "Dynamic Lookup": false,
+                            "Name": "WB_REV.png",
+                            "Path": "",
+                            "UUID": "WB_REV.png_613c7f5c91b145a4a913511be50cd78f"
+                        },
+                        "Logic Test": {
+                            "Comment": "",
+                            "Compare Value": "",
+                            "Logic Test Type": "Always True",
+                            "Negate": false,
+                            "Override Data Source": false
+                        }
+                    }
+                }
+            },
+            "Key Index": 318
         }
     },
     "Last Saved Date": "2026-03-18_124145",

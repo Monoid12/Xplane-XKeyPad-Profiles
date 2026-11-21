@@ -4,7 +4,8 @@
 # %LOCALAPPDATA%\P_Profile\update_helfer.ps1 kopiert.
 #
 # Er startet den Installer im Update-Modus (Fenster mit den Profilen), wenn
-#   - im Ordner <X-Plane>\P_Profile eine NEUERE Version liegt als die zuletzt installierte (installiert.txt),
+#   - im Ordner P_Profile (<X-Plane>\Resources\plugins\P_Profile, bei älteren Installationen <X-Plane>\P_Profile)
+#     eine NEUERE Version liegt als die zuletzt installierte (installiert.txt),
 #   - der SkunkCrafts Updater fertig ist (Version in skunkcrafts_updater.cfg = VERSION, seit einer Minute keine Änderung),
 #   - „Später“ für diese Version nicht vor weniger als 12 Stunden gewählt wurde (abgelehnt.txt),
 #   - nicht schon ein Lauf aktiv ist (Mutex).
@@ -14,7 +15,8 @@
 # Abschalten: Installer erneut starten und „Automatische Updates“ mit Nein beantworten.
 param([string]$XP)
 
-$PP = Join-Path $XP 'P_Profile'
+$PP = Join-Path $XP 'Resources\plugins\P_Profile'
+if (-not (Test-Path $PP)) { $PP = Join-Path $XP 'P_Profile' }
 $Zustand = Join-Path $env:LOCALAPPDATA 'P_Profile'
 $Log = Join-Path $Zustand 'helfer.log'
 function Protokoll($text) { New-Item -ItemType Directory -Force -Path $Zustand | Out-Null; Add-Content -Path $Log -Value "$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss') $text" }

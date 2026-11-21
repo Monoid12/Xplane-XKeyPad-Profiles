@@ -1,6 +1,21 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.5 – 21 November 2026
+  - Keys as in the cockpit: on every page the keys are arranged the way the switches sit in the cockpit of the
+    respective aircraft – including autopilot and EFIS (taken from the 3D cockpits). Unchanged: FlightFactor
+    (already arranged this way), ToLiss A319–A321 (by hand), DOORS (fuselage from above), home page.
+  - Language selectable: Deutsch or English before installing (English: PREV, NEXT, MUTE, DEAF, BACK).
+  - Discord keys MUTE/DEAF can be hidden in the installer.
+  - Folder P_Profile now lives in X-Plane 12/Resources/plugins; the installer moves it there.
+  - ToLiss: MFD, Fire and XPDR folders in the common design; Engines with stacked thrust detents,
+    TAXI/REV next to them (A320 family with a new REV key); Air/Bleed like the AIR COND panel.
+  - Plugins selectable: X-Camera, Better Pushback, SimLoad, AviTab and xPilot are no longer required. The
+    installer detects them in the Resources/plugins folder and ticks them in the window. An unticked plugin
+    is left out: its Stream Deck keys and folders that became empty are removed (the space stays empty), its
+    commands no longer do anything in the X-KeyPad configuration – so the configuration loads without the
+    plugin too. The choice also applies to later updates.
+
 Version 3.4 – 21 November 2026
   - New: Embraer E-Jets by X-Crafts – E170, E175, E190, E195 and Lineage 1000, each with its own profile
     (P_E170X, P_E175X, P_E190X, P_E195X, P_LINX) and X-Camera views 1–15; Lineage with a cabin page.
