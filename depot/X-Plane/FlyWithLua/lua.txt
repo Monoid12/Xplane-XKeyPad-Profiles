@@ -3,3 +3,4 @@ P_B777_XKeyPad.lua|Nachladen der Konfiguration bei FlightFactor 757/767/777 (nö
 P_ToLiss_Schub.lua|Schubrasten-Tasten der A330/A340 (nötig)|Thrust detent keys of the A330/A340 (required)|A339,A346
 P_ATR_Hebel.lua|Condition Lever und Parkbremse der ATR 72 (nötig)|Condition levers and parking brake of the ATR 72 (required)|ATR72
 P_CL650_Werte.lua|Livewerte der Plus-Regler in der Challenger 650 (nötig)|Live values on the Plus dials of the Challenger 650 (required)|CL650
+P_A333L_Baro.lua|BARO beider Seiten und Anzeige am Plus im Laminar A330 (nötig)|BARO of both sides and Plus display in the Laminar A330 (required)|A333L

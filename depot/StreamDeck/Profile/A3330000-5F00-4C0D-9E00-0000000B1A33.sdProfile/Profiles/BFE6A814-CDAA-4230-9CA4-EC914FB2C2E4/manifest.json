@@ -1,0 +1,364 @@
+{
+ "Controllers": [
+  {
+   "Actions": {
+    "0,0": {
+     "ActionID": "3c134385-baf7-41b8-9df7-fe3cfdd5197b",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU AP 1"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,0": {
+     "ActionID": "1060fa62-ebae-4c90-a764-77c24b51f984",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU AP 2"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "ee11c021-331f-47dc-ae8d-b5de2f6d8b12",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU A/THR"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "95903c65-792a-46e1-879a-a4a658847879",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU LOC"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "0,1": {
+     "ActionID": "4e20c8e5-63d8-44cb-afe6-6c4574d9780a",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU APPR"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,1": {
+     "ActionID": "d0faece3-ba13-4718-9ed9-892ae0419991",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU ALT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,1": {
+     "ActionID": "808318a8-01ca-48e1-a467-9707da9158c2",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU HDG/TRK"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,1": {
+     "ActionID": "562b5159-d738-4401-a548-9ab41e341a23",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL FCU SPD/MACH"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Keypad"
+  },
+  {
+   "Actions": {
+    "0,0": {
+     "ActionID": "59be274c-0043-4737-a809-a1637feb1570",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL SPD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,0": {
+     "ActionID": "99064ca2-58e5-43c5-9183-091066d9543a",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL HDG"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "8ff4ae30-aa87-4a15-ac81-2cee223eb6ae",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL ALT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "5110935a-73be-4e1c-87c1-ddca1079c2bf",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "AL V/S"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Encoder"
+  }
+ ],
+ "Icon": "",
+ "Name": ""
+}

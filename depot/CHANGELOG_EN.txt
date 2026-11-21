@@ -1,6 +1,12 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.3 – 21 November 2026
+  - Airbus A330-300 (Laminar): doors page with all 12 doors; NOSE shows OFF/TAXI/T.O.; BARO on the Plus
+    sets captain and first officer together (press STD/QNH, tap hPa/inHg), BARO 2 removed; FCU dials as
+    on ToLiss: short press = push, long press = pull.
+  - New FlyWithLua script P_A333L_Baro.lua (required for the Laminar A330, preselected in the installer).
+
 Version 3.2 – 17 November 2026
   - New installer window: profiles (with status installed / aircraft found / not found), Lua scripts,
     AeroACARS and automatic updates in ONE window instead of several dialogs – for installation and for
