@@ -1,6 +1,15 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.7.2 – 22.11.2026
+  - Diamond DA40 NG: Die XL-Seiten PFD und MFD liegen wie am G1000-Rahmen – links NAV FF, NAV 1/2, HDG SYNC,
+    rechts COM FF, COM 1/2, CRS SYNC, PAN PUSH, FMS PUSH neben D→/MENU, FPL/PROC, CLR/ENT, in der Mitte
+    Kartenpfeile und Softkeys 1–12. Die Drehknöpfe liegen am Stream Deck+.
+  - Diamond DA40 NG: Seite GFC 700 wie am MFD-Rahmen (AP, FD, NAV mit HDG, APR; ALT, VS, FLC mit VNV, NOSE UP,
+    NOSE DN), dazu TOGA und AP DISC. AUDIO wie am Audiopanel (MIC links, MON rechts) mit neuer Taste MON DME.
+  - Diamond DA40 NG: neue Tasten PFD WINDOW, MFD WINDOW, REVERSION und STBY BARO; Stream Deck+: Tippen auf BARO
+    wechselt inHg/hPa.
+
 Version 3.7.1 – 22.11.2026
   - Stream Deck+, Flugzeuge mit GNS- bzw. G1000-Seiten (A36, C172, C208, CJ525, DA40NG, G36, King Air 350, PA28, Phenom 300, Seneca, V35B): Die Wähltasten GNS, PFD
     und MFD am XL schlagen am Stream Deck+ die passende Seite auf (vorher z. B. die Funk-Seite).

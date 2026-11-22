@@ -1,3 +1,8 @@
+3.7.2
+- Diamond DA40 NG: the XL pages PFD and MFD are laid out like the G1000 bezel – NAV FF, NAV 1/2, HDG SYNC on the left, COM FF, COM 1/2, CRS SYNC, PAN PUSH, FMS PUSH next to D→/MENU, FPL/PROC, CLR/ENT on the right, map arrows and softkeys 1–12 in the middle. The knobs are on the Stream Deck+.
+- Diamond DA40 NG: GFC 700 page like the MFD bezel (AP, FD, NAV with HDG, APR; ALT, VS, FLC with VNV, NOSE UP, NOSE DN), plus TOGA and AP DISC. AUDIO like the audio panel (MIC left, MON right) with a new MON DME key.
+- Diamond DA40 NG: new keys PFD WINDOW, MFD WINDOW, REVERSION and STBY BARO; Stream Deck+: tapping BARO switches inHg/hPa.
+
 3.7.1
 - Stream Deck+, aircraft with GNS or G1000 pages (A36, C172, C208, CJ525, DA40NG, G36, King Air 350, PA28, Phenom 300, Seneca, V35B): the GNS, PFD and MFD selection keys on the XL open the matching page on the Stream Deck+ (before, e.g. the radio page).
 - COM 2 on the Stream Deck+ now also for C152, C172, C208, CJ525 and V35B (new page COM 2) and for DA40NG, G36 and Phenom 300 (new page COM 1/2).
