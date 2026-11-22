@@ -1,6 +1,15 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.7.1 – 22.11.2026
+  - Stream Deck+, Flugzeuge mit GNS- bzw. G1000-Seiten (A36, C172, C208, CJ525, DA40NG, G36, King Air 350, PA28, Phenom 300, Seneca, V35B): Die Wähltasten GNS, PFD
+    und MFD am XL schlagen am Stream Deck+ die passende Seite auf (vorher z. B. die Funk-Seite).
+  - COM 2 am Stream Deck+ jetzt auch bei C152, C172, C208, CJ525 und V35B (neue Seite COM 2) sowie bei
+    DA40NG, G36 und Phenom 300 (neue Seite COM 1/2).
+  - Bonanza A36 (PAE): Die Glass-Version lädt ihre Konfiguration wieder (STBY VAC nur noch in der Analog-Version).
+    Stream Deck+: Funk-Seite mit COM 1 und COM 2, BARO und OBS 2 auf eigener Seite, Tippen auf BARO wechselt
+    inHg/hPa (X-Plane-Druckeinheit), PROP zeigt die Hebelstellung.
+
 Version 3.7 – 22.11.2026
   - Alle Profile, Stream Deck+: Die COM-Drehregler zeigen links die aktive und rechts die Standby-Frequenz,
     beschriftet mit ACTIVE und STANDBY; Drücken tauscht beide (COM 1 und COM 2).

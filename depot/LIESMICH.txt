@@ -1,4 +1,4 @@
-P_-Profile für X-Plane 12 – Version 3.7
+P_-Profile für X-Plane 12 – Version 3.7.1
 Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad – Tasten wie im Cockpit
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (English: see README.txt)
@@ -37,7 +37,7 @@ Stream-Deck-Profile (Stream Deck XL + Stream Deck +) mit X-KeyPad – Tasten wie
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.7.pdf
+Ausführliche Anleitung mit jeder Seite und jeder Taste: Handbuch_P_Profile_v3.7.1.pdf
 
 VORAUSSETZUNGEN
   Pflicht:  X-Plane 12, Stream-Deck-Software (ab 7.1), X-KeyPad (registriert), FlyWithLua NG+
