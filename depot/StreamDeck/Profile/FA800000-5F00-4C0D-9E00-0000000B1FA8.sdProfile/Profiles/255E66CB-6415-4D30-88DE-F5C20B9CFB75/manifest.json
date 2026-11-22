@@ -1,0 +1,131 @@
+{
+ "Controllers": [
+  {
+   "Actions": {},
+   "Type": "Keypad"
+  },
+  {
+   "Actions": {
+    "0,0": {
+     "ActionID": "32b0308f-9fa6-4ef6-8538-1b394fcdb985",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "F8 CKPT L BRT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,0": {
+     "ActionID": "e2a2e16f-406d-4175-ba4d-c2a14001a266",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "F8 CKPT R BRT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "bc63e82d-50e1-4384-810c-63e857afb99e",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "F8 TABLE L BRT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "e0809581-6e52-478d-9df1-3bf3ca41232e",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "F8 TABLE R BRT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 6,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Encoder"
+  }
+ ],
+ "Icon": "",
+ "Name": ""
+}

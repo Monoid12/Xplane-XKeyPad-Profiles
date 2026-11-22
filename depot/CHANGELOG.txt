@@ -1,6 +1,18 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.7 – 22.11.2026
+  - Alle Profile, Stream Deck+: Die COM-Drehregler zeigen links die aktive und rechts die Standby-Frequenz,
+    beschriftet mit ACTIVE und STANDBY; Drücken tauscht beide (COM 1 und COM 2).
+  - Falcon 8X: Leuchttaster zeigen beide Legenden wie im Cockpit, mit Originaltext und -farbe (z. B. NAV
+    oben LOGO, unten OFF; BOOST oben ST-BY, unten OFF; Autopilot aktiv grün, vorgewählt blau).
+  - Falcon 8X: Stream Deck+ – Tippen auf BARO 1, BARO 2 oder SFD SET schaltet alle Höhenmesser gemeinsam
+    zwischen hPa und inHg um, die Anzeige folgt der Einheit. Neue Seiten Helligkeit Displays, Panel, Licht und HUD.
+  - Falcon 8X: Seite DISPLAYS geordnet (oben die Displays von links nach rechts, darunter die Tablets).
+  - Falcon 8X: neue Tasten FIRE REAR/BACK (Gepäckraumfeuer), RAT RESET, PAX OXYGEN; überarbeitete
+    X-Camera-Sichten EFB, FMC, Pedestal 2 und PFD ND.
+  - Falcon 8X: COM-Drehregler am Stream Deck+ nutzen die Funkknöpfe der Falcon.
+
 Version 3.6 – 21.11.2026
   - Sicherung und Wiederherstellen: Eigene X-KeyPad-Konfigurationen und X-Camera-Dateien, die der Installer
     ersetzt, bleiben dauerhaft als Original erhalten. Neu: Wiederherstellen_macOS.command bzw.

@@ -1,7 +1,7 @@
-CHANGELOG.txt|10387
-CHANGELOG_EN.txt|7551
-Handbook_P_Profiles_v3.6_EN.pdf|77339224
-Handbuch_P_Profile_v3.6.pdf|77504841
+CHANGELOG.txt|11382
+CHANGELOG_EN.txt|8513
+Handbook_P_Profiles_v3.7_EN.pdf|77694470
+Handbuch_P_Profile_v3.7.pdf|77858382
 Installieren_Windows.bat|346
 Installieren_Windows.ps1|50431
 Installieren_macOS.command|554
@@ -27,11 +27,11 @@ StreamDeck/Einzelimport/P_A333L_XL.streamDeckProfile|202007
 StreamDeck/Einzelimport/P_A339_Plus.streamDeckProfile|10547
 StreamDeck/Einzelimport/P_A339_XL.streamDeckProfile|226126
 StreamDeck/Einzelimport/P_A346_Plus.streamDeckProfile|10545
-StreamDeck/Einzelimport/P_A346_XL.streamDeckProfile|227347
+StreamDeck/Einzelimport/P_A346_XL.streamDeckProfile|227344
 StreamDeck/Einzelimport/P_A36_Plus.streamDeckProfile|7807
 StreamDeck/Einzelimport/P_A36_XL.streamDeckProfile|234460
 StreamDeck/Einzelimport/P_ATR72_Plus.streamDeckProfile|4286
-StreamDeck/Einzelimport/P_ATR72_XL.streamDeckProfile|202767
+StreamDeck/Einzelimport/P_ATR72_XL.streamDeckProfile|202764
 StreamDeck/Einzelimport/P_B146_Plus.streamDeckProfile|4297
 StreamDeck/Einzelimport/P_B146_XL.streamDeckProfile|202488
 StreamDeck/Einzelimport/P_B732_Plus.streamDeckProfile|4322
@@ -89,13 +89,13 @@ StreamDeck/Einzelimport/P_C750_XL.streamDeckProfile|201994
 StreamDeck/Einzelimport/P_CJ525_Plus.streamDeckProfile|6033
 StreamDeck/Einzelimport/P_CJ525_XL.streamDeckProfile|221954
 StreamDeck/Einzelimport/P_CL650_Plus.streamDeckProfile|10137
-StreamDeck/Einzelimport/P_CL650_XL.streamDeckProfile|211613
+StreamDeck/Einzelimport/P_CL650_XL.streamDeckProfile|211610
 StreamDeck/Einzelimport/P_CONC_Plus.streamDeckProfile|4321
 StreamDeck/Einzelimport/P_CONC_XL.streamDeckProfile|200018
 StreamDeck/Einzelimport/P_DA40NG_Plus.streamDeckProfile|6056
 StreamDeck/Einzelimport/P_DA40NG_XL.streamDeckProfile|213571
 StreamDeck/Einzelimport/P_DH8D_Plus.streamDeckProfile|4292
-StreamDeck/Einzelimport/P_DH8D_XL.streamDeckProfile|201023
+StreamDeck/Einzelimport/P_DH8D_XL.streamDeckProfile|201020
 StreamDeck/Einzelimport/P_E170X_Plus.streamDeckProfile|4283
 StreamDeck/Einzelimport/P_E170X_XL.streamDeckProfile|201891
 StreamDeck/Einzelimport/P_E175F_Plus.streamDeckProfile|4284
@@ -114,12 +114,12 @@ StreamDeck/Einzelimport/P_E55P_Plus.streamDeckProfile|6027
 StreamDeck/Einzelimport/P_E55P_XL.streamDeckProfile|216419
 StreamDeck/Einzelimport/P_ERJ_Plus.streamDeckProfile|4293
 StreamDeck/Einzelimport/P_ERJ_XL.streamDeckProfile|200676
-StreamDeck/Einzelimport/P_FA8X_Plus.streamDeckProfile|4284
-StreamDeck/Einzelimport/P_FA8X_XL.streamDeckProfile|202874
+StreamDeck/Einzelimport/P_FA8X_Plus.streamDeckProfile|7739
+StreamDeck/Einzelimport/P_FA8X_XL.streamDeckProfile|203018
 StreamDeck/Einzelimport/P_G36_Plus.streamDeckProfile|6935
 StreamDeck/Einzelimport/P_G36_XL.streamDeckProfile|215849
 StreamDeck/Einzelimport/P_GLF550_Plus.streamDeckProfile|4288
-StreamDeck/Einzelimport/P_GLF550_XL.streamDeckProfile|202019
+StreamDeck/Einzelimport/P_GLF550_XL.streamDeckProfile|202015
 StreamDeck/Einzelimport/P_GLF650_Plus.streamDeckProfile|4300
 StreamDeck/Einzelimport/P_GLF650_XL.streamDeckProfile|202069
 StreamDeck/Einzelimport/P_KA350_Plus.streamDeckProfile|8650
@@ -127,9 +127,9 @@ StreamDeck/Einzelimport/P_KA350_XL.streamDeckProfile|220738
 StreamDeck/Einzelimport/P_LINX_Plus.streamDeckProfile|5172
 StreamDeck/Einzelimport/P_LINX_XL.streamDeckProfile|210396
 StreamDeck/Einzelimport/P_MD11F_Plus.streamDeckProfile|4306
-StreamDeck/Einzelimport/P_MD11F_XL.streamDeckProfile|202144
+StreamDeck/Einzelimport/P_MD11F_XL.streamDeckProfile|202141
 StreamDeck/Einzelimport/P_MD11P_Plus.streamDeckProfile|4305
-StreamDeck/Einzelimport/P_MD11P_XL.streamDeckProfile|202193
+StreamDeck/Einzelimport/P_MD11P_XL.streamDeckProfile|202189
 StreamDeck/Einzelimport/P_PA28_Plus.streamDeckProfile|5058
 StreamDeck/Einzelimport/P_PA28_XL.streamDeckProfile|208280
 StreamDeck/Einzelimport/P_SENECA_Plus.streamDeckProfile|6938
@@ -4621,77 +4621,81 @@ StreamDeck/Profile/E5500000-5F00-4C0D-9E00-0000000B1E55.sdProfile/Profiles/8370F
 StreamDeck/Profile/E5500000-5F00-4C0D-9E00-0000000B1E55.sdProfile/Profiles/9AC67DF3-CCC4-4C78-A339-E80732F5D86C/manifest.json|2969
 StreamDeck/Profile/E5500000-5F00-4C0D-9E00-0000000B1E55.sdProfile/Profiles/F424739F-62EC-4A92-9F57-99604C54E746/manifest.json|96
 StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/manifest.json|259
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/112277FB-532A-4884-B9AD-2161608A5E24/manifest.json|3413
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/112277FB-532A-4884-B9AD-2161608A5E24/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/23547240-BCFC-49BE-A1BD-6FB9F7AE8800/manifest.json|5420
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/23547240-BCFC-49BE-A1BD-6FB9F7AE8800/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2540BFE8-CF83-422E-BFDF-CB2346B725BD/manifest.json|7860
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2540BFE8-CF83-422E-BFDF-CB2346B725BD/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2557C517-AE4B-4F35-A4D4-CB5116E9BBC9/manifest.json|11793
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2557C517-AE4B-4F35-A4D4-CB5116E9BBC9/Images/o_xpdr.png|4885
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2557C517-AE4B-4F35-A4D4-CB5116E9BBC9/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2C4B05F6-1505-4382-8C80-A937660748A6/manifest.json|8817
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2C4B05F6-1505-4382-8C80-A937660748A6/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3D561AA8-E420-449B-A756-CB2D65C8777C/manifest.json|8807
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3D561AA8-E420-449B-A756-CB2D65C8777C/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/64AFF858-BCDD-409A-BEA8-492EDE4A3525/manifest.json|9310
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/64AFF858-BCDD-409A-BEA8-492EDE4A3525/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/85C23508-0657-49A2-8651-F44F9233DC2D/manifest.json|5862
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/85C23508-0657-49A2-8651-F44F9233DC2D/Images/zurueck.png|2767
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/85EC0D84-10D2-4FD0-81C6-7DAC4D9DF242/manifest.json|5831
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/85EC0D84-10D2-4FD0-81C6-7DAC4D9DF242/Images/zurueck.png|2767
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/975FAAEB-DA8B-4E4E-BD72-41F0450E6AA4/manifest.json|4901
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/975FAAEB-DA8B-4E4E-BD72-41F0450E6AA4/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/manifest.json|18621
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/d_deaf.png|4555
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/d_deaf_an.png|4556
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/d_mute.png|4661
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/d_mute_an.png|4660
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_air.png|3274
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_apu.png|3234
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_camera.png|3437
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_cas.png|3124
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_displays.png|4116
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_doors.png|2957
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_elec.png|2592
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_engines.png|4768
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_fgp.png|4327
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_fuel.png|2424
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_hyd.png|3247
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_ice.png|3861
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_lights.png|3987
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_pedestal.png|4123
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_pushback.png|5289
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_radio.png|3387
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/g_simload.png|5250
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/name.png|5626
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/vor.png|2469
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A38CD8DF-F3AC-47EC-BC7B-1E1F0D417D36/Images/zurueck.png|2767
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A44EEC0F-ED20-4D58-ADB5-AD1C1D2615EB/manifest.json|11762
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A44EEC0F-ED20-4D58-ADB5-AD1C1D2615EB/Images/o_efis.png|1973
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A44EEC0F-ED20-4D58-ADB5-AD1C1D2615EB/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A79A23AB-31AA-47E1-9335-8FD8E012C68A/manifest.json|6852
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A79A23AB-31AA-47E1-9335-8FD8E012C68A/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A7C2C97D-6D71-4553-84FF-C18AD819BDCF/manifest.json|8881
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A7C2C97D-6D71-4553-84FF-C18AD819BDCF/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B2D35855-EE48-41AF-8E28-100A7D06F03F/manifest.json|3381
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B2D35855-EE48-41AF-8E28-100A7D06F03F/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B40B37C2-1EE9-43E9-AFA4-B18298684DFE/manifest.json|8393
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B40B37C2-1EE9-43E9-AFA4-B18298684DFE/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/BC5D0745-2B94-43B5-8E2D-64C60E213E4D/manifest.json|70
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C1601ED4-F217-4FF6-BE27-D48B95D07D86/manifest.json|7345
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C1601ED4-F217-4FF6-BE27-D48B95D07D86/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D2936052-EAE5-4F26-B19D-ACF3D216E09C/manifest.json|5853
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D2936052-EAE5-4F26-B19D-ACF3D216E09C/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D4622A9D-451C-4B34-8FB7-999349BBFEC9/manifest.json|6835
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D4622A9D-451C-4B34-8FB7-999349BBFEC9/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/F92DD99D-691B-4FAC-BA3F-88E6A10BFC94/manifest.json|2918
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/F92DD99D-691B-4FAC-BA3F-88E6A10BFC94/Images/start.png|3631
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/manifest.json|337
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/3CBB50DC-7DD7-4CD8-9EF3-F777FDD4DCAD/manifest.json|8577
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/94327E6B-5596-4194-93C7-2B210022A9EE/manifest.json|96
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/D051D109-AB50-4BC8-9F43-FBCEA284967A/manifest.json|2967
-StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/D27DB78C-CD1C-4F30-BB28-E3A0D06BC4AA/manifest.json|8630
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/0F4C7B62-5A36-426F-AE67-DF579E702882/manifest.json|9301
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/0F4C7B62-5A36-426F-AE67-DF579E702882/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/0F9CA23C-407D-43FE-9040-BEB27132D24B/manifest.json|9875
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/0F9CA23C-407D-43FE-9040-BEB27132D24B/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/26631CD9-C30C-4B85-AE6E-20EF97CEB670/manifest.json|70
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2E123D01-F3CF-4BC8-A483-4EF70C5E5BC2/manifest.json|11793
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2E123D01-F3CF-4BC8-A483-4EF70C5E5BC2/Images/o_xpdr.png|4885
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/2E123D01-F3CF-4BC8-A483-4EF70C5E5BC2/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3129EC46-744B-4963-91EA-76E90489DFB6/manifest.json|9310
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3129EC46-744B-4963-91EA-76E90489DFB6/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3425C8C9-9BEB-45BE-83B8-94B6C9D808FF/manifest.json|6852
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3425C8C9-9BEB-45BE-83B8-94B6C9D808FF/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3687D682-E1BC-42E5-8CB1-BA532D093FA4/manifest.json|4901
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3687D682-E1BC-42E5-8CB1-BA532D093FA4/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3AB55AFF-20E3-4A1B-9C63-D26A8A20B72C/manifest.json|5420
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/3AB55AFF-20E3-4A1B-9C63-D26A8A20B72C/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/4EFB22CC-BDE3-4F49-BA14-453217E597FC/manifest.json|7345
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/4EFB22CC-BDE3-4F49-BA14-453217E597FC/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/manifest.json|18621
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/d_deaf.png|4555
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/d_deaf_an.png|4556
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/d_mute.png|4661
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/d_mute_an.png|4660
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_air.png|3274
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_apu.png|3234
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_camera.png|3437
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_cas.png|3124
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_displays.png|4116
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_doors.png|2957
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_elec.png|2592
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_engines.png|4768
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_fgp.png|4327
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_fuel.png|2424
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_hyd.png|3247
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_ice.png|3861
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_lights.png|3987
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_pedestal.png|4123
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_pushback.png|5289
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_radio.png|3387
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/g_simload.png|5250
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/name.png|5626
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/vor.png|2469
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/5F9F4691-2E9C-4ACD-9972-6E565D5A930A/Images/zurueck.png|2767
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/89DA7EDE-630F-4B5A-BF63-51CA95193B11/manifest.json|8393
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/89DA7EDE-630F-4B5A-BF63-51CA95193B11/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/9B095272-960F-46F7-B44C-66AFA84F4636/manifest.json|2918
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/9B095272-960F-46F7-B44C-66AFA84F4636/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A03BCCA5-DA57-48A8-A33F-3914FCB5804C/manifest.json|5862
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A03BCCA5-DA57-48A8-A33F-3914FCB5804C/Images/zurueck.png|2767
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A32CDA09-3D52-496A-9380-AB1F0EF98686/manifest.json|9311
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/A32CDA09-3D52-496A-9380-AB1F0EF98686/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B2BF7532-D620-4C68-BB55-19BAC7259964/manifest.json|7860
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/B2BF7532-D620-4C68-BB55-19BAC7259964/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/BC8C6745-B258-4E06-A855-B95A4A1ECD13/manifest.json|5853
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/BC8C6745-B258-4E06-A855-B95A4A1ECD13/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C020C3C9-9112-4636-B419-9EE7E48D7104/manifest.json|11762
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C020C3C9-9112-4636-B419-9EE7E48D7104/Images/o_efis.png|1973
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C020C3C9-9112-4636-B419-9EE7E48D7104/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C472A209-76B3-4DCE-AEEE-F15EB44BFB7A/manifest.json|5831
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/C472A209-76B3-4DCE-AEEE-F15EB44BFB7A/Images/zurueck.png|2767
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D20B3066-B0E7-4178-B2C2-4A0D85954CD9/manifest.json|3413
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D20B3066-B0E7-4178-B2C2-4A0D85954CD9/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D47CD770-D072-4659-B80D-BBE6B3C4C3AF/manifest.json|6835
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/D47CD770-D072-4659-B80D-BBE6B3C4C3AF/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/EFA02D4C-5E9D-42FF-B6BA-C2815D8C647B/manifest.json|3381
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-000000000FA8.sdProfile/Profiles/EFA02D4C-5E9D-42FF-B6BA-C2815D8C647B/Images/start.png|3631
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/manifest.json|493
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/03005169-3856-42E3-ADBB-F000C105CE89/manifest.json|96
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/087ACB16-A88A-4B30-9850-1EF1F31331EF/manifest.json|8630
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/255E66CB-6415-4D30-88DE-F5C20B9CFB75/manifest.json|2973
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/5E30353D-8478-4E73-9E40-B59F8EF13F1C/manifest.json|2967
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/B298CD17-BEBF-4473-B451-34D50B87175B/manifest.json|2967
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/B9B6F498-FD43-49A3-9BBD-F6C748BD57AC/manifest.json|8577
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/CB2EB3B3-0603-4D61-8AB3-3807A54FA1BE/manifest.json|2968
+StreamDeck/Profile/FA800000-5F00-4C0D-9E00-0000000B1FA8.sdProfile/Profiles/FD4673DB-1F55-41DE-B4D0-15DEFCD34CC4/manifest.json|2967
 StreamDeck/Sprache/de/d_deaf.png|4394
 StreamDeck/Sprache/de/d_deaf_an.png|4394
 StreamDeck/Sprache/de/d_mute.png|4461
@@ -4711,83 +4715,83 @@ X-Plane/zuordnung.txt|8262
 X-Plane/Aircraft/737NG Series_V2.S1/X-Camera_737_60NG.csv|8336
 X-Plane/Aircraft/737NG Series_V2.S1/X-Camera_737_70NG.csv|8334
 X-Plane/Aircraft/737NG Series_V2.S1/X-Camera_737_80NG.csv|8327
-X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_60NG.json|2873331
-X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_70NG.json|2873331
-X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_80NG.json|2873331
+X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_60NG.json|2934607
+X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_70NG.json|2934607
+X-Plane/Aircraft/737NG Series_V2.S1/X-KeyPad-SD_737_80NG.json|2934607
 X-Plane/Aircraft/747 Felis 1.2.7/X-Camera_B742_PW_Felis_XP12.csv|8156
-X-Plane/Aircraft/747 Felis 1.2.7/X-KeyPad-SD_B742_PW_Felis_XP12.json|4228107
+X-Plane/Aircraft/747 Felis 1.2.7/X-KeyPad-SD_B742_PW_Felis_XP12.json|4289383
 X-Plane/Aircraft/747-400/X-Camera_747-400.csv|8296
-X-Plane/Aircraft/747-400/X-KeyPad-SD_747-400.json|3333172
+X-Plane/Aircraft/747-400/X-KeyPad-SD_747-400.json|3394448
 X-Plane/Aircraft/747F_Felis 1.1.0/X-Camera_B742_Cargo_Felis_XP12.csv|8493
-X-Plane/Aircraft/747F_Felis 1.1.0/X-KeyPad-SD_B742_Cargo_Felis_XP12.json|4112823
+X-Plane/Aircraft/747F_Felis 1.1.0/X-KeyPad-SD_B742_Cargo_Felis_XP12.json|4174099
 X-Plane/Aircraft/Airfoillabs/C172 NG ANALOG/X-Camera_C172_NG_ANALOG.csv|8433
-X-Plane/Aircraft/Airfoillabs/C172 NG ANALOG/X-KeyPad-SD_C172_NG_ANALOG.json|3090356
+X-Plane/Aircraft/Airfoillabs/C172 NG ANALOG/X-KeyPad-SD_C172_NG_ANALOG.json|3120994
 X-Plane/Aircraft/Airfoillabs/C172 NG DIGITAL/X-Camera_C172_NG_DIGITAL.csv|8418
-X-Plane/Aircraft/Airfoillabs/C172 NG DIGITAL/X-KeyPad-SD_C172_NG_DIGITAL.json|3090357
+X-Plane/Aircraft/Airfoillabs/C172 NG DIGITAL/X-KeyPad-SD_C172_NG_DIGITAL.json|3120995
 X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-Camera_KA350.csv|8251
 X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-Camera_KA350_GPS.csv|8326
-X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350.json|3706851
-X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350_GPS.json|3706855
+X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350.json|3768127
+X-Plane/Aircraft/Airfoillabs/King Air 350 XP12/X-KeyPad-SD_KA350_GPS.json|3768131
 X-Plane/Aircraft/B737-800X/X-Camera_b738.csv|8282
 X-Plane/Aircraft/B737-800X/X-Camera_b738_4k.csv|8282
-X-Plane/Aircraft/B737-800X/X-KeyPad-SD_b738.json|2873333
-X-Plane/Aircraft/B737-800X/X-KeyPad-SD_b738_4k.json|2873333
+X-Plane/Aircraft/B737-800X/X-KeyPad-SD_b738.json|2934609
+X-Plane/Aircraft/B737-800X/X-KeyPad-SD_b738_4k.json|2934609
 X-Plane/Aircraft/Boeing757-Full/X-Camera_757-200_xp12.csv|8396
 X-Plane/Aircraft/Boeing757-Full/X-Camera_757-300_xp12.csv|8398
 X-Plane/Aircraft/Boeing757-Full/X-Camera_757-RF_xp12.csv|8366
 X-Plane/Aircraft/Boeing757-Full/X-Camera_757-c32_xp12.csv|8396
-X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-200_xp12.json|3527530
-X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-300_xp12.json|3527530
-X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-RF_xp12.json|3472329
-X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-c32_xp12.json|3527530
+X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-200_xp12.json|3588806
+X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-300_xp12.json|3588806
+X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-RF_xp12.json|3533605
+X-Plane/Aircraft/Boeing757-Full/X-KeyPad-SD_757-c32_xp12.json|3588806
 X-Plane/Aircraft/Boeing767-Full/X-Camera_767-200ER_xp12.csv|8425
 X-Plane/Aircraft/Boeing767-Full/X-Camera_767-300ER_xp12.csv|8405
 X-Plane/Aircraft/Boeing767-Full/X-Camera_767-400ER_xp12.csv|8404
 X-Plane/Aircraft/Boeing767-Full/X-Camera_767-F_xp12.csv|8366
 X-Plane/Aircraft/Boeing767-Full/X-Camera_767-SF_xp12.csv|8383
-X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-200ER_xp12.json|3620319
-X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-300ER_xp12.json|3620319
-X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-400ER_xp12.json|3733548
-X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-F_xp12.json|3593824
-X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-SF_xp12.json|3593825
+X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-200ER_xp12.json|3681595
+X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-300ER_xp12.json|3681595
+X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-400ER_xp12.json|3794824
+X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-F_xp12.json|3655100
+X-Plane/Aircraft/Boeing767-Full/X-KeyPad-SD_767-SF_xp12.json|3655101
 X-Plane/Aircraft/CIS_Seneca_II_v2/X-Camera_CIS_Seneca_II.csv|8391
 X-Plane/Aircraft/CIS_Seneca_II_v2/X-Camera_CIS_Seneca_II_2B.csv|8044
-X-Plane/Aircraft/CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II.json|2933855
-X-Plane/Aircraft/CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II_2B.json|2933855
+X-Plane/Aircraft/CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II.json|2964493
+X-Plane/Aircraft/CIS_Seneca_II_v2/X-KeyPad-SD_CIS_Seneca_II_2B.json|2964493
 X-Plane/Aircraft/CONCORDE_FXP/X-Camera_CONCORDE_FXP.csv|8096
-X-Plane/Aircraft/CONCORDE_FXP/X-KeyPad-SD_CONCORDE_FXP.json|2577886
+X-Plane/Aircraft/CONCORDE_FXP/X-KeyPad-SD_CONCORDE_FXP.json|2639162
 X-Plane/Aircraft/DWSim_ATR_72_600_XP12/X-Camera_DWSim_ATR_72_600.csv|11424
-X-Plane/Aircraft/DWSim_ATR_72_600_XP12/X-KeyPad-SD_DWSim_ATR_72_600.json|3024440
+X-Plane/Aircraft/DWSim_ATR_72_600_XP12/X-KeyPad-SD_DWSim_ATR_72_600.json|3085716
 X-Plane/Aircraft/Embraer E-Jets Family/X-Camera_E170.csv|7951
 X-Plane/Aircraft/Embraer E-Jets Family/X-Camera_E175.csv|7760
 X-Plane/Aircraft/Embraer E-Jets Family/X-Camera_E190.csv|8286
 X-Plane/Aircraft/Embraer E-Jets Family/X-Camera_E195.csv|7966
 X-Plane/Aircraft/Embraer E-Jets Family/X-Camera_Lineage.csv|7989
-X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E170.json|3200117
-X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E175.json|3200117
-X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E190.json|3200117
-X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E195.json|3200117
-X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_Lineage.json|3820933
+X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E170.json|3261393
+X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E175.json|3261393
+X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E190.json|3261393
+X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_E195.json|3261393
+X-Plane/Aircraft/Embraer E-Jets Family/X-KeyPad-SD_Lineage.json|3882209
 X-Plane/Aircraft/Embraer ERJ Family/X-Camera_E135.csv|8256
 X-Plane/Aircraft/Embraer ERJ Family/X-Camera_E140.csv|8265
 X-Plane/Aircraft/Embraer ERJ Family/X-Camera_E145.csv|8267
 X-Plane/Aircraft/Embraer ERJ Family/X-Camera_E145XR.csv|8294
 X-Plane/Aircraft/Embraer ERJ Family/X-Camera_Legacy.csv|8268
-X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E135.json|2503623
-X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E140.json|2503608
-X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E145.json|2503608
-X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E145XR.json|2503610
-X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_Legacy.json|2503611
+X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E135.json|2564899
+X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E140.json|2564884
+X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E145.json|2564884
+X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_E145XR.json|2564886
+X-Plane/Aircraft/Embraer ERJ Family/X-KeyPad-SD_Legacy.json|2564887
 X-Plane/Aircraft/FPSE-175_V1.3/X-Camera_FPSE-175.csv|8307
-X-Plane/Aircraft/FPSE-175_V1.3/X-KeyPad-SD_FPSE-175.json|3182134
+X-Plane/Aircraft/FPSE-175_V1.3/X-KeyPad-SD_FPSE-175.json|3243410
 X-Plane/Aircraft/FPSE-190_V1.2/X-Camera_FPSE-190.csv|8307
-X-Plane/Aircraft/FPSE-190_V1.2/X-KeyPad-SD_FPSE-190.json|3182134
+X-Plane/Aircraft/FPSE-190_V1.2/X-KeyPad-SD_FPSE-190.json|3243410
 X-Plane/Aircraft/FPSE-195/X-Camera_FPSE-195.csv|8307
-X-Plane/Aircraft/FPSE-195/X-KeyPad-SD_FPSE-195.json|3182134
+X-Plane/Aircraft/FPSE-195/X-KeyPad-SD_FPSE-195.json|3243410
 X-Plane/Aircraft/FPS_B748_XP12_Beta_2/X-Camera_FPS_B748-I.csv|8362
-X-Plane/Aircraft/FPS_B748_XP12_Beta_2/X-KeyPad-SD_FPS_B748-I.json|3647979
-X-Plane/Aircraft/Falcon 8X/X-Camera_Falcon8X.csv|8301
-X-Plane/Aircraft/Falcon 8X/X-KeyPad-SD_Falcon8X.json|3067289
+X-Plane/Aircraft/FPS_B748_XP12_Beta_2/X-KeyPad-SD_FPS_B748-I.json|3709255
+X-Plane/Aircraft/Falcon 8X/X-Camera_Falcon8X.csv|8331
+X-Plane/Aircraft/Falcon 8X/X-KeyPad-SD_Falcon8X.json|4102362
 X-Plane/Aircraft/FlightFactor777_200ER/X-Camera_777-200ER_xp12.csv|8428
 X-Plane/Aircraft/FlightFactor777_200ER/X-Camera_777-200LR_xp12.csv|8443
 X-Plane/Aircraft/FlightFactor777_200ER/X-Camera_777-300ER_xp12.csv|8396
@@ -4797,53 +4801,53 @@ X-Plane/Aircraft/FlightFactor777_200ER/X-KeyPad-SD_777-200LR_xp12.json|4072671
 X-Plane/Aircraft/FlightFactor777_200ER/X-KeyPad-SD_777-300ER_xp12.json|4106197
 X-Plane/Aircraft/FlightFactor777_200ER/X-KeyPad-SD_777-F_xp12.json|4006928
 X-Plane/Aircraft/FlyJSim_732_TwinJet_V4/X-Camera_FJS_732_TwinJet.csv|8438
-X-Plane/Aircraft/FlyJSim_732_TwinJet_V4/X-KeyPad-SD_FJS_732_TwinJet.json|3318445
+X-Plane/Aircraft/FlyJSim_732_TwinJet_V4/X-KeyPad-SD_FJS_732_TwinJet.json|3379721
 X-Plane/Aircraft/FlyJSim_Q4XP_12/X-Camera_Q4XP.csv|8312
-X-Plane/Aircraft/FlyJSim_Q4XP_12/X-KeyPad-SD_Q4XP.json|2887356
+X-Plane/Aircraft/FlyJSim_Q4XP_12/X-KeyPad-SD_Q4XP.json|2948632
 X-Plane/Aircraft/GLF550_2.24 XP12/X-Camera_GLF550_AKD.csv|8037
-X-Plane/Aircraft/GLF550_2.24 XP12/X-KeyPad-SD_GLF550_AKD.json|3489453
+X-Plane/Aircraft/GLF550_2.24 XP12/X-KeyPad-SD_GLF550_AKD.json|3550729
 X-Plane/Aircraft/GLF650_1.05 XP12/X-Camera_GLF650ER_AKD.csv|8400
 X-Plane/Aircraft/GLF650_1.05 XP12/X-Camera_GLF650_AKD.csv|8052
-X-Plane/Aircraft/GLF650_1.05 XP12/X-KeyPad-SD_GLF650ER_AKD.json|3366910
-X-Plane/Aircraft/GLF650_1.05 XP12/X-KeyPad-SD_GLF650_AKD.json|3366908
+X-Plane/Aircraft/GLF650_1.05 XP12/X-KeyPad-SD_GLF650ER_AKD.json|3428186
+X-Plane/Aircraft/GLF650_1.05 XP12/X-KeyPad-SD_GLF650_AKD.json|3428184
 X-Plane/Aircraft/JF12_BAe_146_v1/X-Camera_JF_BAe_146_100.csv|8413
 X-Plane/Aircraft/JF12_BAe_146_v1/X-Camera_JF_BAe_146_200.csv|8112
 X-Plane/Aircraft/JF12_BAe_146_v1/X-Camera_JF_BAe_146_300.csv|8121
-X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_100.json|3348952
-X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_200.json|3348944
-X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_300.json|3348944
+X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_100.json|3410228
+X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_200.json|3410220
+X-Plane/Aircraft/JF12_BAe_146_v1/X-KeyPad-SD_JF_BAe_146_300.json|3410220
 X-Plane/Aircraft/JF12_C152_v1.0/X-Camera_JF_C152.csv|8296
-X-Plane/Aircraft/JF12_C152_v1.0/X-KeyPad-SD_JF_C152.json|2003993
+X-Plane/Aircraft/JF12_C152_v1.0/X-KeyPad-SD_JF_C152.json|2034631
 X-Plane/Aircraft/JF12_PA28_Turbo_Arrow/X-Camera_JF_PA28_Turbo_Arrow.csv|8148
-X-Plane/Aircraft/JF12_PA28_Turbo_Arrow/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|1960153
+X-Plane/Aircraft/JF12_PA28_Turbo_Arrow/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|1990791
 X-Plane/Aircraft/JF12_PA28_Turbo_Arrow REP/X-Camera_JF_PA28_Turbo_Arrow.csv|8148
-X-Plane/Aircraft/JF12_PA28_Turbo_Arrow REP/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|1960153
+X-Plane/Aircraft/JF12_PA28_Turbo_Arrow REP/X-KeyPad-SD_JF_PA28_Turbo_Arrow.json|1990791
 X-Plane/Aircraft/Laminar Research/Airbus A330-300/X-Camera_A330.csv|8290
-X-Plane/Aircraft/Laminar Research/Airbus A330-300/X-KeyPad-SD_A330.json|3104370
+X-Plane/Aircraft/Laminar Research/Airbus A330-300/X-KeyPad-SD_A330.json|3165646
 X-Plane/Aircraft/Laminar Research/Cessna Citation X/X-Camera_Cessna_CitationX.csv|8449
-X-Plane/Aircraft/Laminar Research/Cessna Citation X/X-KeyPad-SD_Cessna_CitationX.json|2849921
+X-Plane/Aircraft/Laminar Research/Cessna Citation X/X-KeyPad-SD_Cessna_CitationX.json|2911197
 X-Plane/Aircraft/PAE-A36/X-Camera_PAE_REP_A36_Analog.csv|8423
 X-Plane/Aircraft/PAE-A36/X-Camera_PAE_REP_A36_Glass.csv|8422
-X-Plane/Aircraft/PAE-A36/X-KeyPad-SD_PAE_REP_A36_Analog.json|2896368
-X-Plane/Aircraft/PAE-A36/X-KeyPad-SD_PAE_REP_A36_Glass.json|2896367
+X-Plane/Aircraft/PAE-A36/X-KeyPad-SD_PAE_REP_A36_Analog.json|2927006
+X-Plane/Aircraft/PAE-A36/X-KeyPad-SD_PAE_REP_A36_Glass.json|2927005
 X-Plane/Aircraft/PAE-G36/X-Camera_MP_G36_One.csv|8351
-X-Plane/Aircraft/PAE-G36/X-KeyPad-SD_MP_G36_One.json|2475957
+X-Plane/Aircraft/PAE-G36/X-KeyPad-SD_MP_G36_One.json|2506595
 X-Plane/Aircraft/Phenom 300/X-Camera_phenom300.csv|8359
-X-Plane/Aircraft/Phenom 300/X-KeyPad-SD_phenom300.json|2916407
+X-Plane/Aircraft/Phenom 300/X-KeyPad-SD_phenom300.json|2947045
 X-Plane/Aircraft/Rotate-MD-11F/X-Camera_Rotate-MD-11.csv|8406
-X-Plane/Aircraft/Rotate-MD-11F/X-KeyPad-SD_Rotate-MD-11.json|3195807
+X-Plane/Aircraft/Rotate-MD-11F/X-KeyPad-SD_Rotate-MD-11.json|3257083
 X-Plane/Aircraft/Rotate-MD-11P/X-Camera_Rotate-MD-11.csv|8390
-X-Plane/Aircraft/Rotate-MD-11P/X-KeyPad-SD_Rotate-MD-11.json|3247450
+X-Plane/Aircraft/Rotate-MD-11P/X-KeyPad-SD_Rotate-MD-11.json|3308726
 X-Plane/Aircraft/Thranda V35B Bonanza/X-Camera_Thranda_V35.csv|8362
-X-Plane/Aircraft/Thranda V35B Bonanza/X-KeyPad-SD_Thranda_V35.json|2413743
+X-Plane/Aircraft/Thranda V35B Bonanza/X-KeyPad-SD_Thranda_V35.json|2444381
 X-Plane/Aircraft/Thranda_C208_Caravan/X-Camera_C208.csv|8270
 X-Plane/Aircraft/Thranda_C208_Caravan/X-Camera_C208_Amphibian.csv|8420
 X-Plane/Aircraft/Thranda_C208_Caravan/X-Camera_C208_GC.csv|8316
 X-Plane/Aircraft/Thranda_C208_Caravan/X-Camera_C208_GC_Amphibian.csv|8465
-X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208.json|2628018
-X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_Amphibian.json|2628020
-X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_GC.json|2628024
-X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_GC_Amphibian.json|2628023
+X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208.json|2658656
+X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_Amphibian.json|2658658
+X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_GC.json|2658662
+X-Plane/Aircraft/Thranda_C208_Caravan/X-KeyPad-SD_C208_GC_Amphibian.json|2658661
 X-Plane/Aircraft/ToLissA319_V1p11/X-Camera_a319.csv|8251
 X-Plane/Aircraft/ToLissA319_V1p11/X-KeyPad-SD_a319.json|10910987
 X-Plane/Aircraft/ToLissA320_V1p2p1/X-Camera_a320.csv|8264
@@ -4855,15 +4859,15 @@ X-Plane/Aircraft/ToLissA339_V1p1/X-KeyPad-SD_a330-900.json|13884122
 X-Plane/Aircraft/ToLissA346_V1p5/X-Camera_A340-600.csv|8321
 X-Plane/Aircraft/ToLissA346_V1p5/X-KeyPad-SD_a340-600.json|14225534
 X-Plane/Aircraft/X-Aviation/CL650/X-Camera_CL650.csv|8253
-X-Plane/Aircraft/X-Aviation/CL650/X-KeyPad-SD_CL650.json|4193356
+X-Plane/Aircraft/X-Aviation/CL650/X-KeyPad-SD_CL650.json|4254632
 X-Plane/Aircraft/X-Aviation/RSG DA40NG/X-Camera_DA40NG.csv|8284
-X-Plane/Aircraft/X-Aviation/RSG DA40NG/X-KeyPad-SD_DA40NG.json|2443196
+X-Plane/Aircraft/X-Aviation/RSG DA40NG/X-KeyPad-SD_DA40NG.json|2473834
 X-Plane/Aircraft/X-Aviation/TorqueSim CitationJet 525/X-Camera_CJ525.csv|7933
-X-Plane/Aircraft/X-Aviation/TorqueSim CitationJet 525/X-KeyPad-SD_CJ525.json|3422468
+X-Plane/Aircraft/X-Aviation/TorqueSim CitationJet 525/X-KeyPad-SD_CJ525.json|3453106
 X-Plane/FlyWithLua/lua.txt|821
 X-Plane/FlyWithLua/Scripts/P_A333L_Baro.lua|4591
 X-Plane/FlyWithLua/Scripts/P_ATR_Hebel.lua|3851
 X-Plane/FlyWithLua/Scripts/P_B777_XKeyPad.lua|2850
 X-Plane/FlyWithLua/Scripts/P_CL650_Werte.lua|3893
 X-Plane/FlyWithLua/Scripts/P_ToLiss_Schub.lua|3059
-skunkcrafts_changelog.txt|6822
+skunkcrafts_changelog.txt|7715

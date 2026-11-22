@@ -1,3 +1,11 @@
+3.7
+- All profiles, Stream Deck+: the COM dials show the active frequency on the left and the standby frequency on the right, labelled ACTIVE and STANDBY; pressing swaps them (COM 1 and COM 2).
+- Falcon 8X: annunciator pushbuttons show both legends as in the cockpit, with original text and colour (e.g. NAV top LOGO, bottom OFF; BOOST top ST-BY, bottom OFF; autopilot active green, armed blue).
+- Falcon 8X: Stream Deck+ – tapping BARO 1, BARO 2 or SFD SET switches all altimeters together between hPa and inHg; the display follows the unit. New pages brightness displays, panel, lights and HUD.
+- Falcon 8X: DISPLAYS page ordered (displays left to right on top, tablets below).
+- Falcon 8X: new keys FIRE REAR/BACK (baggage fire), RAT RESET, PAX OXYGEN; reworked X-Camera views EFB, FMC, Pedestal 2 and PFD ND.
+- Falcon 8X: COM dials on the Stream Deck+ use the Falcon's own radio knobs.
+
 3.6
 - Backup and restore: your own X-KeyPad configurations and X-Camera files that the installer replaces are kept permanently as originals. New: Wiederherstellen_macOS.command or Wiederherstellen_Windows.bat restores the original state before the P_ Profiles or a backup.
 
