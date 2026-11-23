@@ -1,1 +1,352 @@
-{"Controllers":[{"Actions":{"1,0":{"ActionID":"528eb047-24f2-42fb-91e0-3b4f232877bf","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS ENTRY FWD"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"1,2":{"ActionID":"a718ed28-95e9-4080-b2ab-dabfc8ce6be7","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS ENTRY AFT"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"2,0":{"ActionID":"34f1641c-f4ad-4f32-a382-984ca00e322c","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS FLT DK DOOR"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"2,1":{"ActionID":"c7d4cf7e-61a0-46a0-b517-705f0e919f0a","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS CARGO FWD"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"3,0":{"ActionID":"a1b73e65-ebbb-455f-b4b5-3531b1e20604","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS SERVICE FWD"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"3,2":{"ActionID":"a0280021-69c8-42f0-be1c-a8765cbffa02","Encoder":{},"LinkedTitle":false,"Name":"X-KeyPad Key","Plugin":{"Name":"X-KeyPad","UUID":"com.stickandrudderstudios.x-keypad","Version":"1.7.0.6"},"Resources":null,"Settings":{"KeyName":"B3 DOORS SERVICE AFT"},"State":0,"States":[{"FontFamily":"","FontSize":18,"FontStyle":"","FontUnderline":false,"OutlineThickness":2,"ShowTitle":true,"TitleAlignment":"middle","TitleColor":"#EBEEF2"}],"UUID":"com.stickandrudderstudios.x-keypad.launch"},"7,0":{"ActionID":"da7eb2e1-73bc-4afd-a8b3-d62129938231","LinkedTitle":false,"Name":"Parent Folder","Resources":null,"Settings":{},"State":0,"States":[{"FontFamily":"","FontSize":12,"FontStyle":"","FontUnderline":false,"Image":"Images/start.png","OutlineThickness":2,"ShowTitle":false,"TitleAlignment":"bottom","TitleColor":"#ffffff"}],"UUID":"com.elgato.streamdeck.profile.backtoparent"}},"Type":"Keypad"}],"Icon":"","Name":""}
+{
+ "Controllers": [
+  {
+   "Actions": {
+    "1,0": {
+     "ActionID": "528eb047-24f2-42fb-91e0-3b4f232877bf",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS ENTRY FWD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "1,2": {
+     "ActionID": "a718ed28-95e9-4080-b2ab-dabfc8ce6be7",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS ENTRY AFT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,0": {
+     "ActionID": "34f1641c-f4ad-4f32-a382-984ca00e322c",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS FLT DK DOOR"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,1": {
+     "ActionID": "c7d4cf7e-61a0-46a0-b517-705f0e919f0a",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS CARGO FWD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,0": {
+     "ActionID": "a1b73e65-ebbb-455f-b4b5-3531b1e20604",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS SERVICE FWD"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "3,2": {
+     "ActionID": "a0280021-69c8-42f0-be1c-a8765cbffa02",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS SERVICE AFT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "7,0": {
+     "ActionID": "da7eb2e1-73bc-4afd-a8b3-d62129938231",
+     "LinkedTitle": false,
+     "Name": "Parent Folder",
+     "Resources": null,
+     "Settings": {},
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 12,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "Image": "Images/start.png",
+       "OutlineThickness": 2,
+       "ShowTitle": false,
+       "TitleAlignment": "bottom",
+       "TitleColor": "#ffffff"
+      }
+     ],
+     "UUID": "com.elgato.streamdeck.profile.backtoparent"
+    },
+    "4,0": {
+     "ActionID": "792b7538-ea86-4459-b8d1-18ee980dfc2e",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS COCKPIT DOOR"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "0,0": {
+     "ActionID": "64388b99-e5f0-4eaa-aa0f-dece9c8a65b3",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS AIRSTAIRS"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "2,2": {
+     "ActionID": "b86b273b-9e27-420a-835b-32998aca2482",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS CARGO AFT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "0,2": {
+     "ActionID": "332f1907-c689-4898-bc8a-8ac6a4c0d798",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS OVWG L AFT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    },
+    "4,2": {
+     "ActionID": "30960d42-84a3-4966-b3c3-1ce3f722fc33",
+     "Encoder": {},
+     "LinkedTitle": false,
+     "Name": "X-KeyPad Key",
+     "Plugin": {
+      "Name": "X-KeyPad",
+      "UUID": "com.stickandrudderstudios.x-keypad",
+      "Version": "1.7.0.6"
+     },
+     "Resources": null,
+     "Settings": {
+      "KeyName": "B3 DOORS OVWG R AFT"
+     },
+     "State": 0,
+     "States": [
+      {
+       "FontFamily": "",
+       "FontSize": 18,
+       "FontStyle": "",
+       "FontUnderline": false,
+       "OutlineThickness": 2,
+       "ShowTitle": true,
+       "TitleAlignment": "middle",
+       "TitleColor": "#EBEEF2"
+      }
+     ],
+     "UUID": "com.stickandrudderstudios.x-keypad.launch"
+    }
+   },
+   "Type": "Keypad"
+  }
+ ],
+ "Icon": "",
+ "Name": ""
+}

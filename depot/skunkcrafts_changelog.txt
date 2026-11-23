@@ -1,3 +1,10 @@
+3.8
+- Zibo 737-800 and LevelUp 737, Stream Deck+: the IAS dial shows MACH with three digits (before: as a whole number), the display follows C/O.
+- Zibo 737-800 and LevelUp 737, Stream Deck+: tapping BARO switches inHg/hPa, the display follows the EFIS switch.
+- Zibo 737-800 and LevelUp 737, Stream Deck+: MINS – turning changes the minimums, tapping switches RADIO/BARO, the display shows MINS RADIO or MINS BARO.
+- Zibo 737-800 and LevelUp 737: new keys on DOORS – CARGO AFT, COCKPIT DOOR, AIRSTAIRS and the overwing exits OVWG L/R FWD and AFT (737-600/-700: OVWG L/R AFT only).
+- Zibo 737-800 and LevelUp 737: EMER EXIT LT shows OFF/ARM/ON; ARM closes the guard, a long press selects ON.
+
 3.7.2
 - Diamond DA40 NG: the XL pages PFD and MFD are laid out like the G1000 bezel – NAV FF, NAV 1/2, HDG SYNC on the left, COM FF, COM 1/2, CRS SYNC, PAN PUSH, FMS PUSH next to D→/MENU, FPL/PROC, CLR/ENT on the right, map arrows and softkeys 1–12 in the middle. The knobs are on the Stream Deck+.
 - Diamond DA40 NG: GFC 700 page like the MFD bezel (AP, FD, NAV with HDG, APR; ALT, VS, FLC with VNV, NOSE UP, NOSE DN), plus TOGA and AP DISC. AUDIO like the audio panel (MIC left, MON right) with a new MON DME key.

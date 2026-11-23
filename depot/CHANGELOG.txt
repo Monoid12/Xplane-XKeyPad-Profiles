@@ -1,6 +1,16 @@
 P_-Profile für X-Plane 12 – Änderungsprotokoll / P_ Profiles – changelog
 (English: see CHANGELOG_EN.txt)
 
+Version 3.8 – 23.11.2026
+  - Zibo 737-800 und LevelUp 737, Stream Deck+: Der IAS-Regler zeigt MACH mit drei Stellen (vorher als ganze Zahl),
+    die Anzeige folgt C/O.
+  - Zibo 737-800 und LevelUp 737, Stream Deck+: Tippen auf BARO wechselt inHg/hPa, die Anzeige folgt dem EFIS-Schalter.
+  - Zibo 737-800 und LevelUp 737, Stream Deck+: MINS – Drehen ändert das Minimum, Tippen wechselt RADIO/BARO, die
+    Anzeige zeigt MINS RADIO oder MINS BARO.
+  - Zibo 737-800 und LevelUp 737: neue Tasten auf DOORS – CARGO AFT, COCKPIT DOOR, AIRSTAIRS und die Notausgänge über
+    der Tragfläche OVWG L/R FWD und AFT (737-600/-700: nur OVWG L/R AFT).
+  - Zibo 737-800 und LevelUp 737: EMER EXIT LT zeigt OFF/ARM/ON; ARM schließt die Kappe, langer Druck schaltet ON.
+
 Version 3.7.2 – 22.11.2026
   - Diamond DA40 NG: Die XL-Seiten PFD und MFD liegen wie am G1000-Rahmen – links NAV FF, NAV 1/2, HDG SYNC,
     rechts COM FF, COM 1/2, CRS SYNC, PAN PUSH, FMS PUSH neben D→/MENU, FPL/PROC, CLR/ENT, in der Mitte
