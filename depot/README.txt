@@ -1,4 +1,4 @@
-P_ Profiles for X-Plane 12 – version 3.8
+P_ Profiles for X-Plane 12 – version 3.9
 Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad – keys as in the cockpit
 © 2026 Michael Damhorst · CC BY-NC-SA 4.0
 (Deutsch: siehe LIESMICH.txt)
@@ -37,7 +37,7 @@ Stream Deck profiles (Stream Deck XL + Stream Deck +) with X-KeyPad – keys as 
   Thranda        V35B Bonanza, C208 Caravan, Grand Caravan, Amphibian, GC Amphibian
   RSG            DA40 NG
 
-Full manual with every page and every key: Handbook_P_Profiles_v3.8_EN.pdf
+Full manual with every page and every key: Handbook_P_Profiles_v3.9_EN.pdf
 
 REQUIREMENTS
   Required: X-Plane 12, Stream Deck software (7.1 or later), X-KeyPad (registered), FlyWithLua NG+

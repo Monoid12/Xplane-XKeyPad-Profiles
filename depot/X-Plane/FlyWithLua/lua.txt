@@ -1,5 +1,5 @@
 # Skript | Text DE | Text EN | Profile, die es brauchen
-P_B777_XKeyPad.lua|Nachladen der Konfiguration bei FlightFactor 757/767/777 (nötig)|Reloads the configuration for FlightFactor 757/767/777 (required)|B752,B753,B75C,B75F,B762,B763,B76F,B76S,B764,B772,B77L,B773,B77F
+P_B777_XKeyPad.lua|Nachladen der Konfiguration bei FlightFactor 757/767/777, ALT-Regler 757/767 (nötig)|Reloads the configuration for FlightFactor 757/767/777, ALT dial 757/767 (required)|B752,B753,B75C,B75F,B762,B763,B76F,B76S,B764,B772,B77L,B773,B77F
 P_ToLiss_Schub.lua|Schubrasten-Tasten der A330/A340 (nötig)|Thrust detent keys of the A330/A340 (required)|A339,A346
 P_ATR_Hebel.lua|Condition Lever und Parkbremse der ATR 72 (nötig)|Condition levers and parking brake of the ATR 72 (required)|ATR72
 P_CL650_Werte.lua|Livewerte der Plus-Regler in der Challenger 650 (nötig)|Live values on the Plus dials of the Challenger 650 (required)|CL650

@@ -1,6 +1,19 @@
 P_ Profiles for X-Plane 12 – changelog
 (Deutsch: siehe CHANGELOG.txt)
 
+Version 3.9 – 28 November 2026
+  - FlightFactor 757 and 767 (757-200, 757-300, 757 C-32, 757-RF, 767-200ER, 767-300ER, 767-F, 767-SF and 767-400ER): the autopilot keys now show their lamp like on
+    the MCP – LNAV, VNAV, FL CH, HDG HOLD, V/S, ALT HOLD, LOC, APP, THR, SPD and A/P L/C/R light up green when the
+    mode is selected (XL and Stream Deck+).
+  - FlightFactor 757 and 767: EICAS COMPUTER shows the positions correctly (L/AUTO/R, before AUTO/L/R).
+  - FlightFactor 757 and 767: PACK L/R shows the standby positions in the order of the selector (N, C, W; before, C and
+    N were swapped).
+  - FlightFactor 757 and 767: the WINDOW HEAT keys carry the panel labels (L SIDE, L FWD, R FWD, R SIDE instead of
+    L1, L2, R1, R2).
+  - FlightFactor 757 and 767 – Stream Deck+: the ALT dial has two step sizes. Tapping the display switches between
+    100 ft and 1000 ft (title ALT 1000); in 1000 mode each detent jumps to the next full thousand. P_B777_XKeyPad.lua
+    has been extended for this.
+
 Version 3.8 – 23 November 2026
   - Zibo 737-800 and LevelUp 737, Stream Deck+: the IAS dial shows MACH with three digits (before: as a whole number),
     the display follows C/O.
